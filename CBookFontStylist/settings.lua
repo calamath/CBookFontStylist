@@ -44,22 +44,6 @@ local uiPreset
 local uiBMID
 local ui = ui or {}
 
---[[
-local coreFontList = {
-        ["ProseAntique"] = "Core", 
-        ["Futura Condensed"] = "Core", 
-        ["Futura Condensed Bold"] = "Core", 
-        ["Futura Condensed Light"] = "Core", 
-        ["Skyrim Handwritten"] = "Core", 
-        ["Trajan Pro"] = "Core", 
-        ["Univers 55"] = "Core", 
-        ["Univers 57"] = "Core", 
-        ["Univers 67"] = "Core", 
-        ["JP-FWNTLGUDC70"] = "JP Core Font", 
-        ["JP-FWUDC70"] = "JP Core Font", 
-        ["JP-KafuPenji"] = "JP Core Font", 
-    }
-]]
 
 local function DoSetupDefault(bmid)
     local body = CBFS.GetBodyFontObjName(bmid)
@@ -110,30 +94,17 @@ local function InitializeUI()
         BMID_METAL_TABLET, 
     }
     ui.MediumChoicesTooltips = {
-        L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS),    -- 
-        L(SI_CBFS_BMID_ANIMAL_SKIN_TIPS),       -- 
-        L(SI_CBFS_BMID_RUBBING_PAPER_TIPS),     -- 
-        L(SI_CBFS_BMID_LETTER_TIPS),            -- 
-        L(SI_CBFS_BMID_NOTE_TIPS),              -- 
-        L(SI_CBFS_BMID_SCROLL_TIPS),            -- 
-        L(SI_CBFS_BMID_STONE_TABLET_TIPS),      -- 
-        L(SI_CBFS_BMID_METAL_TIPS),             -- 
-        L(SI_CBFS_BMID_METAL_TABLET_TIPS),      -- 
+        L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS),    -- "Yellowed Paper",
+        L(SI_CBFS_BMID_ANIMAL_SKIN_TIPS),       -- "Animal Skin",   
+        L(SI_CBFS_BMID_RUBBING_PAPER_TIPS),     -- "Rubbing Paper", 
+        L(SI_CBFS_BMID_LETTER_TIPS),            -- "Letter",        
+        L(SI_CBFS_BMID_NOTE_TIPS),              -- "Note",          
+        L(SI_CBFS_BMID_SCROLL_TIPS),            -- "Scroll",        
+        L(SI_CBFS_BMID_STONE_TABLET_TIPS),      -- "Stone Tablet",  
+        L(SI_CBFS_BMID_METAL_TIPS),             -- "Metal",         
+        L(SI_CBFS_BMID_METAL_TABLET_TIPS),      -- "Metal Tablet",  
     }
 
---[[
-    ui.FontChoices = ZO_ShallowTableCopy(LMP:List("font"))
-    ui.FontChoicesValues = ZO_ShallowTableCopy(ui.FontChoices)
-    ui.FontChoicesTooltips = {}
-    for k, v in pairs(ui.FontChoicesValues) do
-        if coreFontList[v] then
-            ui.FontChoices[k] = "|c4169e1" .. ui.FontChoices[k] .. "|r"
-            ui.FontChoicesTooltips[k] = coreFontList[v]
-        else
-            ui.FontChoicesTooltips[k] = ""
-        end
-    end
-]]
     ui.FontChoices = LCFM:GetDecoratedFontStyleListLMP()
     ui.FontChoicesValues = LCFM:GetFontStyleListLMP()
 
@@ -146,6 +117,14 @@ local function InitializeUI()
         L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME),   -- "soft-shadow-thick", 
     }
     ui.WeightChoicesValues = { "normal", "shadow", "outline", "thick-outline", "soft-shadow-thin", "soft-shadow-thick" }
+    ui.WeightChoicesTooltips = {
+        L(SI_CBFS_WEIGHT_NORMAL_TIPS),              -- "normal", 
+        L(SI_CBFS_WEIGHT_SHADOW_TIPS),              -- "shadow", 
+        L(SI_CBFS_WEIGHT_OUTLINE_TIPS),             -- "outline", 
+        L(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS),       -- "thick-outline", 
+        L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS),    -- "soft-shadow-thin", 
+        L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS),   -- "soft-shadow-thick", 
+    }
 
     DoSetupDefault(uiBMID)
 end
@@ -428,7 +407,7 @@ function CBFS.CreateSettingsWindow()
             tooltip = L(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS), 
             choices = ui.WeightChoices, 
             choicesValues = ui.WeightChoicesValues, 
---          choicesTooltips = ui.WeightChoicesTooltips, 
+            choicesTooltips = ui.WeightChoicesTooltips, 
             getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].bodyWeight end, 
             setFunc = DoChangeBodyWeight, 
 --          sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 
@@ -479,7 +458,7 @@ function CBFS.CreateSettingsWindow()
             tooltip = L(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS), 
             choices = ui.WeightChoices, 
             choicesValues = ui.WeightChoicesValues, 
---          choicesTooltips = ui.WeightChoicesTooltips, 
+            choicesTooltips = ui.WeightChoicesTooltips, 
             getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].titleWeight end, 
             setFunc = DoChangeTitleWeight, 
 --          sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 

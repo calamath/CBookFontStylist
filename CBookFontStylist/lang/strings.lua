@@ -1,23 +1,23 @@
 local strings = {
-    SI_CBFS_BMID_YELLOWED_PAPER_NAME =  "Yellowed Paper Book",  -- 
-    SI_CBFS_BMID_ANIMAL_SKIN_NAME =     "Animal Skin Book",     -- 
-    SI_CBFS_BMID_RUBBING_PAPER_NAME =   "Rubbing Book",         -- 
-    SI_CBFS_BMID_LETTER_NAME =          "Letter",               -- 
-    SI_CBFS_BMID_NOTE_NAME =            "Note",                 -- 
-    SI_CBFS_BMID_SCROLL_NAME =          "Scroll",               -- 
-    SI_CBFS_BMID_STONE_TABLET_NAME =    "Stone Tablet",         -- 
-    SI_CBFS_BMID_METAL_NAME =           "Dwemer Book",          -- 
-    SI_CBFS_BMID_METAL_TABLET_NAME =    "Dwemer Page",          -- 
+    SI_CBFS_BMID_YELLOWED_PAPER_NAME =  "Yellowed Paper Book",  -- "Yellowed Paper"
+    SI_CBFS_BMID_ANIMAL_SKIN_NAME =     "Animal Skin Book",     -- "Animal Skin"
+    SI_CBFS_BMID_RUBBING_PAPER_NAME =   "Rubbing Book",         -- "Rubbing Paper"
+    SI_CBFS_BMID_LETTER_NAME =          "Letter",               -- "Letter"
+    SI_CBFS_BMID_NOTE_NAME =            "Note",                 -- "Note"
+    SI_CBFS_BMID_SCROLL_NAME =          "Scroll",               -- "Scroll"
+    SI_CBFS_BMID_STONE_TABLET_NAME =    "Stone Tablet",         -- "Stone Tablet"
+    SI_CBFS_BMID_METAL_NAME =           "Dwemer Book",          -- "Metal"
+    SI_CBFS_BMID_METAL_TABLET_NAME =    "Dwemer Page",          -- "Metal Tablet"
 
-    SI_CBFS_BMID_YELLOWED_PAPER_TIPS =  "Yellowed Paper",   -- 
-    SI_CBFS_BMID_ANIMAL_SKIN_TIPS =     "Animal Skin",      -- 
-    SI_CBFS_BMID_RUBBING_PAPER_TIPS =   "Rubbing Paper",    -- 
-    SI_CBFS_BMID_LETTER_TIPS =          "Letter",           -- 
-    SI_CBFS_BMID_NOTE_TIPS =            "Note",             -- 
-    SI_CBFS_BMID_SCROLL_TIPS =          "Scroll",           -- 
-    SI_CBFS_BMID_STONE_TABLET_TIPS =    "Stone Tablet",     -- 
-    SI_CBFS_BMID_METAL_TIPS =           "Metal Book",       -- 
-    SI_CBFS_BMID_METAL_TABLET_TIPS =    "Metal Tablet",     -- 
+    SI_CBFS_BMID_YELLOWED_PAPER_TIPS =  "Yellowed Paper",   -- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
+    SI_CBFS_BMID_ANIMAL_SKIN_TIPS =     "Animal Skin",      -- tooltip for book medium "Animal Skin" if you want to add a description in your localization
+    SI_CBFS_BMID_RUBBING_PAPER_TIPS =   "Rubbing Paper",    -- tooltip for book medium "Rubbing Paper" if you want to add a description in your localization
+    SI_CBFS_BMID_LETTER_TIPS =          "Letter",           -- tooltip for book medium "Letter" if you want to add a description in your localization
+    SI_CBFS_BMID_NOTE_TIPS =            "Note",             -- tooltip for book medium "Note" if you want to add a description in your localization
+    SI_CBFS_BMID_SCROLL_TIPS =          "Scroll",           -- tooltip for book medium "Scroll" if you want to add a description in your localization
+    SI_CBFS_BMID_STONE_TABLET_TIPS =    "Stone Tablet",     -- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
+    SI_CBFS_BMID_METAL_TIPS =           "Metal Book",       -- tooltip for book medium "Metal Book" if you want to add a description in your localization
+    SI_CBFS_BMID_METAL_TABLET_TIPS =    "Metal Tablet",     -- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
 
     SI_CBFS_WEIGHT_NORMAL_NAME              = "normal", 
     SI_CBFS_WEIGHT_SHADOW_NAME              = "shadow", 
@@ -25,6 +25,13 @@ local strings = {
     SI_CBFS_WEIGHT_THICK_OUTLINE_NAME       = "thick-outline", 
     SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME    = "soft-shadow-thin", 
     SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME   = "soft-shadow-thick", 
+
+    SI_CBFS_WEIGHT_NORMAL_TIPS              = "normal",             -- tooltip for font weight "normal" if you want to add a description in your localization
+    SI_CBFS_WEIGHT_SHADOW_TIPS              = "shadow",             -- tooltip for font weight "shadow" if you want to add a description in your localization
+    SI_CBFS_WEIGHT_OUTLINE_TIPS             = "outline",            -- tooltip for font weight "outline" if you want to add a description in your localization
+    SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS       = "thick-outline",      -- tooltip for font weight "thick-outline" if you want to add a description in your localization
+    SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS    = "soft-shadow-thin",   -- tooltip for font weight "soft-shadow-thin" if you want to add a description in your localization
+    SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS   = "soft-shadow-thick",  -- tooltip for font weight "soft-shadow-thick" if you want to add a description in your localization
 
     SI_CBFS_UI_PANEL_HEADER_TEXT =      "This add-on allows you to adjust the typeface of several in-game reading materials, lore book etc.", 
     SI_CBFS_UI_PANEL_HEADER1_TEXT =     "These account-wide settings are saved for each language mode.", 
