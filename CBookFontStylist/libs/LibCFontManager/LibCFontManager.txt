@@ -6,7 +6,7 @@
 ## APIVersion: 100029 100030
 ## AddOnVersion: 1
 ## DependsOn: LibMediaProvider-1.0>=12 
-## OptionalDependsOn:
+## OptionalDependsOn:RuESO EsoPL EsoBR EsoKR
 ## SavedVariables: LibCFontManagerDB
 
 ; This Add-on is not created by, affiliated with or sponsored by ZeniMax 
