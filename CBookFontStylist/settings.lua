@@ -335,6 +335,7 @@ function CBFS.CreateSettingsWindow()
         displayName = "Calamath's BookFont Stylist", 
         author = CBFS.author, 
         version = CBFS.version, 
+		website = "https://www.esoui.com/downloads/info2505-CalamathsBookFontStylist.html", 
         slashCommand = "/cbfs.settings", 
         registerForRefresh = true, 
         registerForDefaults = true, 
