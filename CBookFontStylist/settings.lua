@@ -107,6 +107,7 @@ local function InitializeUI()
 
     ui.FontChoices = LCFM:GetDecoratedFontStyleListLMP()
     ui.FontChoicesValues = LCFM:GetFontStyleListLMP()
+    ui.FontChoicesTooltips = LCFM:GetFontTooltipListLMP()
 
     ui.WeightChoices = {
         L(SI_CBFS_WEIGHT_NORMAL_NAME),              -- "normal", 
@@ -335,7 +336,7 @@ function CBFS.CreateSettingsWindow()
         displayName = "Calamath's BookFont Stylist", 
         author = CBFS.author, 
         version = CBFS.version, 
-		website = "https://www.esoui.com/downloads/info2505-CalamathsBookFontStylist.html", 
+        website = "https://www.esoui.com/downloads/info2505-CalamathsBookFontStylist.html", 
         slashCommand = "/cbfs.settings", 
         registerForRefresh = true, 
         registerForDefaults = true, 
@@ -381,7 +382,7 @@ function CBFS.CreateSettingsWindow()
             tooltip = L(SI_CBFS_UI_BODYFONT_MENU_TIPS), 
             choices = ui.FontChoices, 
             choicesValues = ui.FontChoicesValues, 
---          choicesTooltips = ui.FontChoicesTooltips, 
+            choicesTooltips = ui.FontChoicesTooltips, 
             getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].bodyStyle end, 
             setFunc = DoChangeBodyFont, 
 --          sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 
@@ -430,7 +431,7 @@ function CBFS.CreateSettingsWindow()
             tooltip = L(SI_CBFS_UI_TITLEFONT_MENU_TIPS), 
             choices = ui.FontChoices, 
             choicesValues = ui.FontChoicesValues, 
---          choicesTooltips = ui.FontChoicesTooltips, 
+            choicesTooltips = ui.FontChoicesTooltips, 
             getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].titleStyle end, 
             setFunc = DoChangeTitleFont, 
 --          sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 

@@ -17,6 +17,9 @@ if LibCFontManager then d("[LCFM] Warning : 'LibCFontManager' has always been lo
 local LMP = LibMediaProvider
 if not LMP then d("[LCFM] Error : 'LibMediaProvider' not found.") return end
 
+local L = GetString
+local tconcat = table.concat
+
 -- Registeration of ESO bundled fonts to support Japanese language mode. These are not currently registered in LibMediaProvider.
 LMP:Register("font", "JP-StdFont", "EsoUI/Common/Fonts/ESO_FWNTLGUDC70-DB.ttf")     -- JP-ESO Standard Font
 LMP:Register("font", "JP-ChatFont", "EsoUI/Common/Fonts/ESO_FWUDC_70-M.ttf")        -- JP-ESO Chat Font
@@ -26,7 +29,7 @@ LMP:Register("font", "JP-KafuPenji", "EsoUI/Common/Fonts/ESO_KafuPenji-M.ttf")  
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "0.1"
+LibCFontManager.version = "0.2"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1            -- for testing purpose
@@ -43,7 +46,30 @@ local unknownFontNum = 0
 
 local lmpFontStyleList = {}
 local lmpFontPathTable = {}
-local lmpFontExTable = {}
+
+local lmpFontExTable = {
+--      lmpFontExTable[key].XXX
+--          filename            : [string] font filename without path string (not lowercase !)
+--          provider            : [string] font provider (usually add-on filepath that bundled this font, or '$$LCFM_unknown' when the provider is unknown)
+--          isEsoEmbeddedFont   : [boolean] ESO embedded font or not (the result of judging whether the filename matches that of the ESO embedded font)
+--          name                : [string] font name (OPTIONAL)
+--          description         : [string] font discription (OPTIONAL)
+--
+    ["Univers 55"] = { name = L(SI_LCFM_FONTNAME_UNIVERS55) }, 
+    ["Univers 57"] = { name = L(SI_LCFM_FONTNAME_UNIVERS57) }, 
+    ["Univers 67"] = { name = L(SI_LCFM_FONTNAME_UNIVERS67) }, 
+    ["JP-StdFont"] = { name = L(SI_LCFM_FONTNAME_ESO_FWNTLGUDC70_DB) }, 
+    ["JP-ChatFont"] = { name = L(SI_LCFM_FONTNAME_ESO_FWUDC_70_M) }, 
+    ["JP-KafuPenji"] = { name = L(SI_LCFM_FONTNAME_ESO_KAFUPENJI_M) }, 
+    ["Futura Condensed Light"] = { name = L(SI_LCFM_FONTNAME_FTN47) }, 
+    ["Futura Condensed"] = { name = L(SI_LCFM_FONTNAME_FTN57) }, 
+    ["Futura Condensed Bold"] = { name = L(SI_LCFM_FONTNAME_FTN87) }, 
+    ["Skyrim Handwritten"] = { name = L(SI_LCFM_FONTNAME_HANDWRITTEN_BOLD) }, 
+    ["ProseAntique"] = { name = L(SI_LCFM_FONTNAME_PROSEANTIQUEPSMT) }, 
+    ["Trajan Pro"] = { name = L(SI_LCFM_FONTNAME_TRAJANPRO_REGULAR) }, 
+    ["Consolas"] = { name = L(SI_LCFM_FONTNAME_CONSOLA) }, 
+}
+
 local lmpFontFilenameToFontStyleLMP = {}  -- lowercase filename to FontStyleLMP
 
 
@@ -329,34 +355,36 @@ local function InitializeLCFM()
     for i, key in pairs(lmpFontStyleList) do
         local fontPath = lmpFontPathTable[key]
 
-        local filename = zo_strlower(GetFilename(fontPath))
-        lmpFontFilenameToFontStyleLMP[filename] = key
+        local filename = GetFilename(fontPath)
+        local lowercaseFilename = zo_strlower(filename)
+        lmpFontFilenameToFontStyleLMP[lowercaseFilename] = key
 
-        lmpFontExTable[key] = {}
+        lmpFontExTable[key] = lmpFontExTable[key] or {}
         lmpFontExTable[key].provider = GetAddonPath(fontPath) or "$$LCFM_unknown"
         lmpFontExTable[key].filename = filename
-        if zosFontFilenameToFontStyleLMP[filename] then
-            lmpFontExTable[key].isOfficial = true
+        if zosFontFilenameToFontStyleLMP[lowercaseFilename] then
+            lmpFontExTable[key].isEsoEmbeddedFont = true
         else
-            lmpFontExTable[key].isOfficial = false
+            lmpFontExTable[key].isEsoEmbeddedFont = false
         end
     end
     CALLBACK_MANAGER:RegisterCallback("LibMediaProvider_Registered", function(mediatype, key)   -- callback routine to ensure consistency with the LMP font list after local copy.
-        if mediatype == "font" then return end
+        if mediatype ~= "font" then return end
         table.insert(lmpFontStyleList, key)
         local fontPath = LMP:Fetch("font", key)
         lmpFontPathTable[key] = fontPath
 
-        local filename = zo_strlower(GetFilename(fontPath))
-        lmpFontFilenameToFontStyleLMP[filename] = key
+        local filename = GetFilename(fontPath)
+        local lowercaseFilename = zo_strlower(filename)
+        lmpFontFilenameToFontStyleLMP[lowercaseFilename] = key
 
-        lmpFontExTable[key] = {}
+        lmpFontExTable[key] = lmpFontExTable[key] or {}
         lmpFontExTable[key].provider = GetAddonPath(fontPath) or "$$LCFM_unknown"
         lmpFontExTable[key].filename = filename
-        if zosFontFilenameToFontStyleLMP[filename] then
-            lmpFontExTable[key].isOfficial = true
+        if zosFontFilenameToFontStyleLMP[lowercaseFilename] then
+            lmpFontExTable[key].isEsoEmbeddedFont = true
         else
-            lmpFontExTable[key].isOfficial = false
+            lmpFontExTable[key].isEsoEmbeddedFont = false
         end
     end)
 
@@ -369,9 +397,9 @@ local function InitializeLCFM()
                 v.weight = "normal"
             end
             v.descriptor = localMakeFontDescriptor(v.fontPath, v.size, v.weight)    -- for debug
-            v.style, v.isOfficial = GetFontStyleForValue(v.fontPath)
+            v.style, v.isEsoEmbeddedFont = GetFontStyleForValue(v.fontPath)
             if not v.style then
-                v.style, v.isOfficial = AppendUnknownFontToLMP(v.fontPath) or "$$LCFM_unknown", false
+                v.style, v.isEsoEmbeddedFont = AppendUnknownFontToLMP(v.fontPath) or "$$LCFM_unknown", false
             end
             v.provider = GetAddonPath(v.fontPath) or "$$LCFM_unknown"   -- for debug
             v.isModified = false
@@ -399,6 +427,8 @@ EVENT_MANAGER:RegisterForEvent(LCFM.name, EVENT_ADD_ON_LOADED, OnAddOnLoaded)
 
 
 -- ------------------------------------------------------------------------------------------------
+-- API Section
+-- ------------------------------------------------------------------------------------------------
 
 function LibCFontManager:MakeFontDescriptor(fontPath, size, weight)
     return localMakeFontDescriptor(fontPath, size, weight)
@@ -414,6 +444,57 @@ function LibCFontManager:MakeFontDescriptorLMP(style, size, weight)
     end
 end
 
+function LibCFontManager:GetFontFilenameLMP(style)
+    if type(style) ~= "string" then return end
+    if lmpFontExTable[style] then
+        return lmpFontExTable[style].filename
+    end
+end
+
+function LibCFontManager:GetFontProviderLMP(style)
+    if type(style) ~= "string" then return end
+    if lmpFontExTable[style] then
+        return lmpFontExTable[style].provider
+    end
+end
+
+--[[
+function LibCFontManager:IsEsoEmbeddedFontLMP(style)
+    if type(style) ~= "string" then return end
+    if lmpFontExTable[style] then
+        return lmpFontExTable[style].isEsoEmbeddedFont
+    end
+end
+]]
+
+function LibCFontManager:SetFontNameLMP(style, name)
+    if type(style) ~= "string" then return end
+    if type(name) ~= "string" then return end
+    lmpFontExTable[style] = lmpFontExTable[style] or {}
+    lmpFontExTable[style].name = name
+end
+
+function LibCFontManager:GetFontNameLMP(style)
+    if type(style) ~= "string" then return end
+    if lmpFontExTable[style] then
+        return lmpFontExTable[style].name
+    end
+end
+
+function LibCFontManager:SetFontDescriptionLMP(style, description)
+    if type(style) ~= "string" then return end
+    if type(description) ~= "string" then return end
+    lmpFontExTable[style] = lmpFontExTable[style] or {}
+    lmpFontExTable[style].description = description
+end
+
+function LibCFontManager:GetFontDescriptionLMP(style)
+    if type(style) ~= "string" then return end
+    if lmpFontExTable[style] then
+        return lmpFontExTable[style].description
+    end
+end
+
 -- ------------------------------------------------------------------------------------------------
 function LibCFontManager:GetFontStyleListLMP()
     return lmpFontStyleList
@@ -422,11 +503,30 @@ end
 function LibCFontManager:GetDecoratedFontStyleListLMP()
     local t = {}
     for k, v in pairs(lmpFontStyleList) do
-        if lmpFontExTable[v].isOfficial then
+        if lmpFontExTable[v].isEsoEmbeddedFont then
             t[k] = "|c4169e1" .. v .. "|r"
         else
             t[k] = v
         end
+    end
+    return t
+end
+
+function LibCFontManager:GetFontTooltipListLMP()
+    local s = {}
+    local t = {}
+    local font = {}
+    for k, v in pairs(lmpFontStyleList) do
+        font = lmpFontExTable[v]
+        s[1] = font.name or v
+        s[2] = string.format("(%s)", font.filename)
+        if font.isEsoEmbeddedFont and (zo_strlower(font.provider) == "esoui") then
+            s[3] = L(SI_LCFM_FONTSTYLE_TIPS_ZOSFONT)
+        else
+            s[3] = zo_strformat(L(SI_LCFM_FONTSTYLE_TIPS_ADDONFONT), font.provider)
+        end
+        s[4] = font.description
+        t[k] = tconcat(s, "\n")
     end
     return t
 end

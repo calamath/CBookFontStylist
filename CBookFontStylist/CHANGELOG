@@ -1,3 +1,10 @@
+V0.98:
+- UI improvement
+  Font style dropdown choices now have a special tooltip with the font name, filename, and associated add-on name.
+- LibCFontManager update to V0.2
+  Added support for font menu choices tooltips for LAM.
+  Fixed a bug that occurred when the another add-on after loading this add-on registered any media other than fonts via LibMediaProvider.
+
 V0.97:
 - UI button 'Default Font' probably now works properly with RuESO, EsoPL, EsoBR and EsoKR.
 
