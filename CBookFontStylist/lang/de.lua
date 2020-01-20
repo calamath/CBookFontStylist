@@ -25,48 +25,48 @@ SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Stein Tafel", 1)		-- tooltip fo
 SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Metall Buch", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Metall Tafel", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
 
-SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"normal", 1) 
-SafeAddString(SI_CBFS_WEIGHT_SHADOW_NAME,				"shadow", 1) 
-SafeAddString(SI_CBFS_WEIGHT_OUTLINE_NAME,				"outline", 1) 
-SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME,		"thick-outline", 1) 
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME, 	"soft-shadow-thin", 1) 
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME,	"soft-shadow-thick", 1) 
+SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"Normal", 1) 
+SafeAddString(SI_CBFS_WEIGHT_SHADOW_NAME,				"Schatten", 1) 
+SafeAddString(SI_CBFS_WEIGHT_OUTLINE_NAME,				"Umriss", 1) 
+SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME,		"Dicker Umriss", 1) 
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME, 	"Weicher Schatten, dünn", 1) 
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME,	"Weicher Schatten, dünn", 1) 
 
-SafeAddString(SI_CBFS_WEIGHT_NORMAL_TIPS,				"normal", 1)			-- tooltip for font weight "normal" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_SHADOW_TIPS,				"shadow", 1)			-- tooltip for font weight "shadow" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_OUTLINE_TIPS,				"outline", 1)			-- tooltip for font weight "outline" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS,		"thick-outline", 1) 	-- tooltip for font weight "thick-outline" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS, 	"soft-shadow-thin", 1)	-- tooltip for font weight "soft-shadow-thin" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS,	"soft-shadow-thick", 1) -- tooltip for font weight "soft-shadow-thick" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_NORMAL_TIPS,				"Normal", 1)			-- tooltip for font weight "normal" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_SHADOW_TIPS,				"Schatten", 1)			-- tooltip for font weight "shadow" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_OUTLINE_TIPS,				"Umriss", 1)			-- tooltip for font weight "outline" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS,		"Dicker Umriss", 1) 	-- tooltip for font weight "thick-outline" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS, 	"Weicher Schatten, dünn", 1)	-- tooltip for font weight "soft-shadow-thin" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS,	"Weicher Schatten, dick", 1) -- tooltip for font weight "soft-shadow-thick" if you want to add a description in your localization
 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER_TEXT, 			"This add-on allows you to adjust the typeface of several in-game reading materials, lore book etc.", 1) 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER1_TEXT,			"These account-wide settings are saved for each language mode.", 1) 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER2_TEXT,			"And also separetely saved depending on whether in gamepad mode or not.", 1) 
-SafeAddString(SI_CBFS_UI_E1001_ERRMSG_TEXT, 			"|cdc143cYour saved font settings are currently unavailable. Make sure related add-on is not disabled or deleted, updating font add-on may have caused deleting font files you copied manually.|r", 1) 
-SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_NAME, 		"Select Book Medium", 1) 
-SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_TIPS, 		"First, please select the type of book medium you want to configure.", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_NAME, 		"Game Mode : ", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_TIPS, 		"You can set prefered font styles individually for each game mode.", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_KEYBOARD_NAME,		"Keyboard Mode", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_GAMEPAD_NAME, 		"Gamepad Mode", 1) 
-SafeAddString(SI_CBFS_UI_BODYFONT_MENU_NAME,			"Body Font", 1) 
-SafeAddString(SI_CBFS_UI_BODYFONT_MENU_TIPS,			"Specify your prefered font style.", 1) 
-SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_NAME,			"Body Font Size", 1) 
-SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_TIPS,			"Specify your prefered font size.", 1) 
-SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_NAME,			"Body Font Weight", 1) 
-SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS,			"Specify your prefered font weight.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_NAME,			"Title Font Auto Adjustment", 1) 
-SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_TIPS,			"As the title font, use 10 points larger than above body font.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_NAME,			"Title Font", 1) 
-SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_TIPS,			"Specify your prefered font style.", 1) 
-SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_NAME,			"Title Font Size", 1) 
-SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"Specify your prefered font size.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"Title Font Weight", 1) 
-SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"Specify your prefered font weight.", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"Default Font", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Restore settings on this medium to the in-game default font", 1) 
-SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"Preview", 1) 
-SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"Preview your book font settings", 1) 
+SafeAddString(SI_CBFS_UI_PANEL_HEADER_TEXT, 			"Dieses AddOn erlaubt es die Schriftarten und das Aussehen von vielen lesbaren Gegenständen im Spiel zu verändern.", 1) 
+SafeAddString(SI_CBFS_UI_PANEL_HEADER1_TEXT,			"Diese Accountweiten Einstellungen werden für jeden Sprachmodus gesichert.", 1) 
+SafeAddString(SI_CBFS_UI_PANEL_HEADER2_TEXT,			"Zusätzlich werden diese individuell abhängig vom Gamepad/Tastatur Modus gesichert.", 1) 
+SafeAddString(SI_CBFS_UI_E1001_ERRMSG_TEXT, 			"|cdc143cDeine gesicherten Font Einstellungen sind aktuell nicht verfügbar. Stelle sicher, dass das zugehörige AddOn nicht deaktiviert oder gelöscht wurde. Beim Update könnten benötigte manuell hinzugefügte Font Dateien gelöscht worden sein!|r", 1) 
+SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_NAME, 		"Wähle die Buch Darstellung", 1) 
+SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_TIPS, 		"Zuerst wähle bitte die Buch Darstellung aus, welche du konfigurieren möchtest.", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_NAME, 		"Spiel Modus: ", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_TIPS, 		"Du kannst die bevorzugten Font Stile individuell für jeden Spiel Modus einstellen.", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_KEYBOARD_NAME,		"Tastatur Modus", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_GAMEPAD_NAME, 		"Gamepad Modus", 1) 
+SafeAddString(SI_CBFS_UI_BODYFONT_MENU_NAME,			"Buch Text Font", 1) 
+SafeAddString(SI_CBFS_UI_BODYFONT_MENU_TIPS,			"Spezifiziere deinen bevorzugten Font Stil.", 1) 
+SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_NAME,			"Buch Text Font Größe", 1) 
+SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_TIPS,			"Spezifiziere deine bevorzugte Font Größe.", 1) 
+SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_NAME,			"Buch Text Font Auszeichnung", 1) 
+SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS,			"Spezifiziere deine bevorzugte Font Auszeichnung.", 1) 
+SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_NAME,			"Titel Font Auto-Anpassung", 1) 
+SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_TIPS,			"Für den Titel Font nutze einen 10 Punkte größeren Buch Text Font.", 1) 
+SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_NAME,			"Titel Font", 1) 
+SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_TIPS,			"Spezifiziere deinen bevorzugten Font Stil.", 1) 
+SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_NAME,			"Titel Font Größe", 1) 
+SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"Spezifiziere deine bevorzugte Font Größe.", 1) 
+SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"Title Font Auszeichnung", 1) 
+SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"Spezifiziere deine bevorzugte Font Auszeichnung.", 1) 
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"Zurücksetzen auf Standard Font", 1) 
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Stelle für dieses Medium wieder den Standard Font und Darstellung ein.", 1) 
+SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"Vorschau", 1) 
+SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"Zeige eine Vorschau deiner Buch Font Einstellungen an", 1) 
 
 -- ---------------------------------------------------------------------------------------------------------------------------------------------------------
 --	The following does not require translation. Instead, you are free to write something like a pangram that is useful for checking fonts in your language.
