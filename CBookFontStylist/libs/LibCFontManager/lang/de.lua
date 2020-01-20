@@ -1,13 +1,7 @@
 ------------------------------------------------
 -- LibCFontManager
--- English localization
+-- German localization
 ------------------------------------------------
-
--- NOTE :
--- The English localization is in 'strings.lua'.
--- Thus the contents of this file can be used as a template for translation into other languages.
-
---[[
 
 -- Localization Strings
 SafeAddString(SI_LCFM_FONTSTYLE_TIPS_ZOSFONT,			"The ESO embedded font.", 1)
@@ -27,4 +21,3 @@ SafeAddString(SI_LCFM_FONTNAME_ESO_FWNTLGUDC70_DB,		"ESO-FWNTLGUDC70 DB", 1)
 SafeAddString(SI_LCFM_FONTNAME_ESO_FWUDC_70_M,			"ESO-FWUDC_70 M", 1)
 SafeAddString(SI_LCFM_FONTNAME_ESO_KAFUPENJI_M, 		"ESO-KafuPenjitai M", 1)
 
---]]
