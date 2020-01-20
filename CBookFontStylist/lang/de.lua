@@ -5,25 +5,25 @@
 
 
 -- Localization Strings
-SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_NAME, 		"Yellowed Paper Book", 1)	-- "Yellowed Paper"
-SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_NAME,			"Animal Skin Book", 1)		-- "Animal Skin"
-SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_NAME,			"Rubbing Book", 1)			-- "Rubbing Paper"
-SafeAddString(SI_CBFS_BMID_LETTER_NAME, 				"Letter", 1)				-- "Letter"
-SafeAddString(SI_CBFS_BMID_NOTE_NAME,					"Note", 1)					-- "Note"
-SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"Scroll", 1)				-- "Scroll"
-SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"Stone Tablet", 1)			-- "Stone Tablet"
-SafeAddString(SI_CBFS_BMID_METAL_NAME,					"Dwemer Book", 1)			-- "Metal"
-SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"Dwemer Page", 1)			-- "Metal Tablet"
+SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_NAME, 		"Gelb gefärbte Seiten", 1)	-- "Yellowed Paper"
+SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_NAME,			"Tier-Skin Buch", 1)		-- "Animal Skin"
+SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_NAME,			"Reiben Buch", 1)			-- "Rubbing Paper"
+SafeAddString(SI_CBFS_BMID_LETTER_NAME, 				"Brief", 1)				-- "Letter"
+SafeAddString(SI_CBFS_BMID_NOTE_NAME,					"Notiz", 1)					-- "Note"
+SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"Schriftrolle", 1)				-- "Scroll"
+SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"Stein Tafel", 1)			-- "Stone Tablet"
+SafeAddString(SI_CBFS_BMID_METAL_NAME,					"Dwemer Buch", 1)			-- "Metal"
+SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"Dwemer Tafel", 1)			-- "Metal Tablet"
 
-SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"Yellowed Paper", 1)	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_TIPS,			"Animal Skin", 1)		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_TIPS,			"Rubbing Paper", 1) 	-- tooltip for book medium "Rubbing Paper" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_LETTER_TIPS, 				"Letter", 1)			-- tooltip for book medium "Letter" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_NOTE_TIPS,					"Note", 1)				-- tooltip for book medium "Note" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"Scroll", 1)			-- tooltip for book medium "Scroll" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Stone Tablet", 1)		-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Metal Book", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Metal Tablet", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"Gelbes Papier", 1)	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_TIPS,			"Tier-Skin Papier", 1)		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_TIPS,			"Reiben Papier", 1) 	-- tooltip for book medium "Rubbing Paper" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_LETTER_TIPS, 				"Brief", 1)			-- tooltip for book medium "Letter" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_NOTE_TIPS,					"Notiz", 1)				-- tooltip for book medium "Note" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"Schriftrolle", 1)			-- tooltip for book medium "Scroll" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Stein Tafel", 1)		-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Metall Buch", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Metall Tafel", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
 
 SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"normal", 1) 
 SafeAddString(SI_CBFS_WEIGHT_SHADOW_NAME,				"shadow", 1) 
