@@ -2,6 +2,7 @@
 -- Calamath's BookFont Stylist
 -- German localization
 ------------------------------------------------
+-- Special thanks to @Baertram for providing following translations!
 
 
 -- Localization Strings
