@@ -29,7 +29,7 @@ LMP:Register("font", "JP-KafuPenji", "EsoUI/Common/Fonts/ESO_KafuPenji-M.ttf")		
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "0.3"
+LibCFontManager.version = "0.4"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1			-- for testing purpose
@@ -417,9 +417,10 @@ local function lcfmConfigDebug(arg)
 	local debugMode = false
 	local key = HashString(GetDisplayName())
 	local dummy = function() end
-	if not LibDebugLogger then return end
-	for _, v in pairs(arg or LCFM.authority or {}) do
-		if key == v then debugMode = true end
+	if LibDebugLogger then
+		for _, v in pairs(arg or LCFM.authority or {}) do
+			if key == v then debugMode = true end
+		end
 	end
 	if debugMode then
 		LibCFontManager.LDL = LibDebugLogger(LCFM.name)

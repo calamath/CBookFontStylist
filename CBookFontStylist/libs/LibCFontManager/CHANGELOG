@@ -1,3 +1,6 @@
+V0.4:
+- Fixed a bug that UI error occurs when LibDebugLogger is not installed.
+
 V0.3:
 - Added German and French translation file. (The contents need future translation work.)
 - optional LibDebugLogger support for future development.

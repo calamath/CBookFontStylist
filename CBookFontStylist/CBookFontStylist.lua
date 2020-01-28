@@ -17,7 +17,7 @@
 CBookFontStylist = CBookFontStylist or {}
 
 CBookFontStylist.name = "CBookFontStylist"
-CBookFontStylist.version = "1.01"
+CBookFontStylist.version = "1.02"
 CBookFontStylist.author = "Calamath"
 CBookFontStylist.savedVars = "CBookFontStylistDB"
 CBookFontStylist.savedVarsVersion = 1
@@ -274,9 +274,10 @@ local function cbfsConfigDebug(arg)
 	local debugMode = false
 	local key = HashString(GetDisplayName())
 	local dummy = function() end
-	if not LibDebugLogger then return end
-	for _, v in pairs(arg or CBFS.authority or {}) do
-		if key == v then debugMode = true end
+	if LibDebugLogger then
+		for _, v in pairs(arg or CBFS.authority or {}) do
+			if key == v then debugMode = true end
+		end
 	end
 	if debugMode then
 		CBookFontStylist.LDL = LibDebugLogger(CBFS.name)

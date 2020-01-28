@@ -1,3 +1,7 @@
+V1.02 : by Calamath
+- Fixed a bug that UI error occurs when LibDebugLogger is not installed.
+- LibCFontManager update to V0.4
+
 V1.01:
 - Updated German translations. Special thanks to: Baertram
 
