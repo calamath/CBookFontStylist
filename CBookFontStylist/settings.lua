@@ -306,7 +306,7 @@ end
 
 local function OnLAMPanelControlsCreated(panel)
 	if (panel ~= ui.panel) then return end
-	CALLBACK_MANAGER:UnregisterCallback("LAM-PanelControlsCreated", OnLAMControlsCreated)
+	CALLBACK_MANAGER:UnregisterCallback("LAM-PanelControlsCreated", OnLAMPanelControlsCreated)
 
 	CBFS_UI_GameModeDisplay.desc:SetHorizontalAlignment(TEXT_ALIGN_RIGHT)
 	SetupTLW()

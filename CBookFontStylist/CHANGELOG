@@ -1,3 +1,7 @@
+V1.03 : by Calamath
+- Updated API version to 100030 (ESO 5.3.4 : Harrowstorm)
+- minor code fix
+
 V1.02 : by Calamath
 - Fixed a bug that UI error occurs when LibDebugLogger is not installed.
 - LibCFontManager update to V0.4

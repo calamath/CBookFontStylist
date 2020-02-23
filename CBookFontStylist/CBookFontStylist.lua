@@ -17,7 +17,7 @@
 CBookFontStylist = CBookFontStylist or {}
 
 CBookFontStylist.name = "CBookFontStylist"
-CBookFontStylist.version = "1.02"
+CBookFontStylist.version = "1.03"
 CBookFontStylist.author = "Calamath"
 CBookFontStylist.savedVars = "CBookFontStylistDB"
 CBookFontStylist.savedVarsVersion = 1
