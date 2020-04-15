@@ -17,7 +17,7 @@
 CBookFontStylist = CBookFontStylist or {}
 
 CBookFontStylist.name = "CBookFontStylist"
-CBookFontStylist.version = "1.03"
+CBookFontStylist.version = "1.04"
 CBookFontStylist.author = "Calamath"
 CBookFontStylist.savedVars = "CBookFontStylistDB"
 CBookFontStylist.savedVarsVersion = 1
@@ -282,7 +282,7 @@ local function cbfsConfigDebug(arg)
 	if debugMode then
 		CBookFontStylist.LDL = LibDebugLogger(CBFS.name)
 	else
-		CBookFontStylist.LDL = { Debug = dummy, Info = dummy, Warn = dummy, Error = dummy, }
+		CBookFontStylist.LDL = { Verbose = dummy, Debug = dummy, Info = dummy, Warn = dummy, Error = dummy, }
 	end
 end
 
@@ -314,6 +314,7 @@ SLASH_COMMANDS["/cbfs.test"] = function(arg)
 	for k, v in pairs(cbfsCtrlTbl) do
 		CBFS.LDL:Debug("cbfsCtrlTbl[%d] flag = %s", tostring(k), tostring(v.isChanged))
 	end
+--	CBFS.LDL:Verbose("hoge")
 --	CBFS.LDL:Debug("hoge")
 --	CBFS.LDL:Info("hoge")
 --	CBFS.LDL:Warn("hoge")

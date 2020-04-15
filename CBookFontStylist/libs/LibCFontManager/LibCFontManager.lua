@@ -29,7 +29,7 @@ LMP:Register("font", "JP-KafuPenji", "EsoUI/Common/Fonts/ESO_KafuPenji-M.ttf")		
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "0.4"
+LibCFontManager.version = "0.5"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1			-- for testing purpose
@@ -350,11 +350,14 @@ local function InitializeLCFM()
 	zosFontNum = 0
 	unknownFontNum = 0
 
+	CreateFont("WorkSpaceLCFM", "$(MEDIUM_FONT)|12")
+
 -- for font management enhancements, this feature work with LibMediaProvider.
 	lmpFontStyleList = ZO_ShallowTableCopy(LMP:List("font"))	-- LCFM uses an own local copy of the LMP font media list. It is not sorted after each registration in LMP from now.
 	lmpFontPathTable = ZO_ShallowTableCopy(LMP:HashTable("font"))
 	for i, key in pairs(lmpFontStyleList) do
-		local fontPath = lmpFontPathTable[key]
+		WorkSpaceLCFM:SetFont(lmpFontPathTable[key])	-- Extract reliabe font path whether font string or not.
+		local fontPath = WorkSpaceLCFM:GetFontInfo()
 
 		local filename = GetFilename(fontPath)
 		local lowercaseFilename = zo_strlower(filename)
@@ -371,9 +374,14 @@ local function InitializeLCFM()
 	end
 	CALLBACK_MANAGER:RegisterCallback("LibMediaProvider_Registered", function(mediatype, key)	-- callback routine to ensure consistency with the LMP font list after local copy.
 		if mediatype ~= "font" then return end
-		table.insert(lmpFontStyleList, key)
+		if GetTableKeyForValue(lmpFontStyleList, key) == nil then
+			table.insert(lmpFontStyleList, key)
+		end
 		local fontPath = LMP:Fetch("font", key)
 		lmpFontPathTable[key] = fontPath
+
+		WorkSpaceLCFM:SetFont(fontPath)					-- Extract reliabe font path whether font string or not.
+		fontPath = WorkSpaceLCFM:GetFontInfo()
 
 		local filename = GetFilename(fontPath)
 		local lowercaseFilename = zo_strlower(filename)
@@ -425,7 +433,7 @@ local function lcfmConfigDebug(arg)
 	if debugMode then
 		LibCFontManager.LDL = LibDebugLogger(LCFM.name)
 	else
-		LibCFontManager.LDL = { Debug = dummy, Info = dummy, Warn = dummy, Error = dummy, }
+		LibCFontManager.LDL = { Verbose = dummy, Debug = dummy, Info = dummy, Warn = dummy, Error = dummy, }
 	end
 end
 
@@ -474,6 +482,14 @@ function LibCFontManager:GetFontProviderLMP(style)
 	if type(style) ~= "string" then return end
 	if lmpFontExTable[style] then
 		return lmpFontExTable[style].provider
+	end
+end
+
+function LibCFontManager:GetFontPathFromFontString(fontString)
+-- Extract a fontPath from fontstring such as $(MEDIUM_FONT).
+	if type(fontString) == "string" then
+		WorkSpaceLCFM:SetFont(fontString)
+		return WorkSpaceLCFM:GetFontInfo()
 	end
 end
 
@@ -616,6 +632,7 @@ SLASH_COMMANDS["/lcfm.test"] = function(arg)
 	}
 	LCFM.db = ZO_SavedVars:NewAccountWide(LCFM.savedVars, LCFM.savedVarsVersion, nil, db_default)
 
+--	LCFM.LDL:Verbose("hoge")
 --	LCFM.LDL:Debug("hoge")
 --	LCFM.LDL:Info("hoge")
 --	LCFM.LDL:Warn("hoge")
