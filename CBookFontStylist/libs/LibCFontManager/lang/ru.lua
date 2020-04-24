@@ -1,6 +1,6 @@
 ------------------------------------------------
 -- LibCFontManager
--- German localization
+-- Russian localization
 ------------------------------------------------
 
 -- Localization Strings

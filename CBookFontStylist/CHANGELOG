@@ -1,3 +1,8 @@
+V1.05 : by Calamath
+- Russian language support
+- LibCFontManager update to V0.6
+- Updated API version to 100031 (ESO 6.0.x : Greymoor)
+
 V1.04 : by Calamath
 - LibCFontManager update to V0.5
 - optional LibDebugLogger V2.x support

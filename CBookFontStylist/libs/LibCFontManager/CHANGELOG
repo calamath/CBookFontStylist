@@ -1,3 +1,8 @@
+V0.6:
+- Russian language support
+- Fixed typos
+- Updated API version to 100031 (ESO 6.0.x : Greymoor)
+
 V0.5:
 - Support for font descriptor using font string like '$(MEDIUM_FONT)'.
 - Added a new API : GetFontPathFromFontString

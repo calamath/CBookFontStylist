@@ -1,9 +1,9 @@
 ## Title: Calamath's BookFont Stylist
 ## Description: A GUI mod tool for customizing font styles of the Lore Books.
-## Version: 1.04
+## Version: 1.05
 ## Author: Calamath
 ## License: MIT License (X11 License)
-## APIVersion: 100030
+## APIVersion: 100030 100031
 ## DependsOn: LibCFontManager LibAddonMenu-2.0>=30 LibMediaProvider-1.0>=12 
 ## OptionalDependsOn: LibDebugLogger>=180
 ## SavedVariables: CBookFontStylistDB
