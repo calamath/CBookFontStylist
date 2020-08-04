@@ -1,10 +1,10 @@
 --
 -- LibCFontManager [LCFM]
 --
--- Copyright (c) 2019 Calamath
+-- Copyright (c) 2020 Calamath
 --
--- This software is released under the MIT License (X11 License).
--- https://choosealicense.com/licenses/mit/
+-- This software is released under the Artistic License 2.0
+-- https://opensource.org/licenses/Artistic-2.0
 --
 -- Note :
 -- This library addon works that uses the library LibMediaProvider-1.0 by Seerah, released under the LGPL-2.1 license.
@@ -29,7 +29,7 @@ LMP:Register("font", "JP-KafuPenji", "EsoUI/Common/Fonts/ESO_KafuPenji-M.ttf")		
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "0.6"
+LibCFontManager.version = "0.7"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1			-- for testing purpose

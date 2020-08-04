@@ -1,3 +1,9 @@
+V1.06 : [V106] by Calamath
+- Changed the LICENSE for this software to the Artistic License 2.0
+- Added 'AddOnVersion' directive to manifest file
+- LibCFontManager update to V0.7 [V7]
+- Updated API version to 100032 (ESO 6.1.x : Stonethorn)
+
 V1.05 : by Calamath
 - Russian language support
 - LibCFontManager update to V0.6

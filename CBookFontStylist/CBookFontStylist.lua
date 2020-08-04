@@ -1,10 +1,10 @@
 --
 -- Calamath's BookFont Stylist [CBFS]
 --
--- Copyright (c) 2019 Calamath
+-- Copyright (c) 2020 Calamath
 --
--- This software is released under the MIT License (X11 License).
--- https://choosealicense.com/licenses/mit/
+-- This software is released under the Artistic License 2.0
+-- https://opensource.org/licenses/Artistic-2.0
 --
 -- Note :
 -- This addon works that uses the library LibMediaProvider-1.0 by Seerah, released under the LGPL-2.1 license.
@@ -17,7 +17,7 @@
 CBookFontStylist = CBookFontStylist or {}
 
 CBookFontStylist.name = "CBookFontStylist"
-CBookFontStylist.version = "1.05"
+CBookFontStylist.version = "1.06"
 CBookFontStylist.author = "Calamath"
 CBookFontStylist.savedVars = "CBookFontStylistDB"
 CBookFontStylist.savedVarsVersion = 1

@@ -1,11 +1,11 @@
-## Title: LibCFontManager
-## Version: 0.6
+## Title: LibCFontManager V0.7
+## Version: 0.7
+## AddOnVersion: 7
 ## Author: Calamath
-## License: MIT License (X11 License)
+## License: Artistic License 2.0
 ## IsLibrary: true
-## APIVersion: 100030 100031
-## AddOnVersion: 6
-## DependsOn: LibMediaProvider-1.0>=12 
+## APIVersion: 100031 100032
+## DependsOn: LibMediaProvider-1.0>=14 
 ## OptionalDependsOn:RuESO EsoPL EsoBR EsoKR LibDebugLogger>=180
 ## SavedVariables: LibCFontManagerDB
 
