@@ -1,3 +1,9 @@
+V0.9 : [V9] by Calamath
+- The font style list is now in alphabetical order even if some user fonts are added after this add-on is loaded.
+- Changed the return value of GetFontStyleListLMP API to the copied table instead of referencing the internal table.
+- Optimized the internal processing of tooltip text.
+- Added a new API : GetFontTooltipTextLMP
+
 V0.8 : [V8] by Calamath
 - Updated API version to 100033 (ESO 6.2.x : Markarth)
 

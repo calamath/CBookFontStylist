@@ -1,3 +1,8 @@
+V1.08 : [V108] by Calamath
+- Fixed an issue where the font selection dropdown menu was not created properly when another font was added. Special thanks to: NoShotz
+- Fonts added by other add-ons are now included in the dropdown menu regardless of the add-on loading order.
+- LibCFontManager update to V0.9 [V9]
+
 V1.07 : [V107] by Calamath
 - LibCFontManager update to V0.8 [V8]
 - Updated API version to 100033 (ESO 6.2.x : Markarth)

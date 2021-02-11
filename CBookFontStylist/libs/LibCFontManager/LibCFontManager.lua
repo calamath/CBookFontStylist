@@ -29,7 +29,7 @@ LMP:Register("font", "JP-KafuPenji", "EsoUI/Common/Fonts/ESO_KafuPenji-M.ttf")		
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "0.8"
+LibCFontManager.version = "0.9"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1			-- for testing purpose
@@ -47,6 +47,7 @@ local unknownFontNum = 0
 
 local lmpFontStyleList = {}
 local lmpFontPathTable = {}
+local needToRebuildFontStyleList = false			-- need for alphabetical sorting due to new fonts added to LibMediaProvider after initialize
 
 local lmpFontExTable = {
 --		lmpFontExTable[key].XXX
@@ -55,6 +56,7 @@ local lmpFontExTable = {
 --			isEsoEmbeddedFont	: [boolean] ESO embedded font or not (the result of judging whether the filename matches that of the ESO embedded font)
 --			name				: [string] font name (OPTIONAL)
 --			description 		: [string] font discription (OPTIONAL)
+--			tooltip				: [string] tooltip text
 --
 	["Univers 55"] = { name = L(SI_LCFM_FONTNAME_UNIVERS55) }, 
 	["Univers 57"] = { name = L(SI_LCFM_FONTNAME_UNIVERS57) }, 
@@ -342,6 +344,32 @@ local function AppendUnknownFontToLMP(fontPath) -- for fail-safe
 	end
 end
 
+local function CreateFontTooltipText(key)
+--	return : [string] tooltip text
+	local s = {}
+	local font = lmpFontExTable[key]
+	if font then
+		s[1] = font.name or key
+		s[2] = string.format("(%s)", font.filename)
+		if font.isEsoEmbeddedFont and (zo_strlower(font.provider) == "esoui") then
+			s[3] = L(SI_LCFM_FONTSTYLE_TIPS_ZOSFONT)
+		else
+			s[3] = zo_strformat(L(SI_LCFM_FONTSTYLE_TIPS_ADDONFONT), font.provider)
+		end
+		s[4] = font.description
+		return tconcat(s, "\n")
+	else
+		return ""
+	end
+end
+
+local function RebuildFontStyleList()
+	if needToRebuildFontStyleList then
+		table.sort(lmpFontStyleList)
+		needToRebuildFontStyleList = false
+	end
+end
+
 -- ------------------------------------------------------
 
 local function InitializeLCFM()
@@ -353,8 +381,9 @@ local function InitializeLCFM()
 	CreateFont("WorkSpaceLCFM", "$(MEDIUM_FONT)|12")
 
 -- for font management enhancements, this feature work with LibMediaProvider.
-	lmpFontStyleList = ZO_ShallowTableCopy(LMP:List("font"))	-- LCFM uses an own local copy of the LMP font media list. It is not sorted after each registration in LMP from now.
+	lmpFontStyleList = ZO_ShallowTableCopy(LMP:List("font"))	-- LCFM uses an own local copy of the LMP font media list.
 	lmpFontPathTable = ZO_ShallowTableCopy(LMP:HashTable("font"))
+	needToRebuildFontStyleList = false
 	for i, key in pairs(lmpFontStyleList) do
 		WorkSpaceLCFM:SetFont(lmpFontPathTable[key])	-- Extract reliabe font path whether font string or not.
 		local fontPath = WorkSpaceLCFM:GetFontInfo()
@@ -371,6 +400,7 @@ local function InitializeLCFM()
 		else
 			lmpFontExTable[key].isEsoEmbeddedFont = false
 		end
+		lmpFontExTable[key].tooltip = CreateFontTooltipText(key)
 	end
 	CALLBACK_MANAGER:RegisterCallback("LibMediaProvider_Registered", function(mediatype, key)	-- callback routine to ensure consistency with the LMP font list after local copy.
 		if mediatype ~= "font" then return end
@@ -379,6 +409,7 @@ local function InitializeLCFM()
 		end
 		local fontPath = LMP:Fetch("font", key)
 		lmpFontPathTable[key] = fontPath
+		needToRebuildFontStyleList = true
 
 		WorkSpaceLCFM:SetFont(fontPath)					-- Extract reliabe font path whether font string or not.
 		fontPath = WorkSpaceLCFM:GetFontInfo()
@@ -395,6 +426,8 @@ local function InitializeLCFM()
 		else
 			lmpFontExTable[key].isEsoEmbeddedFont = false
 		end
+		lmpFontExTable[key].tooltip = CreateFontTooltipText(key)
+		LCFM.LDL:Debug("Registered new font : ", key)
 	end)
 
 -- for preserve the initial state of the zos fonts in various game mode environments,
@@ -507,6 +540,7 @@ function LibCFontManager:SetFontNameLMP(style, name)
 	if type(name) ~= "string" then return end
 	lmpFontExTable[style] = lmpFontExTable[style] or {}
 	lmpFontExTable[style].name = name
+	lmpFontExTable[style].tooltip = CreateFontTooltipText(style)	-- update tooltip text
 end
 
 function LibCFontManager:GetFontNameLMP(style)
@@ -521,6 +555,7 @@ function LibCFontManager:SetFontDescriptionLMP(style, description)
 	if type(description) ~= "string" then return end
 	lmpFontExTable[style] = lmpFontExTable[style] or {}
 	lmpFontExTable[style].description = description
+	lmpFontExTable[style].tooltip = CreateFontTooltipText(style)	-- update tooltip text
 end
 
 function LibCFontManager:GetFontDescriptionLMP(style)
@@ -530,13 +565,24 @@ function LibCFontManager:GetFontDescriptionLMP(style)
 	end
 end
 
+function LibCFontManager:GetFontTooltipTextLMP(style)
+	if type(style) ~= "string" then return end
+	if lmpFontExTable[style] then
+		return lmpFontExTable[style].tooltip
+	end
+end
+
 -- ------------------------------------------------------------------------------------------------
 function LibCFontManager:GetFontStyleListLMP()
-	return lmpFontStyleList
+	local t = {}
+	RebuildFontStyleList()
+	t = ZO_ShallowTableCopy(lmpFontStyleList)
+	return t
 end
 
 function LibCFontManager:GetDecoratedFontStyleListLMP()
 	local t = {}
+	RebuildFontStyleList()
 	for k, v in pairs(lmpFontStyleList) do
 		if lmpFontExTable[v].isEsoEmbeddedFont then
 			t[k] = "|c4169e1" .. v .. "|r"
@@ -548,20 +594,10 @@ function LibCFontManager:GetDecoratedFontStyleListLMP()
 end
 
 function LibCFontManager:GetFontTooltipListLMP()
-	local s = {}
 	local t = {}
-	local font = {}
+	RebuildFontStyleList()
 	for k, v in pairs(lmpFontStyleList) do
-		font = lmpFontExTable[v]
-		s[1] = font.name or v
-		s[2] = string.format("(%s)", font.filename)
-		if font.isEsoEmbeddedFont and (zo_strlower(font.provider) == "esoui") then
-			s[3] = L(SI_LCFM_FONTSTYLE_TIPS_ZOSFONT)
-		else
-			s[3] = zo_strformat(L(SI_LCFM_FONTSTYLE_TIPS_ADDONFONT), font.provider)
-		end
-		s[4] = font.description
-		t[k] = tconcat(s, "\n")
+		t[k] = lmpFontExTable[v].tooltip or ""
 	end
 	return t
 end

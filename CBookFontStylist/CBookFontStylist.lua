@@ -17,7 +17,7 @@
 CBookFontStylist = CBookFontStylist or {}
 
 CBookFontStylist.name = "CBookFontStylist"
-CBookFontStylist.version = "1.07"
+CBookFontStylist.version = "1.08"
 CBookFontStylist.author = "Calamath"
 CBookFontStylist.savedVars = "CBookFontStylistDB"
 CBookFontStylist.savedVarsVersion = 1
@@ -202,11 +202,6 @@ end
 
 
 --[[
-local function OnPlayerActivated(event, initial)
-	CBFS.LDL:Debug("EVENT_PLAYER_ACTIVATED")
-end
-EVENT_MANAGER:RegisterForEvent(CBFS.name, EVENT_PLAYER_ACTIVATED, OnPlayerActivated)
-
 local function OnShowBook()
 	CBFS.LDL:Debug("EVENT_SHOW_BOOK")
 end
@@ -258,9 +253,6 @@ local function cbfsInitialize()
 		cbfsInitializeConfigData(lang, preset)
 	end
 
-	-- UI
-	CBFS.uiPanel = CBFS.CreateSettingsWindow()
-
 	-- backend
 	ZO_PreHookHandler(ZO_LoreReader, "OnShow", LORE_READER_OnShow_prehook)
 	ZO_PreHook(LORE_READER, "OnHide", LORE_READER_OnHide_prehook)
@@ -286,6 +278,17 @@ local function cbfsConfigDebug(arg)
 	end
 end
 
+
+local function OnPlayerActivated(event, initial)
+--	CBFS.LDL:Debug("EVENT_PLAYER_ACTIVATED")
+	EVENT_MANAGER:UnregisterForEvent(CBFS.name, EVENT_PLAYER_ACTIVATED)		-- Only after the first login/reloadUI.
+
+	-- UI initialization
+	CBFS.uiPanel = CBFS.CreateSettingsWindow()
+end
+EVENT_MANAGER:RegisterForEvent(CBFS.name, EVENT_PLAYER_ACTIVATED, OnPlayerActivated)
+
+
 local function OnAddOnLoaded(event, addonName)
 	if addonName ~= CBFS.name then return end
 	EVENT_MANAGER:UnregisterForEvent(CBFS.name, EVENT_ADD_ON_LOADED)
@@ -294,7 +297,6 @@ local function OnAddOnLoaded(event, addonName)
 	cbfsInitialize()
 end
 EVENT_MANAGER:RegisterForEvent(CBFS.name, EVENT_ADD_ON_LOADED, OnAddOnLoaded)
-
 
 
 -- ------------------------------------------------
