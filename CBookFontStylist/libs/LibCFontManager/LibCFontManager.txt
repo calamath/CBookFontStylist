@@ -1,12 +1,12 @@
-## Title: LibCFontManager V0.9
-## Version: 0.9
-## AddOnVersion: 9
+## Title: LibCFontManager V1.00
+## Version: 1.00
+## AddOnVersion: 100
 ## Author: Calamath
 ## License: Artistic License 2.0
 ## IsLibrary: true
-## APIVersion: 100032 100033
-## DependsOn: LibMediaProvider-1.0>=14 
-## OptionalDependsOn:RuESO EsoPL EsoBR EsoKR LibDebugLogger>=180
+## APIVersion: 100033 100034
+## DependsOn: LibMediaProvider-1.0>=16 
+## OptionalDependsOn:RuESO EsoPL EsoBR EsoKR LibDebugLogger>=201
 ## SavedVariables: LibCFontManagerDB
 
 ; This Add-on is not created by, affiliated with or sponsored by ZeniMax 

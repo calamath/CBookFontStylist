@@ -1,3 +1,7 @@
+V1.09 : [V109] by Calamath
+- LibCFontManager update to V1.00 [V100]
+- Updated API version to 100034 (ESO 6.3.x : Flames of Ambition)
+
 V1.08 : [V108] by Calamath
 - Fixed an issue where the font selection dropdown menu was not created properly when another font was added. Special thanks to: NoShotz
 - Fonts added by other add-ons are now included in the dropdown menu regardless of the add-on loading order.
