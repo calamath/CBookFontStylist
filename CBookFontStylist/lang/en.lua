@@ -69,7 +69,7 @@ SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"Specify your prefered font size
 SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"Title Font Weight", 1) 
 SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"Specify your prefered font weight.", 1) 
 SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"Default Font", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Restore settings on this medium to the in-game default font", 1) 
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Restore settings on this medium to the in-game default font. The default font depends on whether you are in gamepad mode.", 1) 
 SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"Preview", 1) 
 SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"Preview your book font settings", 1) 
 

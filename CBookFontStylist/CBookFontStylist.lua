@@ -75,30 +75,107 @@ local zosBookMediumToBMID = {
 }
 
 local cbfsCtrlTbl = {
-	[BMID_YELLOWED_PAPER]	= { body = "ZoFontBookPaper",	title = "ZoFontBookPaperTitle", 	isChanged = false, }, 
-	[BMID_ANIMAL_SKIN]		= { body = "ZoFontBookSkin",	title = "ZoFontBookSkinTitle",		isChanged = false, }, 
-	[BMID_RUBBING_PAPER]	= { body = "ZoFontBookRubbing", title = "ZoFontBookRubbingTitle",	isChanged = false, }, 
-	[BMID_LETTER]			= { body = "ZoFontBookLetter",	title = "ZoFontBookLetterTitle",	isChanged = false, }, 
-	[BMID_NOTE] 			= { body = "ZoFontBookNote",	title = "ZoFontBookNoteTitle",		isChanged = false, }, 
-	[BMID_SCROLL]			= { body = "ZoFontBookScroll",	title = "ZoFontBookScrollTitle",	isChanged = false, }, 
-	[BMID_STONE_TABLET] 	= { body = "ZoFontBookTablet",	title = "ZoFontBookTabletTitle",	isChanged = false, }, 
-	[BMID_METAL]			= { body = "ZoFontBookMetal",	title = "ZoFontBookMetalTitle", 	isChanged = false, }, 
-	[BMID_METAL_TABLET] 	= { body = "ZoFontBookMetal",	title = "ZoFontBookMetalTitle", 	isChanged = false, }, 
+	[BMID_YELLOWED_PAPER] = {
+		keyboard = {
+			body	= "ZoFontBookPaper", 
+			title	= "ZoFontBookPaperTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookPaper", 
+			title	= "ZoFontGamepadBookPaperTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_ANIMAL_SKIN] = {
+		keyboard = {
+			body	= "ZoFontBookSkin",
+			title	= "ZoFontBookSkinTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookSkin", 
+			title	= "ZoFontGamepadBookSkinTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_RUBBING_PAPER] = {
+		keyboard = {
+			body	= "ZoFontBookRubbing", 
+			title	= "ZoFontBookRubbingTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookRubbing", 
+			title	= "ZoFontGamepadBookRubbingTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_LETTER] = {
+		keyboard = {
+			body	= "ZoFontBookLetter", 
+			title	= "ZoFontBookLetterTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookLetter", 
+			title	= "ZoFontGamepadBookLetterTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_NOTE] = {
+		keyboard = {
+			body	= "ZoFontBookNote", 
+			title	= "ZoFontBookNoteTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookNote", 
+			title	= "ZoFontGamepadBookNoteTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_SCROLL] = {
+		keyboard = {
+			body	= "ZoFontBookScroll", 
+			title	= "ZoFontBookScrollTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookScroll", 
+			title	= "ZoFontGamepadBookScrollTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_STONE_TABLET] = {
+		keyboard = {
+			body	= "ZoFontBookTablet", 
+			title	= "ZoFontBookTabletTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookTablet", 
+			title	= "ZoFontGamepadBookTabletTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_METAL] = {
+		keyboard = {
+			body	= "ZoFontBookMetal", 
+			title	= "ZoFontBookMetalTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookMetal", 
+			title	= "ZoFontGamepadBookMetalTitle", 
+		}, 
+		isChanged = false, 
+	}, 
+	[BMID_METAL_TABLET] = {
+		keyboard = {
+			body	= "ZoFontBookMetal", 
+			title	= "ZoFontBookMetalTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookMetal", 
+			title	= "ZoFontGamepadBookMetalTitle", 
+		}, 
+		isChanged = false, 
+	}, 
 }
 setmetatable(cbfsCtrlTbl, { __index = function(self, k) d("[CBFS] Error : illegal BMID access") return self[BMID_YELLOWED_PAPER] end, })
-
-local cbfsCtrlTblGamepadDifferences = {
-	[BMID_YELLOWED_PAPER]	= { body = "ZoFontGamepadBookPaper",	title = "ZoFontGamepadBookPaperTitle",		}, 
-	[BMID_ANIMAL_SKIN]		= { body = "ZoFontGamepadBookSkin", 	title = "ZoFontGamepadBookSkinTitle",		}, 
-	[BMID_RUBBING_PAPER]	= { body = "ZoFontGamepadBookRubbing",	title = "ZoFontGamepadBookRubbingTitle",	}, 
-	[BMID_LETTER]			= { body = "ZoFontGamepadBookLetter",	title = "ZoFontGamepadBookLetterTitle", 	}, 
-	[BMID_NOTE] 			= { body = "ZoFontGamepadBookNote", 	title = "ZoFontGamepadBookNoteTitle",		}, 
-	[BMID_SCROLL]			= { body = "ZoFontGamepadBookScroll",	title = "ZoFontGamepadBookScrollTitle", 	}, 
-	[BMID_STONE_TABLET] 	= { body = "ZoFontGamepadBookTablet",	title = "ZoFontGamepadBookTabletTitle", 	}, 
-	[BMID_METAL]			= { body = "ZoFontGamepadBookMetal",	title = "ZoFontGamepadBookMetalTitle",		}, 
-	[BMID_METAL_TABLET] 	= { body = "ZoFontGamepadBookMetal",	title = "ZoFontGamepadBookMetalTitle",		}, 
-}
-
 
 
 -- CBookFontStylist savedata (default)
@@ -108,45 +185,64 @@ local cbfs_db_default = {
 
 -- ------------------------------------------------
 
-local function cbfsGetBodyFontObjName(bmid)
-	return cbfsCtrlTbl[bmid].body
+local function cbfsGetBodyFontObjName(bmid, isGamepad)
+	if isGamepad then
+		return cbfsCtrlTbl[bmid].gamepad.body
+	else
+		return cbfsCtrlTbl[bmid].keyboard.body
+	end
 end
 CBFS.GetBodyFontObjName = cbfsGetBodyFontObjName
 
-local function cbfsGetTitleFontObjName(bmid)
-	return cbfsCtrlTbl[bmid].title
+local function cbfsGetTitleFontObjName(bmid, isGamepad)
+	if isGamepad then
+		return cbfsCtrlTbl[bmid].gamepad.title
+	else
+		return cbfsCtrlTbl[bmid].keyboard.title
+	end
 end
 CBFS.GetTitleFontObjName = cbfsGetTitleFontObjName
 
-local function cbfsSetupBookFonts(bmid, isGamepad)
+local function cbfsSetupBookFonts(bmid)
 	local lang = CBFS.lang
 	local preset = CBFS.preset
 	local u = CBFS.db.config[lang][preset][bmid]
 
-	local objNameBody = cbfsGetBodyFontObjName(bmid)
-	local objNameTitle = cbfsGetTitleFontObjName(bmid)
+	local objNameKeyboardBody = cbfsGetBodyFontObjName(bmid, false)
+	local objNameKeyboardTitle = cbfsGetTitleFontObjName(bmid, false)
+	local objNameGamepadBody = cbfsGetBodyFontObjName(bmid, true)
+	local objNameGamepadTitle = cbfsGetTitleFontObjName(bmid, true)
 
 	if not LMP:IsValid("font", u.bodyStyle) then return end
 	if not LMP:IsValid("font", u.titleStyle) then return end
 
-	LCFM:SetToNewFontLMP(objNameBody, u.bodyStyle, u.bodySize, u.bodyWeight)
-	LCFM:SetToNewFontLMP(objNameTitle, u.titleStyle, u.titleSize, u.titleWeight)
+	LCFM:SetToNewFontLMP(objNameKeyboardBody, u.bodyStyle, u.bodySize, u.bodyWeight)
+	LCFM:SetToNewFontLMP(objNameKeyboardTitle, u.titleStyle, u.titleSize, u.titleWeight)
+	LCFM:SetToNewFontLMP(objNameGamepadBody, u.bodyStyle, u.bodySize, u.bodyWeight)
+	LCFM:SetToNewFontLMP(objNameGamepadTitle, u.titleStyle, u.titleSize, u.titleWeight)
 	cbfsCtrlTbl[bmid].isChanged = true
 
---	CBFS.LDL:Debug("Changed: ", objNameBody, "->", tostring(LCFM:MakeFontDescriptorLMP(u.bodyStyle, u.bodySize, u.bodyWeight)))
---	CBFS.LDL:Debug("Changed: ", objNameTitle, "->", tostring(LCFM:MakeFontDescriptorLMP(u.titleStyle, u.titleSize, u.titleWeight)))
+--	CBFS.LDL:Debug("Changed: ", objNameKeyboardBody, "->", tostring(LCFM:MakeFontDescriptorLMP(u.bodyStyle, u.bodySize, u.bodyWeight)))
+--	CBFS.LDL:Debug("Changed: ", objNameKeyboardTitle, "->", tostring(LCFM:MakeFontDescriptorLMP(u.titleStyle, u.titleSize, u.titleWeight)))
+--	CBFS.LDL:Debug("Changed: ", objNameGamepadBody, "->", tostring(LCFM:MakeFontDescriptorLMP(u.bodyStyle, u.bodySize, u.bodyWeight)))
+--	CBFS.LDL:Debug("Changed: ", objNameGamepadTitle, "->", tostring(LCFM:MakeFontDescriptorLMP(u.titleStyle, u.titleSize, u.titleWeight)))
 end
 
 local function cbfsRestoreBookFonts(bmid)
-	local objNameBody = cbfsGetBodyFontObjName(bmid)
-	local objNameTitle = cbfsGetTitleFontObjName(bmid)
+	local objNameKeyboardBody = cbfsGetBodyFontObjName(bmid, false)
+	local objNameKeyboardTitle = cbfsGetTitleFontObjName(bmid, false)
+	local objNameGamepadBody = cbfsGetBodyFontObjName(bmid, true)
+	local objNameGamepadTitle = cbfsGetTitleFontObjName(bmid, true)
 
-	LCFM:RestoreToDefaultFont(objNameBody)
-	LCFM:RestoreToDefaultFont(objNameTitle)
-
+	LCFM:RestoreToDefaultFont(objNameKeyboardBody)
+	LCFM:RestoreToDefaultFont(objNameKeyboardTitle)
+	LCFM:RestoreToDefaultFont(objNameGamepadBody)
+	LCFM:RestoreToDefaultFont(objNameGamepadTitle)
 	cbfsCtrlTbl[bmid].isChanged = false
---	CBFS.LDL:Debug("Restored:", objNameBody)
---	CBFS.LDL:Debug("Restored:", objNameTitle)
+--	CBFS.LDL:Debug("Restored:", objNameKeyboardBody)
+--	CBFS.LDL:Debug("Restored:", objNameKeyboardTitle)
+--	CBFS.LDL:Debug("Restored:", objNameGamepadBody)
+--	CBFS.LDL:Debug("Restored:", objNameGamepadTitle)
 end
 
 
@@ -195,9 +291,9 @@ local function LORE_READER_SetupBook_prehook(LORE_READER_self, title, body, medi
 --	CBFS.LDL:Debug("body =", body)
 --	CBFS.LDL:Debug("medium =", medium)
 --	CBFS.LDL:Debug("showTitle =", showTitle)
---	CBFS.LDL:Debug("isGamePad =", isGamepad)
+--	CBFS.LDL:Debug("isGamepad =", isGamepad)
 
-	cbfsSetupBookFonts(bmid, isGamepad)
+	cbfsSetupBookFonts(bmid)
 end
 
 
@@ -214,7 +310,7 @@ EVENT_MANAGER:RegisterForEvent(CBFS.name, EVENT_HIDE_BOOK, OnHideBook)
 ]]
 
 
-local function cbfsInitializeConfigData(lang, preset)
+local function cbfsInitializeConfigData(lang, preset, isGamepad)
 	CBFS.db.config[lang] = CBFS.db.config[lang] or {}
 	preset = preset or 1
 
@@ -224,8 +320,8 @@ local function cbfsInitializeConfigData(lang, preset)
 
 	for k, v in pairs(cbfsCtrlTbl) do
 		local tbl = {}
-		tbl.bodyStyle, tbl.bodySize, tbl.bodyWeight = LCFM:GetDefaultFontInfoLMP(v.body)
-		tbl.titleStyle, tbl.titleSize, tbl.titleWeight = LCFM:GetDefaultFontInfoLMP(v.title)
+		tbl.bodyStyle, tbl.bodySize, tbl.bodyWeight = LCFM:GetDefaultFontInfoLMP(cbfsGetBodyFontObjName(k, isGamepad))
+		tbl.titleStyle, tbl.titleSize, tbl.titleWeight = LCFM:GetDefaultFontInfoLMP(cbfsGetTitleFontObjName(k, isGamepad))
 		tbl.titleAuto = false
 		CBFS.db.config[lang][preset][k] = tbl
 	end
@@ -241,16 +337,11 @@ local function cbfsInitialize()
 	CBFS.lang = lang
 	CBFS.isGamepad = isGamepad
 	CBFS.preset = preset
-	if isGamepad then
-		for bmid, v in pairs(cbfsCtrlTblGamepadDifferences) do
-			cbfsCtrlTbl[bmid].body, cbfsCtrlTbl[bmid].title = v.body, v.title
-		end
-	end
 
 	CBFS.db = ZO_SavedVars:NewAccountWide(CBFS.savedVars, CBFS.savedVarsVersion, nil, cbfs_db_default)
 	-- create savedata field on first boot in each language mode.
 	if not CBFS.db.config[lang] then
-		cbfsInitializeConfigData(lang, preset)
+		cbfsInitializeConfigData(lang, preset, isGamepad)
 	end
 
 	-- backend

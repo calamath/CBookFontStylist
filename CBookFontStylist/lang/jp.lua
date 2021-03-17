@@ -64,7 +64,7 @@ SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"お好みのフォントの大�
 SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"表題フォントの太さ", 1) 
 SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"お好みのフォントの重み（太さ）を設定します。", 1) 
 SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"既定のフォント", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"このブックメディアの設定をゲーム内の既定のフォントに復元します。", 1) 
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"このブックメディアの設定をゲーム内の既定のフォントに復元します。既定のフォントは、ゲームパッドモードかどうかによって変わります。", 1) 
 SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"プレビュー", 1) 
 SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"ブックメディアのフォント設定をプレビューします。", 1) 
 

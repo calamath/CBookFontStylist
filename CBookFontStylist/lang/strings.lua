@@ -58,7 +58,7 @@ local strings = {
 	SI_CBFS_UI_TITLEWEIGHT_MENU_NAME =	"Title Font Weight", 
 	SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS =	"Specify your prefered font weight.", 
 	SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME = "Default Font", 
-	SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS = "Restore settings on this medium to the in-game default font", 
+	SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS = "Restore settings on this medium to the in-game default font. The default font depends on whether you are in gamepad mode.", 
 	SI_CBFS_UI_SHOW_READER_WND_NAME =	"Preview", 
 	SI_CBFS_UI_SHOW_READER_WND_TIPS =	"Preview your book font settings", 
 

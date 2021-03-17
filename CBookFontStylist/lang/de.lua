@@ -65,7 +65,7 @@ SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"Spezifiziere deine bevorzugte F
 SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"Title Font Auszeichnung", 1) 
 SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"Spezifiziere deine bevorzugte Font Auszeichnung.", 1) 
 SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"Standard", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Stelle für dieses Medium wieder den Standard Font und Darstellung ein.", 1) 
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Stelle für dieses Medium wieder den Standard Font und Darstellung ein. Der Standard Font hängt davon ab, ob Sie in Gamepad-Modus befinden.", 1) 
 SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"Vorschau", 1) 
 SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"Zeige eine Vorschau deiner Buch Font Einstellungen an", 1) 
 

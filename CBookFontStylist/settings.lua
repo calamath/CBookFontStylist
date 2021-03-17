@@ -45,92 +45,16 @@ local uiBMID
 local ui = ui or {}
 
 
+-- ----------------------------------------------------------------------------------------
+
 local function DoSetupDefault(bmid)
-	local body = CBFS.GetBodyFontObjName(bmid)
-	local title = CBFS.GetTitleFontObjName(bmid)
+	local body = CBFS.GetBodyFontObjName(bmid, uiIsGamepad)
+	local title = CBFS.GetTitleFontObjName(bmid, uiIsGamepad)
 
 	ui.defBodyFontMenu, ui.defBodySizeMenu, ui.defBodyWeightMenu = LCFM:GetDefaultFontInfoLMP(body)
 	ui.defTitleAutoMenu = false
 	ui.defTitleFontMenu, ui.defTitleSizeMenu, ui.defTitleWeightMenu = LCFM:GetDefaultFontInfoLMP(title)
 end
-
-local function InitializeUI()
-	uiLang = CBFS.lang
-	uiIsGamepad = CBFS.isGamepad
-	uiPreset = CBFS.preset 
-	uiBMID = BMID_YELLOWED_PAPER
-
-	ui.bookMediumTexture = {
-		[BMID_YELLOWED_PAPER]	= "EsoUI/Art/LoreLibrary/loreLibrary_paperBook.dds", 
-		[BMID_ANIMAL_SKIN]		= "EsoUI/Art/LoreLibrary/loreLibrary_skinBook.dds", 
-		[BMID_RUBBING_PAPER]	= "EsoUI/Art/LoreLibrary/loreLibrary_rubbingBook.dds", 
-		[BMID_LETTER]			= "EsoUI/Art/LoreLibrary/loreLibrary_letter.dds", 
-		[BMID_NOTE] 			= "EsoUI/Art/LoreLibrary/loreLibrary_note.dds", 
-		[BMID_SCROLL]			= "EsoUI/Art/LoreLibrary/loreLibrary_scroll.dds", 
-		[BMID_STONE_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_stoneTablet.dds", 
-		[BMID_METAL]			= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerBook.dds", 
-		[BMID_METAL_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerPage.dds", 
-	}
-	ui.MediumChoices = {
-		L(SI_CBFS_BMID_YELLOWED_PAPER_NAME),	-- "Yellowed Paper",
-		L(SI_CBFS_BMID_ANIMAL_SKIN_NAME),		-- "Animal Skin",	
-		L(SI_CBFS_BMID_RUBBING_PAPER_NAME), 	-- "Rubbing Paper", 
-		L(SI_CBFS_BMID_LETTER_NAME),			-- "Letter",		
-		L(SI_CBFS_BMID_NOTE_NAME),				-- "Note",			
-		L(SI_CBFS_BMID_SCROLL_NAME),			-- "Scroll",		
-		L(SI_CBFS_BMID_STONE_TABLET_NAME),		-- "Stone Tablet",	
-		L(SI_CBFS_BMID_METAL_NAME), 			-- "Metal", 		
-		L(SI_CBFS_BMID_METAL_TABLET_NAME),		-- "Metal Tablet",	
-	}
-	ui.MediumChoicesValues = {
-		BMID_YELLOWED_PAPER, 
-		BMID_ANIMAL_SKIN, 
-		BMID_RUBBING_PAPER, 
-		BMID_LETTER, 
-		BMID_NOTE, 
-		BMID_SCROLL, 
-		BMID_STONE_TABLET, 
-		BMID_METAL, 
-		BMID_METAL_TABLET, 
-	}
-	ui.MediumChoicesTooltips = {
-		L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS),	-- "Yellowed Paper",
-		L(SI_CBFS_BMID_ANIMAL_SKIN_TIPS),		-- "Animal Skin",	
-		L(SI_CBFS_BMID_RUBBING_PAPER_TIPS), 	-- "Rubbing Paper", 
-		L(SI_CBFS_BMID_LETTER_TIPS),			-- "Letter",		
-		L(SI_CBFS_BMID_NOTE_TIPS),				-- "Note",			
-		L(SI_CBFS_BMID_SCROLL_TIPS),			-- "Scroll",		
-		L(SI_CBFS_BMID_STONE_TABLET_TIPS),		-- "Stone Tablet",	
-		L(SI_CBFS_BMID_METAL_TIPS), 			-- "Metal", 		
-		L(SI_CBFS_BMID_METAL_TABLET_TIPS),		-- "Metal Tablet",	
-	}
-
-	ui.FontChoices = LCFM:GetDecoratedFontStyleListLMP()
-	ui.FontChoicesValues = LCFM:GetFontStyleListLMP()
-	ui.FontChoicesTooltips = LCFM:GetFontTooltipListLMP()
-
-	ui.WeightChoices = {
-		L(SI_CBFS_WEIGHT_NORMAL_NAME),				-- "normal", 
-		L(SI_CBFS_WEIGHT_SHADOW_NAME),				-- "shadow", 
-		L(SI_CBFS_WEIGHT_OUTLINE_NAME), 			-- "outline", 
-		L(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME),		-- "thick-outline", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME),	-- "soft-shadow-thin", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME),	-- "soft-shadow-thick", 
-	}
-	ui.WeightChoicesValues = { "normal", "shadow", "outline", "thick-outline", "soft-shadow-thin", "soft-shadow-thick" }
-	ui.WeightChoicesTooltips = {
-		L(SI_CBFS_WEIGHT_NORMAL_TIPS),				-- "normal", 
-		L(SI_CBFS_WEIGHT_SHADOW_TIPS),				-- "shadow", 
-		L(SI_CBFS_WEIGHT_OUTLINE_TIPS), 			-- "outline", 
-		L(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS),		-- "thick-outline", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS),	-- "soft-shadow-thin", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS),	-- "soft-shadow-thick", 
-	}
-
-	DoSetupDefault(uiBMID)
-end
-
--- ----------------------------------------------------------------------------------------
 
 local function DoUpdateFontPreview()
 	local t = CBFS.db.config[uiLang][uiPreset][uiBMID]
@@ -159,6 +83,12 @@ cbfs082 end ]]
 -- for CBFS Error Message Display
 	CBFS_UI_ErrorMessageDisplay.data.text = errMsg
 	CBFS_UI_ErrorMessageDisplay:UpdateValue()
+end
+
+local function DoUpdateGameModeDisplay(newLang, newIsGamepad)
+	CBFS_UI_GameModeDisplay.data.text = (newIsGamepad and L(SI_CBFS_UI_GAMEMODE_GAMEPAD_NAME) or L(SI_CBFS_UI_GAMEMODE_KEYBOARD_NAME)) .. " - " .. zo_strupper(newLang)
+	CBFS_UI_GameModeDisplay:UpdateValue()
+	ui.requireUpdateGameModeDisplay = false
 end
 
 local function DoChangeBMID(newBMID)
@@ -231,7 +161,7 @@ local function DoResetCurrentTab()
 end
 
 local function DoPanelDefaultMenu()
-	CBFS.InitializeConfigData(uiLang, uiPreset)
+	CBFS.InitializeConfigData(uiLang, uiPreset, uiIsGamepad)
 	uiBMID = BMID_YELLOWED_PAPER
 	DoChangeBMID(uiBMID)
 	DoResetCurrentTab()
@@ -309,8 +239,12 @@ local function OnLAMPanelControlsCreated(panel)
 	CALLBACK_MANAGER:UnregisterCallback("LAM-PanelControlsCreated", OnLAMPanelControlsCreated)
 
 	CBFS_UI_GameModeDisplay.desc:SetHorizontalAlignment(TEXT_ALIGN_RIGHT)
+	if ui.requireUpdateGameModeDisplay then
+		DoUpdateGameModeDisplay(uiLang, uiIsGamepad)
+	end
 	SetupTLW()
 	DoUpdateFontPreview()
+	ui.panelInitialized = true
 end
 
 local function OnLAMPanelClosed(panel)
@@ -324,6 +258,101 @@ local function OnLAMPanelOpened(panel)
 	CBFS.uiPreviewMode = false	-- force end of the CBFS preview mode.
 --	CBFS.LDL:Debug("LAM-Panel Opened")
 	CBFS_UI_PreviewWindow:SetHidden(false)
+end
+
+local function OnGamepadPreferredModeChanged(event, gamepadPreferred)
+	uiIsGamepad = gamepadPreferred
+	CBFS.isGamepad = uiIsGamepad
+	DoSetupDefault(uiBMID)	-- update default font to match whether it is in gamepad mode or not.
+
+	if ui.panelInitialized then
+		DoUpdateGameModeDisplay(uiLang, uiIsGamepad)
+	else
+		ui.requireUpdateGameModeDisplay = true			-- update the display later when the panel control creation is not complete.		
+	end
+end
+
+local function InitializeUI()
+	uiLang = CBFS.lang
+	uiIsGamepad = IsInGamepadPreferredMode()
+	if CBFS.isGamepad ~= uiIsGamepad then
+		CBFS.isGamepad = uiIsGamepad	-- update CBFS.isGamepad as needed if gamepad mode has been changed after add-on initialization.
+	end
+	uiPreset = CBFS.preset 
+	uiBMID = BMID_YELLOWED_PAPER
+
+	ui.panelInitialized = false
+	ui.requireUpdateGameModeDisplay = false
+
+	ui.bookMediumTexture = {
+		[BMID_YELLOWED_PAPER]	= "EsoUI/Art/LoreLibrary/loreLibrary_paperBook.dds", 
+		[BMID_ANIMAL_SKIN]		= "EsoUI/Art/LoreLibrary/loreLibrary_skinBook.dds", 
+		[BMID_RUBBING_PAPER]	= "EsoUI/Art/LoreLibrary/loreLibrary_rubbingBook.dds", 
+		[BMID_LETTER]			= "EsoUI/Art/LoreLibrary/loreLibrary_letter.dds", 
+		[BMID_NOTE] 			= "EsoUI/Art/LoreLibrary/loreLibrary_note.dds", 
+		[BMID_SCROLL]			= "EsoUI/Art/LoreLibrary/loreLibrary_scroll.dds", 
+		[BMID_STONE_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_stoneTablet.dds", 
+		[BMID_METAL]			= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerBook.dds", 
+		[BMID_METAL_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerPage.dds", 
+	}
+	ui.MediumChoices = {
+		L(SI_CBFS_BMID_YELLOWED_PAPER_NAME),	-- "Yellowed Paper",
+		L(SI_CBFS_BMID_ANIMAL_SKIN_NAME),		-- "Animal Skin",	
+		L(SI_CBFS_BMID_RUBBING_PAPER_NAME), 	-- "Rubbing Paper", 
+		L(SI_CBFS_BMID_LETTER_NAME),			-- "Letter",		
+		L(SI_CBFS_BMID_NOTE_NAME),				-- "Note",			
+		L(SI_CBFS_BMID_SCROLL_NAME),			-- "Scroll",		
+		L(SI_CBFS_BMID_STONE_TABLET_NAME),		-- "Stone Tablet",	
+		L(SI_CBFS_BMID_METAL_NAME), 			-- "Metal", 		
+		L(SI_CBFS_BMID_METAL_TABLET_NAME),		-- "Metal Tablet",	
+	}
+	ui.MediumChoicesValues = {
+		BMID_YELLOWED_PAPER, 
+		BMID_ANIMAL_SKIN, 
+		BMID_RUBBING_PAPER, 
+		BMID_LETTER, 
+		BMID_NOTE, 
+		BMID_SCROLL, 
+		BMID_STONE_TABLET, 
+		BMID_METAL, 
+		BMID_METAL_TABLET, 
+	}
+	ui.MediumChoicesTooltips = {
+		L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS),	-- "Yellowed Paper",
+		L(SI_CBFS_BMID_ANIMAL_SKIN_TIPS),		-- "Animal Skin",	
+		L(SI_CBFS_BMID_RUBBING_PAPER_TIPS), 	-- "Rubbing Paper", 
+		L(SI_CBFS_BMID_LETTER_TIPS),			-- "Letter",		
+		L(SI_CBFS_BMID_NOTE_TIPS),				-- "Note",			
+		L(SI_CBFS_BMID_SCROLL_TIPS),			-- "Scroll",		
+		L(SI_CBFS_BMID_STONE_TABLET_TIPS),		-- "Stone Tablet",	
+		L(SI_CBFS_BMID_METAL_TIPS), 			-- "Metal", 		
+		L(SI_CBFS_BMID_METAL_TABLET_TIPS),		-- "Metal Tablet",	
+	}
+
+	ui.FontChoices = LCFM:GetDecoratedFontStyleListLMP()
+	ui.FontChoicesValues = LCFM:GetFontStyleListLMP()
+	ui.FontChoicesTooltips = LCFM:GetFontTooltipListLMP()
+
+	ui.WeightChoices = {
+		L(SI_CBFS_WEIGHT_NORMAL_NAME),				-- "normal", 
+		L(SI_CBFS_WEIGHT_SHADOW_NAME),				-- "shadow", 
+		L(SI_CBFS_WEIGHT_OUTLINE_NAME), 			-- "outline", 
+		L(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME),		-- "thick-outline", 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME),	-- "soft-shadow-thin", 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME),	-- "soft-shadow-thick", 
+	}
+	ui.WeightChoicesValues = { "normal", "shadow", "outline", "thick-outline", "soft-shadow-thin", "soft-shadow-thick" }
+	ui.WeightChoicesTooltips = {
+		L(SI_CBFS_WEIGHT_NORMAL_TIPS),				-- "normal", 
+		L(SI_CBFS_WEIGHT_SHADOW_TIPS),				-- "shadow", 
+		L(SI_CBFS_WEIGHT_OUTLINE_TIPS), 			-- "outline", 
+		L(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS),		-- "thick-outline", 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS),	-- "soft-shadow-thin", 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS),	-- "soft-shadow-thick", 
+	}
+
+	EVENT_MANAGER:RegisterForEvent(CBFS.name, EVENT_GAMEPAD_PREFERRED_MODE_CHANGED, OnGamepadPreferredModeChanged)
+	DoSetupDefault(uiBMID)
 end
 
 function CBFS.CreateSettingsWindow()
