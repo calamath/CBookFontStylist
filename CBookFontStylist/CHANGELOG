@@ -1,4 +1,5 @@
 - Improved to support switching gamepad mode on and off.
+- small code optimization
 
 V1.09 : [V109] by Calamath
 - LibCFontManager update to V1.00 [V100]

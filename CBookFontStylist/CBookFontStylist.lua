@@ -245,6 +245,14 @@ local function cbfsRestoreBookFonts(bmid)
 --	CBFS.LDL:Debug("Restored:", objNameGamepadTitle)
 end
 
+local function cbfsRestoreAllBookFontsAsNeeded()
+	for bmid, v in pairs(cbfsCtrlTbl) do
+		if v.isChanged then
+			cbfsRestoreBookFonts(bmid)
+		end
+	end
+end
+
 
 -- ------------------------------------------------
 
@@ -267,11 +275,7 @@ end
 
 local function LORE_READER_OnHide_prehook()
 --	CBFS.LDL:Debug("LORE_READER:OnHide (ZOPreHook)")
-	for bmid, v in pairs(cbfsCtrlTbl) do
-		if v.isChanged then
-			cbfsRestoreBookFonts(bmid)
-		end
-	end
+	cbfsRestoreAllBookFontsAsNeeded()
 	if CBFS.uiPreviewMode then	-- When the LORE_READER is closed in the CBFS preview mode, the scene is forcibly moved to the CBFS addon panel.
 		CBFS.uiPreviewMode = false
 		LAM:OpenToPanel(CBFS.uiPanel)
@@ -318,6 +322,7 @@ local function cbfsInitializeConfigData(lang, preset, isGamepad)
 		CBFS.db.config[lang][preset] ={}
 	end
 
+	-- forcibly initialize the configuration data of all book medium
 	for k, v in pairs(cbfsCtrlTbl) do
 		local tbl = {}
 		tbl.bodyStyle, tbl.bodySize, tbl.bodyWeight = LCFM:GetDefaultFontInfoLMP(cbfsGetBodyFontObjName(k, isGamepad))
@@ -327,6 +332,27 @@ local function cbfsInitializeConfigData(lang, preset, isGamepad)
 	end
 end
 CBFS.InitializeConfigData = cbfsInitializeConfigData
+
+
+local function cbfsValidateConfigData(lang, preset, isGamepad)
+	lang = lang or "en"
+	preset = preset or 1
+
+	if not CBFS.db.config[lang][preset] then
+		CBFS.db.config[lang][preset] ={}
+	end
+
+	for k, v in pairs(cbfsCtrlTbl) do
+		-- initialize only the configuration data of the book medium that does not exist in the save data.
+		if not CBFS.db.config[lang][preset][k] then
+			local tbl = {}
+			tbl.bodyStyle, tbl.bodySize, tbl.bodyWeight = LCFM:GetDefaultFontInfoLMP(cbfsGetBodyFontObjName(k, isGamepad))
+			tbl.titleStyle, tbl.titleSize, tbl.titleWeight = LCFM:GetDefaultFontInfoLMP(cbfsGetTitleFontObjName(k, isGamepad))
+			tbl.titleAuto = false
+			CBFS.db.config[lang][preset][k] = tbl
+		end
+	end
+end
 
 
 local function cbfsInitialize()
@@ -342,6 +368,8 @@ local function cbfsInitialize()
 	-- create savedata field on first boot in each language mode.
 	if not CBFS.db.config[lang] then
 		cbfsInitializeConfigData(lang, preset, isGamepad)
+	else
+		cbfsValidateConfigData(lang, preset, isGamepad)
 	end
 
 	-- backend
