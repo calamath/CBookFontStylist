@@ -15,6 +15,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"Schriftrolle", 1)				-- "Scroll"
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"Stein Tafel", 1)			-- "Stone Tablet"
 SafeAddString(SI_CBFS_BMID_METAL_NAME,					"Dwemer Buch", 1)			-- "Metal"
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"Dwemer Tafel", 1)			-- "Metal Tablet"
+SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"Antiquity Codex", 1)		-- "Antiquity Codex"
 
 SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"Gelbes Papier", 1)	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_TIPS,			"Tier-Skin Papier", 1)		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
@@ -25,6 +26,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"Schriftrolle", 1)			-- tooltip for 
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Stein Tafel", 1)		-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Metall Buch", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Metall Tafel", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"Antiquity Codex", 1)	-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
 
 SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"Normal", 1) 
 SafeAddString(SI_CBFS_WEIGHT_SHADOW_NAME,				"Schatten", 1) 

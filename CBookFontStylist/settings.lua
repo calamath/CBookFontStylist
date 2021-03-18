@@ -25,6 +25,7 @@ local BMID_SCROLL			= CBFS.bookMediumID["BMID_SCROLL"]
 local BMID_STONE_TABLET 	= CBFS.bookMediumID["BMID_STONE_TABLET"]
 local BMID_METAL			= CBFS.bookMediumID["BMID_METAL"]
 local BMID_METAL_TABLET 	= CBFS.bookMediumID["BMID_METAL_TABLET"]
+local BMID_ANTIQUITY_CODEX 	= CBFS.bookMediumID["BMID_ANTIQUITY_CODEX"]
 
 
 -- Library
@@ -95,7 +96,7 @@ local function DoChangeBMID(newBMID)
 	uiBMID = newBMID
 	DoSetupDefault(newBMID)
 
-	CBFS_UI_TabHeader.data.name = ui.MediumChoices[newBMID] .. " :"
+	CBFS_UI_TabHeader.data.name = ui.tabHeaderText[newBMID] .. " :"
 	CBFS_UI_TabHeader:UpdateValue()
 	CBFS_UI_PreviewWindowMediumBg:SetTexture(ui.bookMediumTexture[newBMID])
 	DoUpdateFontPreview()
@@ -168,12 +169,21 @@ local function DoPanelDefaultMenu()
 end
 
 local function DoPreviewButton()
-	LORE_READER:Show( L(SI_CBFS_UI_PREVIEW_BOOK_TITLE), L(SI_CBFS_UI_PREVIEW_BOOK_BODY), uiBMID, true )
-	CBFS.uiPreviewMode = true		-- When the LORE_READER is closed in the CBFS preview mode, the scene is forcibly moved to the CBFS addon panel.
-	if uiIsGamepad then
-		SCENE_MANAGER:Push("gamepad_loreReaderInteraction")
+	if uiBMID == BMID_ANTIQUITY_CODEX then
+		if ui.antiquityIdForPreview ~= 0 then
+			if ANTIQUITY_DATA_MANAGER.OnAntiquityShowCodexEntry then
+				CBFS.uiPreviewMode = true		-- When the antiquity lore reader scene is closed in the CBFS preview mode, the scene is forcibly moved to the CBFS addon panel.
+				ANTIQUITY_DATA_MANAGER:OnAntiquityShowCodexEntry(ui.antiquityIdForPreview)
+			end
+		end
 	else
-		SCENE_MANAGER:Push("loreReaderInteraction")    
+		LORE_READER:Show( L(SI_CBFS_UI_PREVIEW_BOOK_TITLE), L(SI_CBFS_UI_PREVIEW_BOOK_BODY), uiBMID, true )
+		CBFS.uiPreviewMode = true		-- When the LORE_READER is closed in the CBFS preview mode, the scene is forcibly moved to the CBFS addon panel.
+		if uiIsGamepad then
+			SCENE_MANAGER:Push("gamepad_loreReaderInteraction")
+		else
+			SCENE_MANAGER:Push("loreReaderInteraction")    
+		end
 	end
 end
 
@@ -294,6 +304,19 @@ local function InitializeUI()
 		[BMID_STONE_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_stoneTablet.dds", 
 		[BMID_METAL]			= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerBook.dds", 
 		[BMID_METAL_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerPage.dds", 
+		[BMID_ANTIQUITY_CODEX] 	= "EsoUI/Art/Antiquities/codex_document.dds", 
+	}
+	ui.tabHeaderText = {
+		[BMID_YELLOWED_PAPER]	= L(SI_CBFS_BMID_YELLOWED_PAPER_NAME),	-- "Yellowed Paper",
+		[BMID_ANIMAL_SKIN]		= L(SI_CBFS_BMID_ANIMAL_SKIN_NAME),		-- "Animal Skin",	
+		[BMID_RUBBING_PAPER]	= L(SI_CBFS_BMID_RUBBING_PAPER_NAME), 	-- "Rubbing Paper", 
+		[BMID_LETTER]			= L(SI_CBFS_BMID_LETTER_NAME),			-- "Letter",		
+		[BMID_NOTE] 			= L(SI_CBFS_BMID_NOTE_NAME),			-- "Note",			
+		[BMID_SCROLL]			= L(SI_CBFS_BMID_SCROLL_NAME),			-- "Scroll",		
+		[BMID_STONE_TABLET] 	= L(SI_CBFS_BMID_STONE_TABLET_NAME),	-- "Stone Tablet",	
+		[BMID_METAL]			= L(SI_CBFS_BMID_METAL_NAME), 			-- "Metal", 		
+		[BMID_METAL_TABLET] 	= L(SI_CBFS_BMID_METAL_TABLET_NAME),	-- "Metal Tablet",	
+		[BMID_ANTIQUITY_CODEX] 	= L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME),	-- "Antiquity Codex",
 	}
 	ui.MediumChoices = {
 		L(SI_CBFS_BMID_YELLOWED_PAPER_NAME),	-- "Yellowed Paper",
@@ -305,6 +328,7 @@ local function InitializeUI()
 		L(SI_CBFS_BMID_STONE_TABLET_NAME),		-- "Stone Tablet",	
 		L(SI_CBFS_BMID_METAL_NAME), 			-- "Metal", 		
 		L(SI_CBFS_BMID_METAL_TABLET_NAME),		-- "Metal Tablet",	
+		L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME),	-- "Antiquity Codex",	
 	}
 	ui.MediumChoicesValues = {
 		BMID_YELLOWED_PAPER, 
@@ -316,6 +340,7 @@ local function InitializeUI()
 		BMID_STONE_TABLET, 
 		BMID_METAL, 
 		BMID_METAL_TABLET, 
+		BMID_ANTIQUITY_CODEX, 
 	}
 	ui.MediumChoicesTooltips = {
 		L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS),	-- "Yellowed Paper",
@@ -327,6 +352,7 @@ local function InitializeUI()
 		L(SI_CBFS_BMID_STONE_TABLET_TIPS),		-- "Stone Tablet",	
 		L(SI_CBFS_BMID_METAL_TIPS), 			-- "Metal", 		
 		L(SI_CBFS_BMID_METAL_TABLET_TIPS),		-- "Metal Tablet",	
+		L(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS),	-- "Antiquity Codex",	
 	}
 
 	ui.FontChoices = LCFM:GetDecoratedFontStyleListLMP()
@@ -350,6 +376,16 @@ local function InitializeUI()
 		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS),	-- "soft-shadow-thin", 
 		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS),	-- "soft-shadow-thick", 
 	}
+
+	-- obtain the id number of antiquity unlocked by the player.
+	ui.antiquityIdForPreview = 0
+	for antiquityId = 1000, 1, -1 do
+		if GetNumAntiquityLoreEntriesAcquired(antiquityId) > 0 then
+			ui.antiquityIdForPreview = antiquityId
+			break
+		end
+	end
+--	CBFS.LDL:Debug("ui.antiquityIdForPreview = ", ui.antiquityIdForPreview)
 
 	EVENT_MANAGER:RegisterForEvent(CBFS.name, EVENT_GAMEPAD_PREFERRED_MODE_CHANGED, OnGamepadPreferredModeChanged)
 	DoSetupDefault(uiBMID)
@@ -402,7 +438,7 @@ function CBFS.CreateSettingsWindow()
 	}
 	optionsData[#optionsData + 1] = {
 			type = "header", 
-			name = ui.MediumChoices[uiBMID] .. " :", 
+			name = ui.tabHeaderText[uiBMID] .. " :", 
 			reference = "CBFS_UI_TabHeader", 
 	}
 	optionsData[#optionsData + 1] = {
@@ -510,6 +546,7 @@ function CBFS.CreateSettingsWindow()
 			tooltip = L(SI_CBFS_UI_SHOW_READER_WND_TIPS), 
 			func = DoPreviewButton, 
 			width = "half", 
+			disabled = function() return uiBMID == BMID_ANTIQUITY_CODEX and ui.antiquityIdForPreview == 0 end, 
 	}
 	optionsData[#optionsData + 1] = {
 			type = "description", 

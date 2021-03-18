@@ -8,6 +8,7 @@ local strings = {
 	SI_CBFS_BMID_STONE_TABLET_NAME =	"Stone Tablet", 		-- "Stone Tablet"
 	SI_CBFS_BMID_METAL_NAME =			"Dwemer Book",			-- "Metal"
 	SI_CBFS_BMID_METAL_TABLET_NAME =	"Dwemer Page",			-- "Metal Tablet"
+	SI_CBFS_BMID_ANTIQUITY_CODEX_NAME =	"Antiquity Codex",		-- "Antiquity Codex"
 
 	SI_CBFS_BMID_YELLOWED_PAPER_TIPS =	"Yellowed Paper",	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
 	SI_CBFS_BMID_ANIMAL_SKIN_TIPS = 	"Animal Skin",		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
@@ -18,6 +19,7 @@ local strings = {
 	SI_CBFS_BMID_STONE_TABLET_TIPS =	"Stone Tablet", 	-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
 	SI_CBFS_BMID_METAL_TIPS =			"Metal Book",		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
 	SI_CBFS_BMID_METAL_TABLET_TIPS =	"Metal Tablet", 	-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+	SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS =	"Antiquity Codex", 	-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
 
 	SI_CBFS_WEIGHT_NORMAL_NAME				= "normal", 
 	SI_CBFS_WEIGHT_SHADOW_NAME				= "shadow", 

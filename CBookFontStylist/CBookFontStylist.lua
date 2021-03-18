@@ -25,16 +25,17 @@ CBookFontStylist.authority = {2973583419,210970542}
 CBookFontStylist.maxPreset = 1
 
 CBookFontStylist.bookMediumID = {
-	BMID_NONE			= 0, 
-	BMID_YELLOWED_PAPER = 1, 
-	BMID_ANIMAL_SKIN	= 2, 
-	BMID_RUBBING_PAPER	= 3, 
-	BMID_LETTER 		= 4, 
-	BMID_NOTE			= 5, 
-	BMID_SCROLL 		= 6, 
-	BMID_STONE_TABLET	= 7, 
-	BMID_METAL			= 8, 
-	BMID_METAL_TABLET	= 9, 
+	BMID_NONE				= 0, 
+	BMID_YELLOWED_PAPER 	= 1, 
+	BMID_ANIMAL_SKIN		= 2, 
+	BMID_RUBBING_PAPER		= 3, 
+	BMID_LETTER 			= 4, 
+	BMID_NOTE				= 5, 
+	BMID_SCROLL 			= 6, 
+	BMID_STONE_TABLET		= 7, 
+	BMID_METAL				= 8, 
+	BMID_METAL_TABLET		= 9, 
+	BMID_ANTIQUITY_CODEX	= 99, 
 }
 
 -- Library
@@ -60,6 +61,7 @@ local BMID_SCROLL			= CBFS.bookMediumID["BMID_SCROLL"]
 local BMID_STONE_TABLET 	= CBFS.bookMediumID["BMID_STONE_TABLET"]
 local BMID_METAL			= CBFS.bookMediumID["BMID_METAL"]
 local BMID_METAL_TABLET 	= CBFS.bookMediumID["BMID_METAL_TABLET"]
+local BMID_ANTIQUITY_CODEX 	= CBFS.bookMediumID["BMID_ANTIQUITY_CODEX"]
 
 local zosBookMediumToBMID = {
 	[BOOK_MEDIUM_NONE]			 = BMID_NONE			, 
@@ -174,6 +176,17 @@ local cbfsCtrlTbl = {
 		}, 
 		isChanged = false, 
 	}, 
+	[BMID_ANTIQUITY_CODEX] = {
+		keyboard = {
+			body	= "ZoFontBookScroll", 
+			title	= "ZoFontBookScrollTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookScroll", 
+			title	= "ZoFontGamepadBookScrollTitle", 
+		}, 
+		isChanged = false, 
+	}, 
 }
 setmetatable(cbfsCtrlTbl, { __index = function(self, k) d("[CBFS] Error : illegal BMID access") return self[BMID_YELLOWED_PAPER] end, })
 
@@ -256,6 +269,9 @@ end
 
 -- ------------------------------------------------
 
+-- ------------------------------------
+-- for lore books
+-- ------------------------------------
 --[[
 -- override version skeleton
 do
@@ -300,7 +316,6 @@ local function LORE_READER_SetupBook_prehook(LORE_READER_self, title, body, medi
 	cbfsSetupBookFonts(bmid)
 end
 
-
 --[[
 local function OnShowBook()
 	CBFS.LDL:Debug("EVENT_SHOW_BOOK")
@@ -313,6 +328,43 @@ end
 EVENT_MANAGER:RegisterForEvent(CBFS.name, EVENT_HIDE_BOOK, OnHideBook)
 ]]
 
+-- ------------------------------------
+-- for antiquity codex
+-- ------------------------------------
+local function OnSceneStateChange_antiquityLoreKeyboard(oldState, newState)
+	if (newState == SCENE_HIDDEN) then
+--		CBFS.LDL:Debug("SCENE[antiquityLoreKeyboard] state change : %s to %s", tostring(oldState), tostring(newState))
+		cbfsRestoreAllBookFontsAsNeeded()
+		if CBFS.uiPreviewMode then	-- When the antiquityLoreKeyboard is closed in the CBFS preview mode, the scene is forcibly moved to the CBFS addon panel.
+			CBFS.uiPreviewMode = false
+			LAM:OpenToPanel(CBFS.uiPanel)
+		end
+	end
+end
+
+local function ANTIQUITY_LORE_KEYBOARD_Refresh_prehook()
+--	CBFS.LDL:Debug("ANTIQUITY_LORE_KEYBOARD:Refresh (ZoPreHook)")
+	cbfsSetupBookFonts(BMID_ANTIQUITY_CODEX)
+end
+
+local function OnSceneStateChange_gamepad_antiquity_lore(oldState, newState)
+	if (newState == SCENE_HIDDEN) then
+--		CBFS.LDL:Debug("SCENE[gamepad_antiquity_lore] state change : %s to %s", tostring(oldState), tostring(newState))
+		cbfsRestoreAllBookFontsAsNeeded()
+		if CBFS.uiPreviewMode then	-- When the gamepad_antiquity_lore is closed in the CBFS preview mode, the scene is forcibly moved to the CBFS addon panel.
+			CBFS.uiPreviewMode = false
+			LAM:OpenToPanel(CBFS.uiPanel)
+		end
+	end
+end
+
+local function ANTIQUITY_LORE_GAMEPAD_RefreshLoreList_prehook()
+--	CBFS.LDL:Debug("ANTIQUITY_LORE_GAMEPAD:RefreshLoreList (ZoPreHook)")
+	cbfsSetupBookFonts(BMID_ANTIQUITY_CODEX)
+end
+
+
+-- ------------------------------------------------
 
 local function cbfsInitializeConfigData(lang, preset, isGamepad)
 	CBFS.db.config[lang] = CBFS.db.config[lang] or {}
@@ -376,6 +428,15 @@ local function cbfsInitialize()
 	ZO_PreHookHandler(ZO_LoreReader, "OnShow", LORE_READER_OnShow_prehook)
 	ZO_PreHook(LORE_READER, "OnHide", LORE_READER_OnHide_prehook)
 	ZO_PreHook(LORE_READER, "SetupBook", LORE_READER_SetupBook_prehook)
+
+	if SCENE_MANAGER:GetScene("antiquityLoreKeyboard") then
+		SCENE_MANAGER:GetScene("antiquityLoreKeyboard"):RegisterCallback("StateChange", OnSceneStateChange_antiquityLoreKeyboard)
+		ZO_PreHook(ANTIQUITY_LORE_KEYBOARD, "Refresh", ANTIQUITY_LORE_KEYBOARD_Refresh_prehook)
+	end
+	if SCENE_MANAGER:GetScene("gamepad_antiquity_lore") then
+		SCENE_MANAGER:GetScene("gamepad_antiquity_lore"):RegisterCallback("StateChange", OnSceneStateChange_gamepad_antiquity_lore)
+		ZO_PreHook(ANTIQUITY_LORE_GAMEPAD, "RefreshLoreList", ANTIQUITY_LORE_GAMEPAD_RefreshLoreList_prehook)
+	end
 
 --	CBFS.LDL:Debug("Initialized")
 end
