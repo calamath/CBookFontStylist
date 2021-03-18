@@ -318,7 +318,7 @@ local function InitializeUI()
 		[BMID_METAL_TABLET] 	= L(SI_CBFS_BMID_METAL_TABLET_NAME),	-- "Metal Tablet",	
 		[BMID_ANTIQUITY_CODEX] 	= L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME),	-- "Antiquity Codex",
 	}
-	ui.MediumChoices = {
+	ui.mediumChoices = {
 		L(SI_CBFS_BMID_YELLOWED_PAPER_NAME),	-- "Yellowed Paper",
 		L(SI_CBFS_BMID_ANIMAL_SKIN_NAME),		-- "Animal Skin",	
 		L(SI_CBFS_BMID_RUBBING_PAPER_NAME), 	-- "Rubbing Paper", 
@@ -330,7 +330,7 @@ local function InitializeUI()
 		L(SI_CBFS_BMID_METAL_TABLET_NAME),		-- "Metal Tablet",	
 		L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME),	-- "Antiquity Codex",	
 	}
-	ui.MediumChoicesValues = {
+	ui.mediumChoicesValues = {
 		BMID_YELLOWED_PAPER, 
 		BMID_ANIMAL_SKIN, 
 		BMID_RUBBING_PAPER, 
@@ -342,7 +342,7 @@ local function InitializeUI()
 		BMID_METAL_TABLET, 
 		BMID_ANTIQUITY_CODEX, 
 	}
-	ui.MediumChoicesTooltips = {
+	ui.mediumChoicesTooltips = {
 		L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS),	-- "Yellowed Paper",
 		L(SI_CBFS_BMID_ANIMAL_SKIN_TIPS),		-- "Animal Skin",	
 		L(SI_CBFS_BMID_RUBBING_PAPER_TIPS), 	-- "Rubbing Paper", 
@@ -355,11 +355,11 @@ local function InitializeUI()
 		L(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS),	-- "Antiquity Codex",	
 	}
 
-	ui.FontChoices = LCFM:GetDecoratedFontStyleListLMP()
-	ui.FontChoicesValues = LCFM:GetFontStyleListLMP()
-	ui.FontChoicesTooltips = LCFM:GetFontTooltipListLMP()
+	ui.fontChoices = LCFM:GetDecoratedFontStyleListLMP()
+	ui.fontChoicesValues = LCFM:GetFontStyleListLMP()
+	ui.fontChoicesTooltips = LCFM:GetFontTooltipListLMP()
 
-	ui.WeightChoices = {
+	ui.weightChoices = {
 		L(SI_CBFS_WEIGHT_NORMAL_NAME),				-- "normal", 
 		L(SI_CBFS_WEIGHT_SHADOW_NAME),				-- "shadow", 
 		L(SI_CBFS_WEIGHT_OUTLINE_NAME), 			-- "outline", 
@@ -367,8 +367,8 @@ local function InitializeUI()
 		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME),	-- "soft-shadow-thin", 
 		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME),	-- "soft-shadow-thick", 
 	}
-	ui.WeightChoicesValues = { "normal", "shadow", "outline", "thick-outline", "soft-shadow-thin", "soft-shadow-thick" }
-	ui.WeightChoicesTooltips = {
+	ui.weightChoicesValues = { "normal", "shadow", "outline", "thick-outline", "soft-shadow-thin", "soft-shadow-thick" }
+	ui.weightChoicesTooltips = {
 		L(SI_CBFS_WEIGHT_NORMAL_TIPS),				-- "normal", 
 		L(SI_CBFS_WEIGHT_SHADOW_TIPS),				-- "shadow", 
 		L(SI_CBFS_WEIGHT_OUTLINE_TIPS), 			-- "outline", 
@@ -419,9 +419,9 @@ function CBFS.CreateSettingsWindow()
 			type = "dropdown", 
 			name = L(SI_CBFS_UI_BMID_SELECT_MENU_NAME), 
 			tooltip = L(SI_CBFS_UI_BMID_SELECT_MENU_TIPS), 
-			choices = ui.MediumChoices, 	-- If choicesValue is defined, choices table is only used for UI display!
-			choicesValues = ui.MediumChoicesValues, 
-			choicesTooltips = ui.MediumChoicesTooltips, 
+			choices = ui.mediumChoices, 	-- If choicesValue is defined, choices table is only used for UI display!
+			choicesValues = ui.mediumChoicesValues, 
+			choicesTooltips = ui.mediumChoicesTooltips, 
 			getFunc = function() return uiBMID end, 
 			setFunc = DoChangeBMID, 
 --			sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 
@@ -445,9 +445,9 @@ function CBFS.CreateSettingsWindow()
 			type = "dropdown", 
 			name = L(SI_CBFS_UI_BODYFONT_MENU_NAME), 
 			tooltip = L(SI_CBFS_UI_BODYFONT_MENU_TIPS), 
-			choices = ui.FontChoices, 
-			choicesValues = ui.FontChoicesValues, 
-			choicesTooltips = ui.FontChoicesTooltips, 
+			choices = ui.fontChoices, 
+			choicesValues = ui.fontChoicesValues, 
+			choicesTooltips = ui.fontChoicesTooltips, 
 			getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].bodyStyle end, 
 			setFunc = DoChangeBodyFont, 
 --			sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 
@@ -472,9 +472,9 @@ function CBFS.CreateSettingsWindow()
 			type = "dropdown", 
 			name = L(SI_CBFS_UI_BODYWEIGHT_MENU_NAME), 
 			tooltip = L(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS), 
-			choices = ui.WeightChoices, 
-			choicesValues = ui.WeightChoicesValues, 
-			choicesTooltips = ui.WeightChoicesTooltips, 
+			choices = ui.weightChoices, 
+			choicesValues = ui.weightChoicesValues, 
+			choicesTooltips = ui.weightChoicesTooltips, 
 			getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].bodyWeight end, 
 			setFunc = DoChangeBodyWeight, 
 --			sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 
@@ -494,9 +494,9 @@ function CBFS.CreateSettingsWindow()
 			type = "dropdown", 
 			name = L(SI_CBFS_UI_TITLEFONT_MENU_NAME), 
 			tooltip = L(SI_CBFS_UI_TITLEFONT_MENU_TIPS), 
-			choices = ui.FontChoices, 
-			choicesValues = ui.FontChoicesValues, 
-			choicesTooltips = ui.FontChoicesTooltips, 
+			choices = ui.fontChoices, 
+			choicesValues = ui.fontChoicesValues, 
+			choicesTooltips = ui.fontChoicesTooltips, 
 			getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].titleStyle end, 
 			setFunc = DoChangeTitleFont, 
 --			sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 
@@ -523,9 +523,9 @@ function CBFS.CreateSettingsWindow()
 			type = "dropdown", 
 			name = L(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME), 
 			tooltip = L(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS), 
-			choices = ui.WeightChoices, 
-			choicesValues = ui.WeightChoicesValues, 
-			choicesTooltips = ui.WeightChoicesTooltips, 
+			choices = ui.weightChoices, 
+			choicesValues = ui.weightChoicesValues, 
+			choicesTooltips = ui.weightChoicesTooltips, 
 			getFunc = function() return CBFS.db.config[uiLang][uiPreset][uiBMID].titleWeight end, 
 			setFunc = DoChangeTitleWeight, 
 --			sort = "name-up", --or "name-down", "numeric-up", "numeric-down", "value-up", "value-down", "numericvalue-up", "numericvalue-down" 
