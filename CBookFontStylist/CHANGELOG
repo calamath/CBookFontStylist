@@ -1,3 +1,7 @@
+V2.01 : [V201] by Calamath
+- LibCFontManager update to V1.01 [V101]
+- Updated API version to 100035 (ESO 7.0.x : Blackwood)
+
 V2.00 : [V200] by Calamath
 - Added font adjustment feature for antiquity codex displayed from journal screen.
 - Improved to support switching gamepad mode on and off.

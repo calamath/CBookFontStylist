@@ -1,3 +1,6 @@
+V1.01 : [V101] by Calamath
+- Updated API version to 100035 (ESO 7.0.x : Blackwood)
+
 V1.00 : [V100] by Calamath
 - Improved the internal processing of tooltip text.
 - Added a new API : RegisterLMP
