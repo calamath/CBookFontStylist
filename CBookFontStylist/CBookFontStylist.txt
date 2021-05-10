@@ -1,7 +1,7 @@
-## Title: Calamath's BookFont Stylist V2.01
+## Title: Calamath's BookFont Stylist V2.02
 ## Description: A GUI mod tool for customizing font styles of the Lore Books.
-## Version: 2.01
-## AddOnVersion: 201
+## Version: 2.02
+## AddOnVersion: 202
 ## Author: Calamath
 ## License: Artistic License 2.0
 ## APIVersion: 100034 100035

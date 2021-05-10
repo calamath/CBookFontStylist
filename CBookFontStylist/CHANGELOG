@@ -1,3 +1,6 @@
+V2.02 : [V202] by Calamath
+- Fixed a UI error that would occur when opening a lore book with unspecified book medium. Special thanks to: LoneStar2911
+
 V2.01 : [V201] by Calamath
 - LibCFontManager update to V1.01 [V101]
 - Updated API version to 100035 (ESO 7.0.x : Blackwood)

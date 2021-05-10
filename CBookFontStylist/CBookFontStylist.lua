@@ -17,7 +17,7 @@
 CBookFontStylist = CBookFontStylist or {}
 
 CBookFontStylist.name = "CBookFontStylist"
-CBookFontStylist.version = "2.01"
+CBookFontStylist.version = "2.02"
 CBookFontStylist.author = "Calamath"
 CBookFontStylist.savedVars = "CBookFontStylistDB"
 CBookFontStylist.savedVarsVersion = 1
@@ -75,6 +75,7 @@ local zosBookMediumToBMID = {
 	[BOOK_MEDIUM_METAL] 		 = BMID_METAL			, 
 	[BOOK_MEDIUM_METAL_TABLET]	 = BMID_METAL_TABLET	, 
 }
+setmetatable(zosBookMediumToBMID, { __index = function(self, k) return self[BOOK_MEDIUM_YELLOWED_PAPER] end, })
 
 local cbfsCtrlTbl = {
 	[BMID_YELLOWED_PAPER] = {
@@ -220,6 +221,7 @@ local function cbfsSetupBookFonts(bmid)
 	local lang = CBFS.lang
 	local preset = CBFS.preset
 	local u = CBFS.db.config[lang][preset][bmid]
+	if not u then return end
 
 	local objNameKeyboardBody = cbfsGetBodyFontObjName(bmid, false)
 	local objNameKeyboardTitle = cbfsGetTitleFontObjName(bmid, false)
