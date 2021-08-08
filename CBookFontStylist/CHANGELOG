@@ -1,3 +1,7 @@
+V2.03 : [V203] by Calamath
+- LibCFontManager update to V1.02 [V102]
+- Updated API version to 101031 (ESO 7.1.x : Waking Flame)
+
 V2.02 : [V202] by Calamath
 - Fixed a UI error that would occur when opening a lore book with unspecified book medium. Special thanks to: LoneStar2911
 
