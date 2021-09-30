@@ -29,7 +29,7 @@ LMP:Register("font", "JP-KafuPenji", "EsoUI/Common/Fonts/ESO_KafuPenji-M.ttf")		
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "1.02"
+LibCFontManager.version = "1.03"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1			-- for testing purpose
