@@ -1,3 +1,8 @@
+V2.06 : [V206] by Calamath
+- Spanish language support
+- LibCFontManager update to V1.05 [V105]
+- Updated API version to 101034 (ESO 8.0.x : High Isle)
+
 V2.05 : [V205] by Calamath
 - LibCFontManager update to V1.04 [V104]
 - Updated API version to 101033 (ESO 7.3.x : Ascending Tide)
