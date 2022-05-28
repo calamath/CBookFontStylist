@@ -2,30 +2,31 @@
 -- Calamath's BookFont Stylist
 -- French localization
 ------------------------------------------------
+-- Special thanks to @lexo1000 for providing following translations!
 
 
 -- Localization Strings
-SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_NAME, 		"Yellowed Paper Book", 1)	-- "Yellowed Paper"
-SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_NAME,			"Animal Skin Book", 1)		-- "Animal Skin"
-SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_NAME,			"Rubbing Book", 1)			-- "Rubbing Paper"
-SafeAddString(SI_CBFS_BMID_LETTER_NAME, 				"Letter", 1)				-- "Letter"
-SafeAddString(SI_CBFS_BMID_NOTE_NAME,					"Note", 1)					-- "Note"
-SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"Scroll", 1)				-- "Scroll"
-SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"Stone Tablet", 1)			-- "Stone Tablet"
-SafeAddString(SI_CBFS_BMID_METAL_NAME,					"Dwemer Book", 1)			-- "Metal"
-SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"Dwemer Page", 1)			-- "Metal Tablet"
-SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"Antiquity Codex", 1)		-- "Antiquity Codex"
+SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_NAME, 		"Livres", 1)	-- "Yellowed Paper"
+SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_NAME,			"Livres jaunis", 1)		-- "Animal Skin"
+SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_NAME,			"Livres noircis", 1)			-- "Rubbing Paper"
+SafeAddString(SI_CBFS_BMID_LETTER_NAME, 				"Lettres", 1)				-- "Letter"
+SafeAddString(SI_CBFS_BMID_NOTE_NAME,					"Lettres jaunies", 1)					-- "Note"
+SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"Parchemins", 1)				-- "Scroll"
+SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"Tablettes en pierre", 1)			-- "Stone Tablet"
+SafeAddString(SI_CBFS_BMID_METAL_NAME,					"Livres en pierre", 1)			-- "Metal"
+SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"Tablettes en pierre", 1)			-- "Metal Tablet"
+SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"Codex antique", 1)		-- "Antiquity Codex"
 
-SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"Yellowed Paper", 1)	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_TIPS,			"Animal Skin", 1)		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_TIPS,			"Rubbing Paper", 1) 	-- tooltip for book medium "Rubbing Paper" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_LETTER_TIPS, 				"Letter", 1)			-- tooltip for book medium "Letter" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_NOTE_TIPS,					"Note", 1)				-- tooltip for book medium "Note" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"Scroll", 1)			-- tooltip for book medium "Scroll" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Stone Tablet", 1)		-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Metal Book", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Metal Tablet", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"Antiquity Codex", 1)	-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"Livres", 1)	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_TIPS,			"Livres jaunis", 1)		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_TIPS,			"Livres noircis", 1) 	-- tooltip for book medium "Rubbing Paper" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_LETTER_TIPS, 				"Lettres", 1)			-- tooltip for book medium "Letter" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_NOTE_TIPS,					"Lettres jaunies", 1)				-- tooltip for book medium "Note" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"Parchemins", 1)			-- tooltip for book medium "Scroll" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Tablettes en pierre", 1)		-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Livres en pierre", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Tablettes en pierre", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"Codex antique", 1)	-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
 
 SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"normal", 1) 
 SafeAddString(SI_CBFS_WEIGHT_SHADOW_NAME,				"shadow", 1) 
@@ -41,34 +42,34 @@ SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS,		"thick-outline", 1) 	-- toolti
 SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS, 	"soft-shadow-thin", 1)	-- tooltip for font weight "soft-shadow-thin" if you want to add a description in your localization
 SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS,	"soft-shadow-thick", 1) -- tooltip for font weight "soft-shadow-thick" if you want to add a description in your localization
 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER_TEXT, 			"This add-on allows you to adjust the typeface of several in-game reading materials, lore book etc.", 1) 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER1_TEXT,			"These account-wide settings are saved for each language mode.", 1) 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER2_TEXT,			"And also separetely saved depending on whether in gamepad mode or not.", 1) 
-SafeAddString(SI_CBFS_UI_E1001_ERRMSG_TEXT, 			"|cdc143cYour saved font settings are currently unavailable. Make sure related add-on is not disabled or deleted, updating font add-on may have caused deleting font files you copied manually.|r", 1) 
-SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_NAME, 		"Select Book Medium", 1) 
-SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_TIPS, 		"First, please select the type of book medium you want to configure.", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_NAME, 		"Game Mode : ", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_TIPS, 		"You can set prefered font styles individually for each game mode.", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_KEYBOARD_NAME,		"Keyboard Mode", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_GAMEPAD_NAME, 		"Gamepad Mode", 1) 
-SafeAddString(SI_CBFS_UI_BODYFONT_MENU_NAME,			"Body Font", 1) 
-SafeAddString(SI_CBFS_UI_BODYFONT_MENU_TIPS,			"Specify your prefered font style.", 1) 
-SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_NAME,			"Body Font Size", 1) 
-SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_TIPS,			"Specify your prefered font size.", 1) 
-SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_NAME,			"Body Font Weight", 1) 
-SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS,			"Specify your prefered font weight.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_NAME,			"Title Font Auto Adjustment", 1) 
-SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_TIPS,			"As the title font, use 10 points larger than above body font.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_NAME,			"Title Font", 1) 
-SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_TIPS,			"Specify your prefered font style.", 1) 
-SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_NAME,			"Title Font Size", 1) 
-SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"Specify your prefered font size.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"Title Font Weight", 1) 
-SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"Specify your prefered font weight.", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"Default Font", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Restore settings on this medium to the in-game default font. The default font depends on whether you are in gamepad mode.", 1) 
-SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"Preview", 1) 
-SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"Preview your book font settings", 1) 
+SafeAddString(SI_CBFS_UI_PANEL_HEADER_TEXT, 			"Cette extension permet d'ajuster la police de caractères de nombreux supports de lecture présents dans le jeu.", 1) 
+SafeAddString(SI_CBFS_UI_PANEL_HEADER1_TEXT,			"Les paramètres de l'extension sont enregistrés au niveau du compte pour chaque mode de jeu.", 1) 
+SafeAddString(SI_CBFS_UI_PANEL_HEADER2_TEXT,			"Ils sont également enregistrés séparément selon le mode de jeu (manette ou clavier) activé.", 1) 
+SafeAddString(SI_CBFS_UI_E1001_ERRMSG_TEXT, 			"|cdc143cVos paramètres de police enregistrés sont actuellement indisponibles. Assurez-vous que les extensions complémentaires associées ne sont pas désactivés ou supprimés, la mise à jour de l'extension complémentaire de police peut avoir entraîné la suppression des fichiers de police que vous avez copiés manuellement.|r", 1) 
+SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_NAME, 		"Choix du support", 1) 
+SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_TIPS, 		"Détermine le type de support à modifier.", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_NAME, 		"Mode de jeu", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_TIPS, 		"Permet de définir des styles de police individuellement pour chaque mode de jeu.", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_KEYBOARD_NAME,		"Mode clavier", 1) 
+SafeAddString(SI_CBFS_UI_GAMEMODE_GAMEPAD_NAME, 		"Mode manette", 1) 
+SafeAddString(SI_CBFS_UI_BODYFONT_MENU_NAME,			"Police du corps", 1) 
+SafeAddString(SI_CBFS_UI_BODYFONT_MENU_TIPS,			"Détermine la police de caractère appliquée au corps du texte.", 1) 
+SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_NAME,			"Taille du corps", 1) 
+SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_TIPS,			"Détermine la taille de caractère appliquée au corps du texte.", 1) 
+SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_NAME,			"Style du corps", 1) 
+SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS,			"Détermine le style de caractère appliqué au corps du texte.", 1) 
+SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_NAME,			"Appliquer l'apparence du corps du texte aux titres", 1) 
+SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_TIPS,			"Applique automatiquement l'apparence du corps du textes aux titres avec une taille de police de 10 points supérieure.", 1) 
+SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_NAME,			"Police des titres", 1) 
+SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_TIPS,			"Détermine la police de caractère appliquée aux titres.", 1) 
+SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_NAME,			"Taille des titres", 1) 
+SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"Détermine la taille de caractère appliquée aux titres.", 1) 
+SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"Style des titres", 1) 
+SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"Détermine le style de caractère appliqué aux titres.", 1) 
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"Réglages par défaut", 1) 
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Rétabli les réglages par défaut du support sélectionné. La police par défaut varie selon le mode de jeu activé.", 1) 
+SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"Prévisualisation", 1) 
+SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"Affiche en vue réelle les paramètres de police appliqués au support sélectionné.", 1) 
 
 -- ---------------------------------------------------------------------------------------------------------------------------------------------------------
 --	The following does not require translation. Instead, you are free to write something like a pangram that is useful for checking fonts in your language.
