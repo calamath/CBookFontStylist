@@ -20,16 +20,11 @@ if not LMP then d("[LCFM] Error : 'LibMediaProvider' not found.") return end
 local L = GetString
 local tconcat = table.concat
 
--- Registeration of ESO bundled fonts to support Japanese language mode. These are not currently registered in LibMediaProvider.
-LMP:Register("font", "JP-StdFont", "EsoUI/Common/Fonts/ESO_FWNTLGUDC70-DB.ttf") 	-- JP-ESO Standard Font
-LMP:Register("font", "JP-ChatFont", "EsoUI/Common/Fonts/ESO_FWUDC_70-M.ttf")		-- JP-ESO Chat Font
-LMP:Register("font", "JP-KafuPenji", "EsoUI/Common/Fonts/ESO_KafuPenji-M.ttf")		-- JP-ESO Book Font
-
 -- -------------------------------------------
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "1.05"
+LibCFontManager.version = "1.1.0"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1			-- for testing purpose
@@ -59,19 +54,21 @@ local lmpFontExTable = {
 --			tooltip				: [string] tooltip text
 --			tooltipUpdated		: [boolean] need to update tooltip text or not (internal use only)
 --
+	["ProseAntique"] = { name = L(SI_LCFM_FONTNAME_PROSEANTIQUEPSMT) }, 
+	["Consolas"] = { name = L(SI_LCFM_FONTNAME_CONSOLA) }, 
+	["Futura Condensed"] = { name = L(SI_LCFM_FONTNAME_FTN57) }, 
+	["Futura Condensed Bold"] = { name = L(SI_LCFM_FONTNAME_FTN87) }, 
+	["Futura Condensed Light"] = { name = L(SI_LCFM_FONTNAME_FTN47) }, 
+	["Skyrim Handwritten"] = { name = L(SI_LCFM_FONTNAME_HANDWRITTEN_BOLD) }, 
+	["Trajan Pro"] = { name = L(SI_LCFM_FONTNAME_TRAJANPRO_REGULAR) }, 
 	["Univers 55"] = { name = L(SI_LCFM_FONTNAME_UNIVERS55) }, 
 	["Univers 57"] = { name = L(SI_LCFM_FONTNAME_UNIVERS57) }, 
 	["Univers 67"] = { name = L(SI_LCFM_FONTNAME_UNIVERS67) }, 
 	["JP-StdFont"] = { name = L(SI_LCFM_FONTNAME_ESO_FWNTLGUDC70_DB) }, 
 	["JP-ChatFont"] = { name = L(SI_LCFM_FONTNAME_ESO_FWUDC_70_M) }, 
 	["JP-KafuPenji"] = { name = L(SI_LCFM_FONTNAME_ESO_KAFUPENJI_M) }, 
-	["Futura Condensed Light"] = { name = L(SI_LCFM_FONTNAME_FTN47) }, 
-	["Futura Condensed"] = { name = L(SI_LCFM_FONTNAME_FTN57) }, 
-	["Futura Condensed Bold"] = { name = L(SI_LCFM_FONTNAME_FTN87) }, 
-	["Skyrim Handwritten"] = { name = L(SI_LCFM_FONTNAME_HANDWRITTEN_BOLD) }, 
-	["ProseAntique"] = { name = L(SI_LCFM_FONTNAME_PROSEANTIQUEPSMT) }, 
-	["Trajan Pro"] = { name = L(SI_LCFM_FONTNAME_TRAJANPRO_REGULAR) }, 
-	["Consolas"] = { name = L(SI_LCFM_FONTNAME_CONSOLA) }, 
+	["ZH-StdFont"] = { name = L(SI_LCFM_FONTNAME_MYINGHEIPRC_W5) }, 
+	["ZH-MYoyoPRC"] = { name = L(SI_LCFM_FONTNAME_MYOYOPRC_M) }, 
 }
 
 local lmpFontFilenameToFontStyleLMP = {}  -- lowercase filename to FontStyleLMP
@@ -79,19 +76,21 @@ local lmpFontFilenameToFontStyleLMP = {}  -- lowercase filename to FontStyleLMP
 
 -- A data table used by this library to identify whether the font is an official bundled font or not.
 local zosFontFilenameToFontStyleLMP = {   -- lowercase filename to FontStyleLMP
+	["proseantiquepsmt.otf"] = "ProseAntique",			-- "ANTIQUE_FONT"
+	["consola.ttf"] = "Consolas",						-- 
+	["ftn57.otf"] = "Futura Condensed", 				-- "GAMEPAD_MEDIUM_FONT"
+	["ftn87.otf"] = "Futura Condensed Bold",			-- "GAMEPAD_BOLD_FONT"
+	["ftn47.otf"] = "Futura Condensed Light",			-- "GAMEPAD_LIGHT_FONT"
+	["handwritten_bold.otf"] = "Skyrim Handwritten",	-- "HANDWRITTEN_FONT"
+	["trajanpro-regular.otf"] = "Trajan Pro",			-- "STONE_TABLET_FONT"
 	["univers55.otf"] = "Univers 55",					-- 
 	["univers57.otf"] = "Univers 57",					-- "MEDIUM_FONT""CHAT_FONT"
 	["univers67.otf"] = "Univers 67",					-- "BOLD_FONT"
-	["eso_fwntlgudc70-db.ttf"] = "JP-StdFont",			-- JP-ESO bundled gothic font
-	["eso_fwudc_70-m.ttf"] = "JP-ChatFont", 			-- JP-ESO bundled gothic condensed font
-	["eso_kafupenji-m.ttf"] = "JP-KafuPenji",			-- JP-ESO bundled hand written font
-	["ftn47.otf"] = "Futura Condensed Light",			-- "GAMEPAD_LIGHT_FONT"
-	["ftn57.otf"] = "Futura Condensed", 				-- "GAMEPAD_MEDIUM_FONT"
-	["ftn87.otf"] = "Futura Condensed Bold",			-- "GAMEPAD_BOLD_FONT"
-	["handwritten_bold.otf"] = "Skyrim Handwritten",	-- "HANDWRITTEN_FONT"
-	["proseantiquepsmt.otf"] = "ProseAntique",			-- "ANTIQUE_FONT"
-	["trajanpro-regular.otf"] = "Trajan Pro",			-- "STONE_TABLET_FONT"
-	["consola.ttf"] = "Consolas",						-- 
+	["eso_fwntlgudc70-db.ttf"] = "JP-StdFont",			-- bundled gothic font for Japanese mode (jp)
+	["eso_fwudc_70-m.ttf"] = "JP-ChatFont", 			-- bundled gothic condensed font for Japanese mode (jp)
+	["eso_kafupenji-m.ttf"] = "JP-KafuPenji",			-- bundled hand written font for Japanese mode (jp)
+	["myingheiprc-w5.otf"] = "ZH-StdFont", 				-- bundled gothic font for Simplified Chinese mode (zh)
+	["myoyoprc-medium.otf"] = "ZH-MYoyoPRC", 			-- bundled book font for Simplified Chinese mode (zh)
 }
 
 -- in-game ZOS defined font list
@@ -216,17 +215,17 @@ local zosFontTable = {
 	
 	ZoFontGamepadCondensed61		= {}, 
 	ZoFontGamepadCondensed54		= {}, 
-	ZoFontGamepadCondensed45		= {}, 
+--	ZoFontGamepadCondensed45		= {}, -- Removed in ESO V8.0.3
 	ZoFontGamepadCondensed42		= {}, 
 	ZoFontGamepadCondensed36		= {}, 
 	ZoFontGamepadCondensed34		= {}, 
 	ZoFontGamepadCondensed27		= {}, 
 	ZoFontGamepadCondensed25		= {}, 
-	ZoFontGamepadCondensed22		= {}, 
-	ZoFontGamepadCondensed20		= {}, 
-	ZoFontGamepadCondensed18		= {}, 
+--	ZoFontGamepadCondensed22		= {}, -- Removed in ESO V8.0.0
+--	ZoFontGamepadCondensed20		= {}, -- Removed in ESO V8.0.0
+--	ZoFontGamepadCondensed18		= {}, -- Removed in ESO V8.0.0
 
-	ZoFontGamepadBold61 			= {}, 
+--	ZoFontGamepadBold61 			= {}, -- Removed in ESO V8.0.3
 	ZoFontGamepadBold54 			= {}, 
 	ZoFontGamepadBold48 			= {}, 
 	ZoFontGamepadBold34 			= {}, 
@@ -259,6 +258,17 @@ local zosFontTable = {
 	ZoFontGamepadBookTabletTitle	= {}, 
 	ZoFontGamepadBookMetalTitle 	= {}, 
 	
+--	<!-- Tribute Fonts-->
+--	ZoFontTributeAntique18NoShadow 	= {}, -- Added in ESO V8.0.0 / Removed in ESO V8.0.1
+	ZoFontTributeAntique20NoShadow 	= {}, -- Added in ESO V8.0.1
+	ZoFontTributeAntique20 			= {}, -- Added in ESO V8.0.1
+--	ZoFontTributeAntique27 			= {}, -- Added in ESO V8.0.1
+	ZoFontTributeAntique30NoShadow 	= {}, -- Added in ESO V8.0.0 / Removed in ESO V8.0.1
+	ZoFontTributeAntique30 			= {}, -- Added in ESO V8.0.1
+--	ZoFontTributeAntique34 			= {}, -- Added in ESO V8.0.0 / Removed in ESO V8.0.1
+	ZoFontTributeAntique40 			= {}, -- Added in ESO V8.0.0
+	ZoFontTributeAntique52 			= {}, -- Added in ESO V8.0.0
+
 --	<!-- Header fonts-->
 	ZoFontGamepadHeaderDataValue	= {}, 
 	

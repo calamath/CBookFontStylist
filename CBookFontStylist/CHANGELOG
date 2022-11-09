@@ -1,3 +1,8 @@
+V3.0.0 : [V30000] by Calamath
+- Simplified Chinese language mode support.
+- LibCFontManager update to V1.1.0 [V10100]
+- Updated API version to 101036 (ESO 8.2.x : Firesong)
+
 V2.07 : [V207] by Calamath
 - Updated French translations. Special thanks to: lexo1000
 

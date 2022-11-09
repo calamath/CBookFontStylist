@@ -1,3 +1,9 @@
+V1.1.0 : [V10100] by Calamath
+- Simplified Chinese language mode support.
+- Adjustments for ZOS font changes in ESO 8.0.x
+- Adjustments for compatibility with add-on LibMediaProvider-1.0r22 or later.
+- Updated API version to 101036 (ESO 8.2.x : Firesong)
+
 V1.05 : [V105] by Calamath
 - Spanish language support
 - Updated API version to 101034 (ESO 8.0.x : High Isle)

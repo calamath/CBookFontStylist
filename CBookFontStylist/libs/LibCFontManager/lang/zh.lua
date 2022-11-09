@@ -1,6 +1,6 @@
 ------------------------------------------------
 -- LibCFontManager
--- French localization
+-- Simplified Chinese localization
 ------------------------------------------------
 
 -- Localization Strings

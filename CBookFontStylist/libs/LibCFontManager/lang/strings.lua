@@ -20,6 +20,8 @@ local strings = {
 	SI_LCFM_FONTNAME_HANDWRITTEN_CYR_BOLD =	"SkyrimBooks Handwritten Cyrillic Bold", 
 	SI_LCFM_FONTNAME_PROSEANTIQUEPSMT_CYR = "ProseAntique Cyrillic", 
 	SI_LCFM_FONTNAME_TRAJANPRO_CYR_R =		"Goudy Trajan Medium", 
+	SI_LCFM_FONTNAME_MYINGHEIPRC_W5 =		"M Ying Hei PRC W5", 
+	SI_LCFM_FONTNAME_MYOYOPRC_M =			"M Yoyo PRC Medium", 
 }
 
 for stringId, stringToAdd in pairs(strings) do
