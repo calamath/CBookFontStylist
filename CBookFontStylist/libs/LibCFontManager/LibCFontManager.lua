@@ -24,7 +24,7 @@ local tconcat = table.concat
 
 LibCFontManager = {}
 LibCFontManager.name = "LibCFontManager"
-LibCFontManager.version = "1.1.0"
+LibCFontManager.version = "1.1.1"
 LibCFontManager.author = "Calamath"
 LibCFontManager.savedVars = "LibCFontManagerDB" -- for testing purpose 
 LibCFontManager.savedVarsVersion = 1			-- for testing purpose
@@ -198,7 +198,7 @@ local zosFontTable = {
 --	<!-- Generic Gamepad Fonts-->
 	ZoFontGamepad61 				= {}, 
 	ZoFontGamepad54 				= {}, 
-	ZoFontGamepad45 				= {}, 
+--	ZoFontGamepad45 				= {}, -- Removed in ESO V8.0.3
 	ZoFontGamepad42 				= {}, 
 	ZoFontGamepad36 				= {}, 
 	ZoFontGamepad34 				= {}, 

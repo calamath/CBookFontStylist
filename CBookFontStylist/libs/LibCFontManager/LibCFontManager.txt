@@ -1,6 +1,6 @@
 ## Title: LibCFontManager
-## Version: 1.1.0
-## AddOnVersion: 10100
+## Version: 1.1.1
+## AddOnVersion: 10101
 ## Author: Calamath
 ## License: Artistic License 2.0
 ## IsLibrary: true
