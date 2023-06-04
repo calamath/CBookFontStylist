@@ -1,3 +1,10 @@
+V4.0.0 : [V40000] by Calamath
+- Refactored the add-on framework based on our common template classes, to reduce future maintenance costs.
+- Revamped the code base to subdivide the file structure.
+- The previously bundled LibCFontManager library has been obsolete and is no longer required.
+- Updated API version to 101038 (ESO 9.0.x : Necrom)
+
+
 V3.0.1 : [V30001] by Calamath
 - LibCFontManager update to V1.1.1 [V10101]
 

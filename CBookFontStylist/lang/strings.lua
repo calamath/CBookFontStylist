@@ -1,4 +1,7 @@
 local strings = {
+	-- Formatter
+	SI_CBFS_UI_TAB_HEADER_FORMATTER =	"<<1>> :", 
+
 	SI_CBFS_BMID_YELLOWED_PAPER_NAME =	"Yellowed Paper Book",	-- "Yellowed Paper"
 	SI_CBFS_BMID_ANIMAL_SKIN_NAME = 	"Animal Skin Book", 	-- "Animal Skin"
 	SI_CBFS_BMID_RUBBING_PAPER_NAME =	"Rubbing Book", 		-- "Rubbing Paper"
