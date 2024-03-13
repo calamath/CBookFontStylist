@@ -1,12 +1,12 @@
 ## Title: Calamath's BookFont Stylist
 ## Description: A GUI mod tool for customizing font styles of the Lore Books.
-## Version: 4.0.0
-## AddOnVersion: 40000
+## Version: 4.0.1
+## AddOnVersion: 40001
 ## Author: Calamath
 ## License: Artistic License 2.0
-## APIVersion: 101037 101038
-## DependsOn: LibAddonMenu-2.0>=34 LibMediaProvider-1.0>=24
-## OptionalDependsOn: LibDebugLogger>=262
+## APIVersion: 101041
+## DependsOn: LibAddonMenu-2.0>=36 LibMediaProvider-1.0>=28
+## OptionalDependsOn: LibDebugLogger>=263
 ## SavedVariables: CBookFontStylistDB
 
 ; This Add-on is not created by, affiliated with or sponsored by ZeniMax 
