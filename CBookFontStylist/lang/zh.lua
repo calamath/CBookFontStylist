@@ -1,74 +1,75 @@
 ------------------------------------------------
 -- Calamath's BookFont Stylist
 -- Simplified Chinese localization
+-- Version 1, 2024-03-13, by shijina452
 ------------------------------------------------
 
 
 -- Localization Strings
-SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_NAME, 		"Yellowed Paper Book", 1)	-- "Yellowed Paper"
-SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_NAME,			"Animal Skin Book", 1)		-- "Animal Skin"
-SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_NAME,			"Rubbing Book", 1)			-- "Rubbing Paper"
-SafeAddString(SI_CBFS_BMID_LETTER_NAME, 				"Letter", 1)				-- "Letter"
-SafeAddString(SI_CBFS_BMID_NOTE_NAME,					"Note", 1)					-- "Note"
-SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"Scroll", 1)				-- "Scroll"
-SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"Stone Tablet", 1)			-- "Stone Tablet"
-SafeAddString(SI_CBFS_BMID_METAL_NAME,					"Dwemer Book", 1)			-- "Metal"
-SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"Dwemer Page", 1)			-- "Metal Tablet"
-SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"Antiquity Codex", 1)		-- "Antiquity Codex"
+SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_NAME, 		"泛黄的纸书", 1)		-- "泛黄的纸"
+SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_NAME,			"动物皮的书", 1)		-- "动物皮革"
+SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_NAME,			"拓本", 1)				-- "黑色纸"
+SafeAddString(SI_CBFS_BMID_LETTER_NAME, 				"信件", 1)				-- "信"
+SafeAddString(SI_CBFS_BMID_NOTE_NAME,					"笔记", 1)				-- "笔记"
+SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"卷轴", 1)				-- "卷轴"
+SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"石碑", 1)				-- "石碑雕刻"
+SafeAddString(SI_CBFS_BMID_METAL_NAME,					"锻莫书", 1)			-- "金属页"
+SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"锻莫书页", 1)			-- "金属页"
+SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"古代法典", 1)			-- "古代法典"
 
-SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"Yellowed Paper", 1)	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_TIPS,			"Animal Skin", 1)		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_TIPS,			"Rubbing Paper", 1) 	-- tooltip for book medium "Rubbing Paper" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_LETTER_TIPS, 				"Letter", 1)			-- tooltip for book medium "Letter" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_NOTE_TIPS,					"Note", 1)				-- tooltip for book medium "Note" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"Scroll", 1)			-- tooltip for book medium "Scroll" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Stone Tablet", 1)		-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Metal Book", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Metal Tablet", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
-SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"Antiquity Codex", 1)	-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"泛黄的纸书", 1)		-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ANIMAL_SKIN_TIPS,			"动物皮的书", 1)		-- tooltip for book medium "Animal Skin" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_RUBBING_PAPER_TIPS,			"拓本", 1)				-- tooltip for book medium "Rubbing Paper" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_LETTER_TIPS, 				"信件", 1)				-- tooltip for book medium "Letter" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_NOTE_TIPS,					"笔记", 1)				-- tooltip for book medium "Note" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"卷轴", 1)				-- tooltip for book medium "Scroll" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"石碑", 1)				-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"锻莫书", 1)			-- tooltip for book medium "Metal Book" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"锻莫书页", 1)			-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"古代法典", 1)			-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
 
-SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"normal", 1) 
-SafeAddString(SI_CBFS_WEIGHT_SHADOW_NAME,				"shadow", 1) 
-SafeAddString(SI_CBFS_WEIGHT_OUTLINE_NAME,				"outline", 1) 
-SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME,		"thick-outline", 1) 
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME, 	"soft-shadow-thin", 1) 
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME,	"soft-shadow-thick", 1) 
+SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"正常", 1)
+SafeAddString(SI_CBFS_WEIGHT_SHADOW_NAME,				"阴影", 1)
+SafeAddString(SI_CBFS_WEIGHT_OUTLINE_NAME,				"描边", 1)
+SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME,		"粗描边", 1)
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME, 	"浅的软阴影", 1)
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME,	"深的软阴影", 1)
 
-SafeAddString(SI_CBFS_WEIGHT_NORMAL_TIPS,				"normal", 1)			-- tooltip for font weight "normal" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_SHADOW_TIPS,				"shadow", 1)			-- tooltip for font weight "shadow" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_OUTLINE_TIPS,				"outline", 1)			-- tooltip for font weight "outline" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS,		"thick-outline", 1) 	-- tooltip for font weight "thick-outline" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS, 	"soft-shadow-thin", 1)	-- tooltip for font weight "soft-shadow-thin" if you want to add a description in your localization
-SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS,	"soft-shadow-thick", 1) -- tooltip for font weight "soft-shadow-thick" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_NORMAL_TIPS,				"正常", 1)				-- tooltip for font weight "normal" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_SHADOW_TIPS,				"阴影", 1)				-- tooltip for font weight "shadow" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_OUTLINE_TIPS,				"描边", 1)				-- tooltip for font weight "outline" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS,		"粗描边", 1)			-- tooltip for font weight "thick-outline" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS, 	"浅的软阴影", 1)		-- tooltip for font weight "soft-shadow-thin" if you want to add a description in your localization
+SafeAddString(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS,	"深的软阴影", 1)		-- tooltip for font weight "soft-shadow-thick" if you want to add a description in your localization
 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER_TEXT, 			"This add-on allows you to adjust the typeface of several in-game reading materials, lore book etc.", 1) 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER1_TEXT,			"These account-wide settings are saved for each language mode.", 1) 
-SafeAddString(SI_CBFS_UI_PANEL_HEADER2_TEXT,			"And also separetely saved depending on whether in gamepad mode or not.", 1) 
-SafeAddString(SI_CBFS_UI_E1001_ERRMSG_TEXT, 			"|cdc143cYour saved font settings are currently unavailable. Make sure related add-on is not disabled or deleted, updating font add-on may have caused deleting font files you copied manually.|r", 1) 
-SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_NAME, 		"Select Book Medium", 1) 
-SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_TIPS, 		"First, please select the type of book medium you want to configure.", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_NAME, 		"Game Mode : ", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_TIPS, 		"You can set prefered font styles individually for each game mode.", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_KEYBOARD_NAME,		"Keyboard Mode", 1) 
-SafeAddString(SI_CBFS_UI_GAMEMODE_GAMEPAD_NAME, 		"Gamepad Mode", 1) 
-SafeAddString(SI_CBFS_UI_BODYFONT_MENU_NAME,			"Body Font", 1) 
-SafeAddString(SI_CBFS_UI_BODYFONT_MENU_TIPS,			"Specify your prefered font style.", 1) 
-SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_NAME,			"Body Font Size", 1) 
-SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_TIPS,			"Specify your prefered font size.", 1) 
-SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_NAME,			"Body Font Weight", 1) 
-SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS,			"Specify your prefered font weight.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_NAME,			"Title Font Auto Adjustment", 1) 
-SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_TIPS,			"As the title font, use 10 points larger than above body font.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_NAME,			"Title Font", 1) 
-SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_TIPS,			"Specify your prefered font style.", 1) 
-SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_NAME,			"Title Font Size", 1) 
-SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"Specify your prefered font size.", 1) 
-SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"Title Font Weight", 1) 
-SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"Specify your prefered font weight.", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"Default Font", 1) 
-SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"Restore settings on this medium to the in-game default font. The default font depends on whether you are in gamepad mode.", 1) 
-SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"Preview", 1) 
-SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"Preview your book font settings", 1) 
+SafeAddString(SI_CBFS_UI_PANEL_HEADER_TEXT, 			"这个插件可以让你调整一些游戏内阅读材料、信件、制造书等的字体.", 1)
+SafeAddString(SI_CBFS_UI_PANEL_HEADER1_TEXT,			"为每种语言模式保存这些帐户范围的设置.", 1)
+SafeAddString(SI_CBFS_UI_PANEL_HEADER2_TEXT,			"并且还根据是否处于游戏手柄模式单独保存.", 1)
+SafeAddString(SI_CBFS_UI_E1001_ERRMSG_TEXT, 			"|cdc143c您保存的字体设置当前不可用。 确保相关插件未被禁用或删除，更新字体插件可能会导致删除您手动复制的字体文件.|r", 1)
+SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_NAME, 		"选择图书材质", 1)
+SafeAddString(SI_CBFS_UI_BMID_SELECT_MENU_TIPS, 		"首先，请选择您要配置的图书材质类型.", 1)
+SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_NAME, 		"游戏模式 : ", 1)
+SafeAddString(SI_CBFS_UI_GAMEMODE_DISPLAY_TIPS, 		"您可以为每种游戏模式单独设置首选字体样式.", 1)
+SafeAddString(SI_CBFS_UI_GAMEMODE_KEYBOARD_NAME,		"键鼠模式", 1)
+SafeAddString(SI_CBFS_UI_GAMEMODE_GAMEPAD_NAME, 		"手柄模式", 1)
+SafeAddString(SI_CBFS_UI_BODYFONT_MENU_NAME,			"正文字体", 1)
+SafeAddString(SI_CBFS_UI_BODYFONT_MENU_TIPS,			"指定您喜欢的字体样式.", 1)
+SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_NAME,			"正文字体大小", 1)
+SafeAddString(SI_CBFS_UI_BODYSIZE_MENU_TIPS,			"指定您喜欢的字体大小.", 1)
+SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_NAME,			"正文字体粗细", 1)
+SafeAddString(SI_CBFS_UI_BODYWEIGHT_MENU_TIPS,			"指定您喜欢的字体粗细.", 1)
+SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_NAME,			"标题字体自动调整", 1)
+SafeAddString(SI_CBFS_UI_TITLEAUTO_MENU_TIPS,			"作为标题字体，使用比上面的正文字体大 10 点.", 1)
+SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_NAME,			"标题字体", 1)
+SafeAddString(SI_CBFS_UI_TITLEFONT_MENU_TIPS,			"指定您喜欢的字体样式.", 1)
+SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_NAME,			"标题字体大小", 1)
+SafeAddString(SI_CBFS_UI_TITLESIZE_MENU_TIPS,			"指定您喜欢的字体大小.", 1)
+SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_NAME, 		"标题字体粗细", 1)
+SafeAddString(SI_CBFS_UI_TITLEWEIGHT_MENU_TIPS, 		"指定您喜欢的字体粗细.", 1)
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_NAME,		"默认字体", 1)
+SafeAddString(SI_CBFS_UI_LOAD_DEFAULT_FONT_TIPS,		"将此文本材质上的设置恢复为游戏中的默认字体。 默认字体取决于您是否处于手柄模式.", 1)
+SafeAddString(SI_CBFS_UI_SHOW_READER_WND_NAME,			"效果预览", 1)
+SafeAddString(SI_CBFS_UI_SHOW_READER_WND_TIPS,			"预览当前书籍字体设置", 1)
 
 -- ---------------------------------------------------------------------------------------------------------------------------------------------------------
 --	The following does not require translation. Instead, you are free to write something like a pangram that is useful for checking fonts in your language.
