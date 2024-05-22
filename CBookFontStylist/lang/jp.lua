@@ -14,6 +14,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"巻物", 1)					-- "Scroll"
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"石板", 1)					-- "Stone Tablet"
 SafeAddString(SI_CBFS_BMID_METAL_NAME,					"ドゥエマーの本", 1)		-- "Metal"
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"ドゥエマーの書き板", 1)	-- "Metal Tablet"
+SafeAddString(SI_CBFS_BMID_ELVEN_SCROLL_NAME,			"ウッドエルフの巻物", 1)	-- "Wood Elven Scroll"
 SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"古遺物の書", 1)			-- "Antiquity Codex"
 
 SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"黄ばんだ紙の本", 1)			-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
@@ -25,6 +26,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"巻物", 1)						-- tooltip for boo
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"石板", 1)						-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"ドゥエマーの金属製の本", 1)	-- tooltip for book medium "Metal Book" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"ドゥエマーの金属製の平板", 1)	-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ELVEN_SCROLL_TIPS,			"伝播の儀式について書かれたウッドエルフの巻物", 1)	-- tooltip for book medium "Wood Elven Scroll" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"古遺物の書", 1)				-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
 
 SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"normal", 1) 

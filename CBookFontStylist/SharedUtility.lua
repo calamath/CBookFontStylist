@@ -21,6 +21,7 @@ local bookMediumTexture = {
 	[BMID_STONE_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_stoneTablet.dds", 
 	[BMID_METAL]			= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerBook.dds", 
 	[BMID_METAL_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerPage.dds", 
+	[BMID_ELVEN_SCROLL] 	= "EsoUI/Art/LoreLibrary/loreLibrary_RiteOfPropagation.dds", 
 	[BMID_ANTIQUITY_CODEX] 	= "EsoUI/Art/Antiquities/codex_document.dds", 
 }
 local function GetBookMediumTexture(bmid)
@@ -40,6 +41,7 @@ local zosBookMedium_To_BMID = {
 	[BOOK_MEDIUM_STONE_TABLET]	 = BMID_STONE_TABLET	, 
 	[BOOK_MEDIUM_METAL] 		 = BMID_METAL			, 
 	[BOOK_MEDIUM_METAL_TABLET]	 = BMID_METAL_TABLET	, 
+	[BOOK_MEDIUM_ELVEN_SCROLL]	 = BMID_ELVEN_SCROLL	, 
 }
 local function GetBMID(zosBookMedium)
 	return zosBookMedium_To_BMID[zosBookMedium] or zosBookMedium_To_BMID[BOOK_MEDIUM_YELLOWED_PAPER]
@@ -137,6 +139,16 @@ local bookMediumFont = {
 		gamepad = {
 			body	= "ZoFontGamepadBookMetal", 
 			title	= "ZoFontGamepadBookMetalTitle", 
+		}, 
+	}, 
+	[BMID_ELVEN_SCROLL] = {
+		keyboard = {
+			body	= "ZoFontBookScroll", 
+			title	= "ZoFontBookScrollTitle", 
+		}, 
+		gamepad = {
+			body	= "ZoFontGamepadBookScroll", 
+			title	= "ZoFontGamepadBookScrollTitle", 
 		}, 
 	}, 
 	[BMID_ANTIQUITY_CODEX] = {

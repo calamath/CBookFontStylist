@@ -1,8 +1,8 @@
 ------------------------------------------------
 -- Calamath's BookFont Stylist
 -- Simplified Chinese localization
--- Version 1, 2024-03-13, by shijina452
 ------------------------------------------------
+-- Version 1, 2024-03-13, by shijina452
 
 
 -- Localization Strings
@@ -15,6 +15,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"卷轴", 1)				-- "卷轴"
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"石碑", 1)				-- "石碑雕刻"
 SafeAddString(SI_CBFS_BMID_METAL_NAME,					"锻莫书", 1)			-- "金属页"
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"锻莫书页", 1)			-- "金属页"
+SafeAddString(SI_CBFS_BMID_ELVEN_SCROLL_NAME,			"Wood Elven Scroll", 1)		-- "Wood Elven Scroll"
 SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"古代法典", 1)			-- "古代法典"
 
 SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"泛黄的纸书", 1)		-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
@@ -26,6 +27,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"卷轴", 1)				-- tooltip for book 
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"石碑", 1)				-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"锻莫书", 1)			-- tooltip for book medium "Metal Book" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"锻莫书页", 1)			-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ELVEN_SCROLL_TIPS,			"Wood Elven Scroll detailing the Rite of Propagation", 1)	-- tooltip for book medium "Wood Elven Scroll" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"古代法典", 1)			-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
 
 SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"正常", 1)

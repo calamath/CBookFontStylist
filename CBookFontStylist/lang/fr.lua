@@ -2,7 +2,7 @@
 -- Calamath's BookFont Stylist
 -- French localization
 ------------------------------------------------
--- Special thanks to @lexo1000 for providing following translations!
+-- Version 1, 2022-05-25, by lexo1000
 
 
 -- Localization Strings
@@ -15,6 +15,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_NAME, 				"Parchemins", 1)				-- "Scroll"
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_NAME,			"Tablettes en pierre", 1)			-- "Stone Tablet"
 SafeAddString(SI_CBFS_BMID_METAL_NAME,					"Livres en pierre", 1)			-- "Metal"
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_NAME,			"Tablettes en pierre", 1)			-- "Metal Tablet"
+SafeAddString(SI_CBFS_BMID_ELVEN_SCROLL_NAME,			"Wood Elven Scroll", 1)		-- "Wood Elven Scroll"
 SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME,		"Codex antique", 1)		-- "Antiquity Codex"
 
 SafeAddString(SI_CBFS_BMID_YELLOWED_PAPER_TIPS, 		"Livres", 1)	-- tooltip for book medium "Yellowed Paper" if you want to add a description in your localization
@@ -26,6 +27,7 @@ SafeAddString(SI_CBFS_BMID_SCROLL_TIPS, 				"Parchemins", 1)			-- tooltip for bo
 SafeAddString(SI_CBFS_BMID_STONE_TABLET_TIPS,			"Tablettes en pierre", 1)		-- tooltip for book medium "Stone Tablet" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TIPS,					"Livres en pierre", 1)		-- tooltip for book medium "Metal Book" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_METAL_TABLET_TIPS,			"Tablettes en pierre", 1)		-- tooltip for book medium "Metal Tablet" if you want to add a description in your localization
+SafeAddString(SI_CBFS_BMID_ELVEN_SCROLL_TIPS,			"Wood Elven Scroll detailing the Rite of Propagation", 1)	-- tooltip for book medium "Wood Elven Scroll" if you want to add a description in your localization
 SafeAddString(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS,		"Codex antique", 1)	-- tooltip for book medium "Antiquity Codex" if you want to add a description in your localization
 
 SafeAddString(SI_CBFS_WEIGHT_NORMAL_NAME,				"normal", 1) 

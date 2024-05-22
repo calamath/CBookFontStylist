@@ -215,13 +215,15 @@ local _SHARED_DEFINITIONS = {
 	BMID_STONE_TABLET		= 7, 
 	BMID_METAL				= 8, 
 	BMID_METAL_TABLET		= 9, 
+	BMID_ELVEN_SCROLL		= 10, 
 	BMID_ANTIQUITY_CODEX	= 99, 
 	CBFS_NORMAL_MODE		= 1, 
+	BOOK_MEDIUM_ELVEN_SCROLL = BOOK_MEDIUM_ELVEN_SCROLL or 10, -- for live server
 }
 local _ENV = CT_AddonFramework:CreateCustomEnvironment(_SHARED_DEFINITIONS)
 local CBFS = CT_AddonFramework:New("CBookFontStylist", {
 	name = "CBookFontStylist", 
-	version = "4.0.2", 
+	version = "4.1.0", 
 	author = "Calamath", 
 	savedVars = "CBookFontStylistDB", 
 	savedVarsVersion = 1, 

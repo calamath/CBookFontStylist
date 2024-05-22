@@ -62,16 +62,17 @@ function CBFS_LAMSettingPanel:CreateSettingPanel()
 		text = L(SI_CBFS_UI_PANEL_HEADER1_TEXT), 
 	}
 	local bookMediumChoices = {
-		L(SI_CBFS_BMID_YELLOWED_PAPER_NAME),	-- "Yellowed Paper",
-		L(SI_CBFS_BMID_ANIMAL_SKIN_NAME),		-- "Animal Skin",	
-		L(SI_CBFS_BMID_RUBBING_PAPER_NAME), 	-- "Rubbing Paper", 
-		L(SI_CBFS_BMID_LETTER_NAME),			-- "Letter",		
-		L(SI_CBFS_BMID_NOTE_NAME),				-- "Note",			
-		L(SI_CBFS_BMID_SCROLL_NAME),			-- "Scroll",		
-		L(SI_CBFS_BMID_STONE_TABLET_NAME),		-- "Stone Tablet",	
-		L(SI_CBFS_BMID_METAL_NAME), 			-- "Metal", 		
-		L(SI_CBFS_BMID_METAL_TABLET_NAME),		-- "Metal Tablet",	
-		L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME),	-- "Antiquity Codex",	
+		L(SI_CBFS_BMID_YELLOWED_PAPER_NAME), 	-- "Yellowed Paper"
+		L(SI_CBFS_BMID_ANIMAL_SKIN_NAME), 		-- "Animal Skin"
+		L(SI_CBFS_BMID_RUBBING_PAPER_NAME),  	-- "Rubbing Paper"
+		L(SI_CBFS_BMID_LETTER_NAME), 			-- "Letter"
+		L(SI_CBFS_BMID_NOTE_NAME), 				-- "Note"
+		L(SI_CBFS_BMID_SCROLL_NAME), 			-- "Scroll"
+		L(SI_CBFS_BMID_STONE_TABLET_NAME), 		-- "Stone Tablet"
+		L(SI_CBFS_BMID_METAL_NAME), 			-- "Metal"
+		L(SI_CBFS_BMID_METAL_TABLET_NAME), 		-- "Metal Tablet"
+		L(SI_CBFS_BMID_ELVEN_SCROLL_NAME), 		-- "Wood Elven Scroll"
+		L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME), 	-- "Antiquity Codex"
 	}
 	local bookMediumChoicesValues = {
 		BMID_YELLOWED_PAPER, 
@@ -83,19 +84,21 @@ function CBFS_LAMSettingPanel:CreateSettingPanel()
 		BMID_STONE_TABLET, 
 		BMID_METAL, 
 		BMID_METAL_TABLET, 
+		BMID_ELVEN_SCROLL, 
 		BMID_ANTIQUITY_CODEX, 
 	}
 	local bookMediumChoicesTooltips = {
-		L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS),	-- "Yellowed Paper",
-		L(SI_CBFS_BMID_ANIMAL_SKIN_TIPS),		-- "Animal Skin",	
-		L(SI_CBFS_BMID_RUBBING_PAPER_TIPS), 	-- "Rubbing Paper", 
-		L(SI_CBFS_BMID_LETTER_TIPS),			-- "Letter",		
-		L(SI_CBFS_BMID_NOTE_TIPS),				-- "Note",			
-		L(SI_CBFS_BMID_SCROLL_TIPS),			-- "Scroll",		
-		L(SI_CBFS_BMID_STONE_TABLET_TIPS),		-- "Stone Tablet",	
-		L(SI_CBFS_BMID_METAL_TIPS), 			-- "Metal", 		
-		L(SI_CBFS_BMID_METAL_TABLET_TIPS),		-- "Metal Tablet",	
-		L(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS),	-- "Antiquity Codex",	
+		L(SI_CBFS_BMID_YELLOWED_PAPER_TIPS), 
+		L(SI_CBFS_BMID_ANIMAL_SKIN_TIPS), 
+		L(SI_CBFS_BMID_RUBBING_PAPER_TIPS), 
+		L(SI_CBFS_BMID_LETTER_TIPS), 
+		L(SI_CBFS_BMID_NOTE_TIPS), 
+		L(SI_CBFS_BMID_SCROLL_TIPS), 
+		L(SI_CBFS_BMID_STONE_TABLET_TIPS), 
+		L(SI_CBFS_BMID_METAL_TIPS), 
+		L(SI_CBFS_BMID_METAL_TABLET_TIPS), 
+		L(SI_CBFS_BMID_ELVEN_SCROLL_TIPS), 
+		L(SI_CBFS_BMID_ANTIQUITY_CODEX_TIPS), 
 	}
 	optionsData[#optionsData + 1] = {
 		type = "dropdown", 
@@ -121,16 +124,17 @@ function CBFS_LAMSettingPanel:CreateSettingPanel()
 		reference = "CBFS_UI_OptionsPanel_GameModeDisplay", 
 	}
 	local tabHeaderText = {
-		[BMID_YELLOWED_PAPER]	= L(SI_CBFS_BMID_YELLOWED_PAPER_NAME),	-- "Yellowed Paper",
-		[BMID_ANIMAL_SKIN]		= L(SI_CBFS_BMID_ANIMAL_SKIN_NAME),		-- "Animal Skin",	
-		[BMID_RUBBING_PAPER]	= L(SI_CBFS_BMID_RUBBING_PAPER_NAME), 	-- "Rubbing Paper", 
-		[BMID_LETTER]			= L(SI_CBFS_BMID_LETTER_NAME),			-- "Letter",		
-		[BMID_NOTE] 			= L(SI_CBFS_BMID_NOTE_NAME),			-- "Note",			
-		[BMID_SCROLL]			= L(SI_CBFS_BMID_SCROLL_NAME),			-- "Scroll",		
-		[BMID_STONE_TABLET] 	= L(SI_CBFS_BMID_STONE_TABLET_NAME),	-- "Stone Tablet",	
-		[BMID_METAL]			= L(SI_CBFS_BMID_METAL_NAME), 			-- "Metal", 		
-		[BMID_METAL_TABLET] 	= L(SI_CBFS_BMID_METAL_TABLET_NAME),	-- "Metal Tablet",	
-		[BMID_ANTIQUITY_CODEX] 	= L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME),	-- "Antiquity Codex",
+		[BMID_YELLOWED_PAPER]	= L(SI_CBFS_BMID_YELLOWED_PAPER_NAME), 
+		[BMID_ANIMAL_SKIN]		= L(SI_CBFS_BMID_ANIMAL_SKIN_NAME), 
+		[BMID_RUBBING_PAPER]	= L(SI_CBFS_BMID_RUBBING_PAPER_NAME), 
+		[BMID_LETTER]			= L(SI_CBFS_BMID_LETTER_NAME), 
+		[BMID_NOTE] 			= L(SI_CBFS_BMID_NOTE_NAME), 
+		[BMID_SCROLL]			= L(SI_CBFS_BMID_SCROLL_NAME), 
+		[BMID_STONE_TABLET] 	= L(SI_CBFS_BMID_STONE_TABLET_NAME), 
+		[BMID_METAL]			= L(SI_CBFS_BMID_METAL_NAME), 
+		[BMID_METAL_TABLET] 	= L(SI_CBFS_BMID_METAL_TABLET_NAME), 
+		[BMID_ELVEN_SCROLL] 	= L(SI_CBFS_BMID_ELVEN_SCROLL_NAME), 
+		[BMID_ANTIQUITY_CODEX] 	= L(SI_CBFS_BMID_ANTIQUITY_CODEX_NAME), 
 	}
 	optionsData[#optionsData + 1] = {
 		type = "header", 
@@ -186,12 +190,12 @@ function CBFS_LAMSettingPanel:CreateSettingPanel()
 		reference = "CBFS_UI_OptionsPanel_BodySizeMenu", 
 	}
 	local fontWeightChoices = {
-		L(SI_CBFS_WEIGHT_NORMAL_NAME),				-- "normal", 
-		L(SI_CBFS_WEIGHT_SHADOW_NAME),				-- "shadow", 
+		L(SI_CBFS_WEIGHT_NORMAL_NAME), 				-- "normal", 
+		L(SI_CBFS_WEIGHT_SHADOW_NAME), 				-- "shadow", 
 		L(SI_CBFS_WEIGHT_OUTLINE_NAME), 			-- "outline", 
-		L(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME),		-- "thick-outline", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME),	-- "soft-shadow-thin", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME),	-- "soft-shadow-thick", 
+		L(SI_CBFS_WEIGHT_THICK_OUTLINE_NAME), 		-- "thick-outline", 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_NAME), 	-- "soft-shadow-thin", 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_NAME), 	-- "soft-shadow-thick", 
 	}
 	local fontWeightChoicesValues = {
 		"normal", 
@@ -202,12 +206,12 @@ function CBFS_LAMSettingPanel:CreateSettingPanel()
 		"soft-shadow-thick", 
 	}
 	local fontWeightChoicesTooltips = {
-		L(SI_CBFS_WEIGHT_NORMAL_TIPS),				-- "normal", 
-		L(SI_CBFS_WEIGHT_SHADOW_TIPS),				-- "shadow", 
-		L(SI_CBFS_WEIGHT_OUTLINE_TIPS), 			-- "outline", 
-		L(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS),		-- "thick-outline", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS),	-- "soft-shadow-thin", 
-		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS),	-- "soft-shadow-thick", 
+		L(SI_CBFS_WEIGHT_NORMAL_TIPS), 
+		L(SI_CBFS_WEIGHT_SHADOW_TIPS), 
+		L(SI_CBFS_WEIGHT_OUTLINE_TIPS), 
+		L(SI_CBFS_WEIGHT_THICK_OUTLINE_TIPS), 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THIN_TIPS), 
+		L(SI_CBFS_WEIGHT_SOFT_SHADOW_THICK_TIPS), 
 	}
 	optionsData[#optionsData + 1] = {
 		type = "dropdown", 
@@ -333,7 +337,13 @@ function CBFS_LAMSettingPanel:CreateSettingPanel()
 		tooltip = L(SI_CBFS_UI_SHOW_READER_WND_TIPS), 
 		func = function() self:OnPanelPreviewButtonClicked() end, 
 		width = "half", 
-		disabled = function() return self.uiBMID == BMID_ANTIQUITY_CODEX and self.antiquityIdForPreview == 0 end, 
+		disabled = function()
+			if self.uiBMID == BMID_ELVEN_SCROLL then
+				return GetAPIVersion() < 101042
+			else
+				return self.uiBMID == BMID_ANTIQUITY_CODEX and self.antiquityIdForPreview == 0
+			end
+		end, 
 	}
 	optionsData[#optionsData + 1] = {
 		type = "description", 
