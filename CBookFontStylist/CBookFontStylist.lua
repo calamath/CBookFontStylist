@@ -223,7 +223,7 @@ local _SHARED_DEFINITIONS = {
 local _ENV = CT_AddonFramework:CreateCustomEnvironment(_SHARED_DEFINITIONS)
 local CBFS = CT_AddonFramework:New("CBookFontStylist", {
 	name = "CBookFontStylist", 
-	version = "4.1.0", 
+	version = "4.1.1", 
 	author = "Calamath", 
 	savedVars = "CBookFontStylistDB", 
 	savedVarsVersion = 1, 
@@ -274,7 +274,7 @@ function CBFS:OnAddOnLoaded()
 --		self.LDL:Debug("LORE_READER:OnHide :")
 		self:RevertBookFontToDefault()
 	end)
-	ZO_PreHook(LORE_READER, "SetupBook", function(LORE_READER_self, title, body, medium, showTitle, isGamepad, ...)
+	ZO_PreHook(LORE_READER, "SetupBook", function(loreReader, title, body, medium, showTitle, isGamepad, ...)
 --		self.LDL:Debug("LORE_READER:SetupBook :")
 		local bmid = GetBMID(medium)
 --[[
@@ -314,6 +314,25 @@ function CBFS:OnAddOnLoaded()
 			self:CustomizeBookFont(BMID_ANTIQUITY_CODEX)
 		end)
 	end
+
+	-- For avoidance of layout glitches in the lore reader.
+	-- NOTE: Even if the font object is modified, the change is not immediately reflected to a label control, and refresh may be delayed until the next frame or later.
+	--       To avoid glitches in the layout of the lore reader due to this nature, the label text should be erased before LayoutText.
+	--       This magic code ensures that the label text is always updated in LayoutText to promote immediate label refresh.
+	ZO_PreHook(LORE_READER, "LayoutText", function(loreReader)
+		if loreReader.title then
+			loreReader.title:SetText("")
+		end
+		if loreReader.firstPage.body then
+			loreReader.firstPage.body:SetText("")
+		end
+		if loreReader.secondPage.body then
+			loreReader.secondPage.body:SetText("")
+		end
+		if loreReader.overrideImageTitle then
+			loreReader.overrideImageTitle:SetText("")
+		end
+	end)
 
 	-- register in-game events
 	EVENT_MANAGER:RegisterForEvent(self.name, EVENT_GAMEPAD_PREFERRED_MODE_CHANGED, function(_, gamepadPreferred)

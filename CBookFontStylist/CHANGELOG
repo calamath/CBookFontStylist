@@ -1,3 +1,7 @@
+V4.1.1 : [V40101] by Calamath
+- Addressed an issue of the book layout being messed up when you reopen the same book.
+- Updated API version to 101044 (ESO 10.2.x : Update 44)
+
 V4.1.0 : [V40100] by Calamath
 - Added font adjustment feature for wood elven scroll detailing the Rite of Propagation.
 - Update translations.
