@@ -1,3 +1,10 @@
+V5.0.0: [V50000] by Calamath
+Major overhaul to address LoreReader refactoring and support console machines.
+- Added font adjustment feature for bloody yellowed paper book.
+- Addressed an issue where LoreReader would not display correctly in unofficial language mods using custom fonts.
+- Updated API version to 101048 (ESO 11.2.x : Seasons of the Worm Cult Part 2)
+
+
 V4.1.1 : [V40101] by Calamath
 - Addressed an issue of the book layout being messed up when you reopen the same book.
 - Updated API version to 101044 (ESO 10.2.x : Update 44)

@@ -1,12 +1,14 @@
 ## Title: Calamath's BookFont Stylist
-## Description: A GUI mod tool for customizing font styles of the Lore Books.
-## Version: 4.1.1
-## AddOnVersion: 40101
+## Description: customizing font styles of the Lore Books.
+## Version: 5.0.0
+## AddOnVersion: 50000
 ## Author: Calamath
 ## License: Artistic License 2.0
-## APIVersion: 101044
-## DependsOn: LibAddonMenu-2.0>=37 LibMediaProvider-1.0>=32
-## OptionalDependsOn: LibDebugLogger>=263
+## APIVersion: 101048
+## DependsOn: LibMediaProvider>=36
+## PCDependsOn: LibAddonMenu-2.0>=40
+## ConsoleDependsOn: LibHarvensAddonSettings>=20007 LibConsoleDialogs>=10004
+## OptionalDependsOn: LibDebugLogger>=268
 ## SavedVariables: CBookFontStylistDB
 
 ; This Add-on is not created by, affiliated with or sponsored by ZeniMax 
@@ -18,11 +20,14 @@
 
 lang/strings.lua
 lang/$(language).lua
+pc/lang/strings_pc.lua
+pc/lang/$(language)_pc.lua
 CBookFontStylist.lua
 CTemplates.lua
+pc/CTemplates_pc.lua
 SharedUtility.lua
 FontCustomizer.lua
-FontPreviewWindow.xml
-FontPreviewWindow.lua
-LAMSettingPanel.lua
-
+pc/FontPreviewWindow.xml
+pc/FontPreviewWindow.lua
+pc/LAMSettingPanel.lua
+console/LHASSettingPanel.lua

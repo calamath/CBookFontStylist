@@ -1,9 +1,8 @@
 <GuiXml>
     <Controls>
-        <TopLevelControl name="CBFS_UI_PreviewWindow" mouseEnabled="true" movable="true" clampedToScreen="true" resizeHandleSize="8" hidden="true">
+        <TopLevelControl name="CBFS_UI_PreviewWindow" mouseEnabled="true" clampedToScreen="true" resizeHandleSize="8" hidden="true">
 		    <Dimensions x="400" y="600" />
 			<DimensionConstraints minX="400" minY="600" />
-    		<Anchor point="TOPLEFT" />
 			<Controls>
 				<Backdrop name="$(parent)Bg" inherits="ZO_DefaultBackdrop">
 					<AnchorFill />

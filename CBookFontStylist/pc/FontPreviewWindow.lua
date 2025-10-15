@@ -39,7 +39,7 @@ function CBFS_FontPreviewWindow:Initialize(control, overriddenAttrib)
 
 	self.title:SetText(L(SI_CBFS_UI_PREVIEW_TITLE_COMMON))
 	self.body:SetText(L(SI_CBFS_UI_PREVIEW_BODY_COMMON) .. L(SI_CBFS_UI_PREVIEW_BODY_LOCALE))
-	self.mediumBg:SetTexture(GetBookMediumTexture(BMID_NONE))
+	self.mediumBg:SetTexture(GetExtendedBookMediumTexture(BOOK_MEDIUM_NONE))
 
 	self:SetAnchor(TOPLEFT, guiRoot, TOPLEFT, self:GetAttribute("x"), self:GetAttribute("y"))
 	self:SetDimensions(self:GetAttribute("width"), self:GetAttribute("height"))

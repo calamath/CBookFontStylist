@@ -11,147 +11,39 @@ if not CBookFontStylist then return end
 local CBFS = CBookFontStylist:SetSharedEnvironment()
 -- ---------------------------------------------------------------------------------------
 
-local bookMediumTexture = {
-	[BMID_YELLOWED_PAPER]	= "EsoUI/Art/LoreLibrary/loreLibrary_paperBook.dds", 
-	[BMID_ANIMAL_SKIN]		= "EsoUI/Art/LoreLibrary/loreLibrary_skinBook.dds", 
-	[BMID_RUBBING_PAPER]	= "EsoUI/Art/LoreLibrary/loreLibrary_rubbingBook.dds", 
-	[BMID_LETTER]			= "EsoUI/Art/LoreLibrary/loreLibrary_letter.dds", 
-	[BMID_NOTE] 			= "EsoUI/Art/LoreLibrary/loreLibrary_note.dds", 
-	[BMID_SCROLL]			= "EsoUI/Art/LoreLibrary/loreLibrary_scroll.dds", 
-	[BMID_STONE_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_stoneTablet.dds", 
-	[BMID_METAL]			= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerBook.dds", 
-	[BMID_METAL_TABLET] 	= "EsoUI/Art/LoreLibrary/loreLibrary_dwemerPage.dds", 
-	[BMID_ELVEN_SCROLL] 	= "EsoUI/Art/LoreLibrary/loreLibrary_RiteOfPropagation.dds", 
-	[BMID_ANTIQUITY_CODEX] 	= "EsoUI/Art/Antiquities/codex_document.dds", 
+-- Font Style Conversion (enum <---> string)
+local FONT_STYLE_MAP = {
+	[FONT_STYLE_NORMAL]				= "",  
+	[FONT_STYLE_OUTLINE]			= "outline", 
+	[FONT_STYLE_OUTLINE_THICK]		= "thick-outline", 
+	[FONT_STYLE_SHADOW]				= "shadow", 
+	[FONT_STYLE_SOFT_SHADOW_THICK]	= "soft-shadow-thick", 
+	[FONT_STYLE_SOFT_SHADOW_THIN]	= "soft-shadow-thin", 
 }
-local function GetBookMediumTexture(bmid)
-	return bookMediumTexture[bmid] or bookMediumTexture[BMID_YELLOWED_PAPER]
+local FONT_STYLE_STRING_MAP = {
+	["normal"] = FONT_STYLE_NORMAL, 
+}
+for fontStyle, strFontStyle in pairs(FONT_STYLE_MAP) do
+	FONT_STYLE_STRING_MAP[strFontStyle] = fontStyle
 end
-CBFS:RegisterSharedObject("GetBookMediumTexture", GetBookMediumTexture)
-
-
-local zosBookMedium_To_BMID = {
-	[BOOK_MEDIUM_NONE]			 = BMID_NONE			, 
-	[BOOK_MEDIUM_YELLOWED_PAPER] = BMID_YELLOWED_PAPER	, 
-	[BOOK_MEDIUM_ANIMAL_SKIN]	 = BMID_ANIMAL_SKIN 	, 
-	[BOOK_MEDIUM_RUBBING_PAPER]  = BMID_RUBBING_PAPER	, 
-	[BOOK_MEDIUM_LETTER]		 = BMID_LETTER			, 
-	[BOOK_MEDIUM_NOTE]			 = BMID_NOTE			, 
-	[BOOK_MEDIUM_SCROLL]		 = BMID_SCROLL			, 
-	[BOOK_MEDIUM_STONE_TABLET]	 = BMID_STONE_TABLET	, 
-	[BOOK_MEDIUM_METAL] 		 = BMID_METAL			, 
-	[BOOK_MEDIUM_METAL_TABLET]	 = BMID_METAL_TABLET	, 
-	[BOOK_MEDIUM_ELVEN_SCROLL]	 = BMID_ELVEN_SCROLL	, 
-}
-local function GetBMID(zosBookMedium)
-	return zosBookMedium_To_BMID[zosBookMedium] or zosBookMedium_To_BMID[BOOK_MEDIUM_YELLOWED_PAPER]
+local function GetFontStyle(strFontStyle)
+	return FONT_STYLE_STRING_MAP[strFontStyle or ""]
 end
-CBFS:RegisterSharedObject("GetBMID", GetBMID)
+CBFS:RegisterSharedObject("GetFontStyle", GetFontStyle)
+-- * GetFontStyle(*string* _strFontStyle_)
+-- ** _Returns:_ *[FontStyle|#FontStyle]* _fontStyle_
+
+local function GetFontStyleString(fontStyle)
+	return FONT_STYLE_MAP[fontStyle or FONT_STYLE_NORMAL]
+end
+CBFS:RegisterSharedObject("GetFontStyleString", GetFontStyleString)
+-- * GetFontStyleString(*[FontStyle|#FontStyle]* _fontStyle_)
+-- ** _Returns:_ *string* _strFontStyle_
 
 
--- This table is equivalent to an enumeration of book medium IDs managed by CBFS add-on.
-local bookMediumFont = {
-	[BMID_YELLOWED_PAPER] = {
-		keyboard = {
-			body	= "ZoFontBookPaper", 
-			title	= "ZoFontBookPaperTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookPaper", 
-			title	= "ZoFontGamepadBookPaperTitle", 
-		}, 
-	}, 
-	[BMID_ANIMAL_SKIN] = {
-		keyboard = {
-			body	= "ZoFontBookSkin",
-			title	= "ZoFontBookSkinTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookSkin", 
-			title	= "ZoFontGamepadBookSkinTitle", 
-		}, 
-	}, 
-	[BMID_RUBBING_PAPER] = {
-		keyboard = {
-			body	= "ZoFontBookRubbing", 
-			title	= "ZoFontBookRubbingTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookRubbing", 
-			title	= "ZoFontGamepadBookRubbingTitle", 
-		}, 
-	}, 
-	[BMID_LETTER] = {
-		keyboard = {
-			body	= "ZoFontBookLetter", 
-			title	= "ZoFontBookLetterTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookLetter", 
-			title	= "ZoFontGamepadBookLetterTitle", 
-		}, 
-	}, 
-	[BMID_NOTE] = {
-		keyboard = {
-			body	= "ZoFontBookNote", 
-			title	= "ZoFontBookNoteTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookNote", 
-			title	= "ZoFontGamepadBookNoteTitle", 
-		}, 
-	}, 
-	[BMID_SCROLL] = {
-		keyboard = {
-			body	= "ZoFontBookScroll", 
-			title	= "ZoFontBookScrollTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookScroll", 
-			title	= "ZoFontGamepadBookScrollTitle", 
-		}, 
-	}, 
-	[BMID_STONE_TABLET] = {
-		keyboard = {
-			body	= "ZoFontBookTablet", 
-			title	= "ZoFontBookTabletTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookTablet", 
-			title	= "ZoFontGamepadBookTabletTitle", 
-		}, 
-	}, 
-	[BMID_METAL] = {
-		keyboard = {
-			body	= "ZoFontBookMetal", 
-			title	= "ZoFontBookMetalTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookMetal", 
-			title	= "ZoFontGamepadBookMetalTitle", 
-		}, 
-	}, 
-	[BMID_METAL_TABLET] = {
-		keyboard = {
-			body	= "ZoFontBookMetal", 
-			title	= "ZoFontBookMetalTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookMetal", 
-			title	= "ZoFontGamepadBookMetalTitle", 
-		}, 
-	}, 
-	[BMID_ELVEN_SCROLL] = {
-		keyboard = {
-			body	= "ZoFontBookScroll", 
-			title	= "ZoFontBookScrollTitle", 
-		}, 
-		gamepad = {
-			body	= "ZoFontGamepadBookScroll", 
-			title	= "ZoFontGamepadBookScrollTitle", 
-		}, 
-	}, 
-	[BMID_ANTIQUITY_CODEX] = {
+-- Extended Book Medium Font Definitions
+local extendedBookMediumFont = {
+	[BOOK_MEDIUM_ANTIQUITY_CODEX] = {
 		keyboard = {
 			body	= "ZoFontBookScroll", 
 			title	= "ZoFontBookScrollTitle", 
@@ -162,33 +54,47 @@ local bookMediumFont = {
 		}, 
 	}, 
 }
-local function GetBookMediumBodyFont(bmid, isGamepad)
-	if isGamepad then
-		return bookMediumFont[bmid].gamepad.body or bookMediumFont[BMID_YELLOWED_PAPER].gamepad.body
+local extendedBookMediumTexture = {
+	[BOOK_MEDIUM_ANTIQUITY_CODEX] 	= "EsoUI/Art/Antiquities/codex_document.dds", 
+}
+
+local function GetExtendedBookMediumTexture(extendedMediumId)
+	return extendedBookMediumTexture[extendedMediumId] or (GetBookMediumInfo(extendedMediumId))
+end
+CBFS:RegisterSharedObject("GetExtendedBookMediumTexture", GetExtendedBookMediumTexture)
+-- * GetExtendedBookMediumTexture(*integer* _mediumId_)
+-- ** _Returns:_ *string* _texture_
+
+local function GetExtendedBookMediumFontInfo(extendedMediumId, isGamepad)
+	if extendedBookMediumFont[extendedMediumId or ""] then
+		local font = extendedBookMediumFont[extendedMediumId][isGamepad and "gamepad" or "keyboard"]
+		if _G[font.title] and _G[font.body] then
+			local titleFontFace, titleFontSize, titleFontStyleStr = _G[font.title]:GetFontInfo()
+			local bodyFontFace, bodyFontSize, bodyFontStyleStr = _G[font.body]:GetFontInfo()
+			return titleFontFace, titleFontSize, GetFontStyle(titleFontStyleStr), bodyFontFace, bodyFontSize, GetFontStyle(bodyFontStyleStr)
+		end
 	else
-		return bookMediumFont[bmid].keyboard.body or bookMediumFont[BMID_YELLOWED_PAPER].keyboard.body
+		return GetBookMediumFontInfo(extendedMediumId, isGamepad)
 	end
 end
-CBFS:RegisterSharedObject("GetBookMediumBodyFont", GetBookMediumBodyFont)
+CBFS:RegisterSharedObject("GetExtendedBookMediumFontInfo", GetExtendedBookMediumFontInfo)
+-- * GetExtendedBookMediumFontInfo((*integer* _mediumId_, *bool* _isGamepad_)
+-- ** _Returns:_ *string* _titleFontFace_, *integer* _titleFontSize_, *[FontStyle|#FontStyle]* _titleFontStyle_, *string* _bodyFontFace_, *integer* _bodyFontSize_, *[FontStyle|#FontStyle]* _bodyFontStyle_
 
-local function GetBookMediumTitleFont(bmid, isGamepad)
-	if isGamepad then
-		return bookMediumFont[bmid].gamepad.title or bookMediumFont[BMID_YELLOWED_PAPER].gamepad.title
-	else
-		return bookMediumFont[bmid].keyboard.title or bookMediumFont[BMID_YELLOWED_PAPER].keyboard.title
-	end
-end
-CBFS:RegisterSharedObject("GetBookMediumTitleFont", GetBookMediumTitleFont)
-
-local function BookMediumIdIterator()
-	local nextKey = next(bookMediumFont)
+local function ExtendedBookMediumIdIterator()
+	local mediumId = BOOK_MEDIUM_ITERATION_BEGIN - 1
+	local nextKey = next(extendedBookMediumFont)
 	return function()
-		while nextKey do
-			local currentKey = nextKey
-			nextKey = next(bookMediumFont, nextKey)
-			return currentKey
+		if mediumId < BOOK_MEDIUM_ITERATION_END then
+			mediumId = mediumId + 1
+			return mediumId
+		else
+			while nextKey do
+				local extendedMediumId = nextKey
+				nextKey = next(extendedBookMediumFont, nextKey)
+				return extendedMediumId
+			end
 		end
 	end
 end
-CBFS:RegisterSharedObject("BookMediumIdIterator", BookMediumIdIterator)
-
+CBFS:RegisterSharedObject("ExtendedBookMediumIdIterator", ExtendedBookMediumIdIterator)
