@@ -3,7 +3,8 @@
 -- German localization
 ------------------------------------------------
 -- Version 1, 2020-01-20, by Baertram
--- Version 2, 2025-10-01
+-- Version 2, 2025-10-01,
+-- Version 3, 2026-01-23,
 
 local SAS = SafeAddString
 
@@ -28,6 +29,8 @@ SAS(SI_CBFS_FONT_STYLE2,	"Umriss", 1)
 SAS(SI_CBFS_FONT_STYLE3,	"Dicker Umriss", 1) 
 SAS(SI_CBFS_FONT_STYLE4,	"Weicher Schatten, dünn", 1) 
 SAS(SI_CBFS_FONT_STYLE5,	"Weicher Schatten, dick", 1) 
+SAS(SI_CBFS_FONT_STYLE6,	"Umriss Schatten", 1) 
+SAS(SI_CBFS_FONT_STYLE7,	"Umriss Schatten, dick", 1) 
 
 SAS(SI_CBFS_UI_PANEL_HEADER_TEXT,		"Mit diesem Add-on können Sie die Schriftart verschiedener Lesematerialien im Spiel anpassen. Die Einstellungen werden pro Sprachmodus gespeichert und auf Ihr gesamtes Konto angewendet.", 1)
 SAS(SI_CBFS_UI_BMID_SELECT_MENU,		"Wähle die Buch Darstellung", 1)

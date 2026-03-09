@@ -1,3 +1,7 @@
+V5.0.1: [V50001] by Calamath
+- Update translations.
+- Updated API version to 101049 (ESO 11.3.x : Season Zero - Dawn and Dusk)
+
 V5.0.0: [V50000] by Calamath
 Major overhaul to address LoreReader refactoring and support console machines.
 - Added font adjustment feature for bloody yellowed paper book.

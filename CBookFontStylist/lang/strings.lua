@@ -22,6 +22,8 @@ local strings = {
 	SI_CBFS_FONT_STYLE3 =		"thick-outline", 
 	SI_CBFS_FONT_STYLE4 =		"soft-shadow-thin", 
 	SI_CBFS_FONT_STYLE5 =		"soft-shadow-thick", 
+	SI_CBFS_FONT_STYLE6 =		"outline-shadow", 
+	SI_CBFS_FONT_STYLE7 =		"outline-shadow-thick", 
 
 	SI_CBFS_UI_PANEL_HEADER_TEXT =		"This add-on allows you to adjust the typeface of several in-game reading materials. Settings are saved per language mode and applied across your entire account.", 
 	SI_CBFS_UI_BMID_SELECT_MENU =		"Select Book Medium", 

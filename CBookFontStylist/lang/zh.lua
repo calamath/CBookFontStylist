@@ -4,6 +4,7 @@
 ------------------------------------------------
 -- Version 1, 2024-03-13, by shijina452
 -- Version 2, 2025-10-01.
+-- Version 3, 2026-01-23,
 
 local SAS = SafeAddString
 
@@ -24,10 +25,12 @@ SAS(SI_CBFS_BOOK_MEDIUM1001, "古物宝典", 1)
 
 SAS(SI_CBFS_FONT_STYLE0,	"正常", 1)
 SAS(SI_CBFS_FONT_STYLE1,	"阴影", 1)
-SAS(SI_CBFS_FONT_STYLE2,	"描边", 1)
-SAS(SI_CBFS_FONT_STYLE3,	"粗描边", 1)
+SAS(SI_CBFS_FONT_STYLE2,	"轮廓", 1)
+SAS(SI_CBFS_FONT_STYLE3,	"粗轮廓", 1)
 SAS(SI_CBFS_FONT_STYLE4,	"浅的软阴影", 1)
 SAS(SI_CBFS_FONT_STYLE5,	"深的软阴影", 1)
+SAS(SI_CBFS_FONT_STYLE6,	"轮廓阴影", 1) 
+SAS(SI_CBFS_FONT_STYLE7,	"粗轮廓阴影", 1) 
 
 SAS(SI_CBFS_UI_PANEL_HEADER_TEXT,		"这个插件可以让你调整一些游戏内阅读材料. 设置按语言模式保存并应用于您的整个帐户.", 1)
 SAS(SI_CBFS_UI_BMID_SELECT_MENU,		"选择图书材质", 1)

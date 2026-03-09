@@ -4,6 +4,7 @@
 ------------------------------------------------
 -- Version 1, 2022-05-25, by lexo1000
 -- Version 2, 2025-10-01,
+-- Version 3, 2026-01-23,
 
 local SAS = SafeAddString
 
@@ -28,6 +29,8 @@ SAS(SI_CBFS_FONT_STYLE2,	"outline", 1)
 SAS(SI_CBFS_FONT_STYLE3,	"thick-outline", 1)
 SAS(SI_CBFS_FONT_STYLE4,	"soft-shadow-thin", 1)
 SAS(SI_CBFS_FONT_STYLE5,	"soft-shadow-thick", 1)
+SAS(SI_CBFS_FONT_STYLE6,	"outline-shadow", 1) 
+SAS(SI_CBFS_FONT_STYLE7,	"outline-shadow-thick", 1) 
 
 SAS(SI_CBFS_UI_PANEL_HEADER_TEXT, 		"Cette extension permet d'ajuster la police de caractères de nombreux supports de lecture présents dans le jeu. Les paramètres sont enregistrés par mode linguistique et s'appliquent à l'ensemble de votre compte.", 1)
 SAS(SI_CBFS_UI_BMID_SELECT_MENU,		"Choix du support", 1)

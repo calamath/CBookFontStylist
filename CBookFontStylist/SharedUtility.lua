@@ -11,20 +11,12 @@ if not CBookFontStylist then return end
 local CBFS = CBookFontStylist:SetSharedEnvironment()
 -- ---------------------------------------------------------------------------------------
 
--- Font Style Conversion (enum <---> string)
-local FONT_STYLE_MAP = {
-	[FONT_STYLE_NORMAL]				= "",  
-	[FONT_STYLE_OUTLINE]			= "outline", 
-	[FONT_STYLE_OUTLINE_THICK]		= "thick-outline", 
-	[FONT_STYLE_SHADOW]				= "shadow", 
-	[FONT_STYLE_SOFT_SHADOW_THICK]	= "soft-shadow-thick", 
-	[FONT_STYLE_SOFT_SHADOW_THIN]	= "soft-shadow-thin", 
-}
+-- Font Style Conversion (string ---> enum)
 local FONT_STYLE_STRING_MAP = {
 	["normal"] = FONT_STYLE_NORMAL, 
 }
-for fontStyle, strFontStyle in pairs(FONT_STYLE_MAP) do
-	FONT_STYLE_STRING_MAP[strFontStyle] = fontStyle
+for fontStyle = FONT_STYLE_ITERATION_BEGIN, FONT_STYLE_ITERATION_END do
+	FONT_STYLE_STRING_MAP[GetFontStyleString(fontStyle)] = fontStyle
 end
 local function GetFontStyle(strFontStyle)
 	return FONT_STYLE_STRING_MAP[strFontStyle or ""]
@@ -32,13 +24,6 @@ end
 CBFS:RegisterSharedObject("GetFontStyle", GetFontStyle)
 -- * GetFontStyle(*string* _strFontStyle_)
 -- ** _Returns:_ *[FontStyle|#FontStyle]* _fontStyle_
-
-local function GetFontStyleString(fontStyle)
-	return FONT_STYLE_MAP[fontStyle or FONT_STYLE_NORMAL]
-end
-CBFS:RegisterSharedObject("GetFontStyleString", GetFontStyleString)
--- * GetFontStyleString(*[FontStyle|#FontStyle]* _fontStyle_)
--- ** _Returns:_ *string* _strFontStyle_
 
 
 -- Extended Book Medium Font Definitions

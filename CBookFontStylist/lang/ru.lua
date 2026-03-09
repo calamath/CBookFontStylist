@@ -26,6 +26,8 @@ SAS(SI_CBFS_FONT_STYLE2,	"outline", 1)
 SAS(SI_CBFS_FONT_STYLE3,	"thick-outline", 1)
 SAS(SI_CBFS_FONT_STYLE4,	"soft-shadow-thin", 1)
 SAS(SI_CBFS_FONT_STYLE5,	"soft-shadow-thick", 1)
+SAS(SI_CBFS_FONT_STYLE6,	"outline-shadow", 1) 
+SAS(SI_CBFS_FONT_STYLE7,	"outline-shadow-thick", 1) 
 
 SAS(SI_CBFS_UI_PANEL_HEADER_TEXT,		"This add-on allows you to adjust the typeface of several in-game reading materials. Settings are saved per language mode and applied across your entire account.", 1)
 SAS(SI_CBFS_UI_BMID_SELECT_MENU,		"Select Book Medium", 1)

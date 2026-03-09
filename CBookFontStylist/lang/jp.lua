@@ -21,12 +21,14 @@ SAS(SI_CBFS_BOOK_MEDIUM10,	"ウッドエルフの巻物", 1)
 SAS(SI_CBFS_BOOK_MEDIUM11,	"血まみれの紙の本", 1)
 SAS(SI_CBFS_BOOK_MEDIUM1001, "古遺物の書", 1)
 
-SAS(SI_CBFS_FONT_STYLE0,	"normal", 1)	-- "標準"
-SAS(SI_CBFS_FONT_STYLE1,	"shadow", 1)	-- "影（光彩）"
-SAS(SI_CBFS_FONT_STYLE2,	"outline", 1)	-- "縁取り"
-SAS(SI_CBFS_FONT_STYLE3,	"thick-outline", 1)	-- "太字－縁取り"
-SAS(SI_CBFS_FONT_STYLE4,	"soft-shadow-thin", 1)	-- "柔らかな影－細字"
-SAS(SI_CBFS_FONT_STYLE5,	"soft-shadow-thick", 1)	-- "柔らかな影－太字"
+SAS(SI_CBFS_FONT_STYLE0,	"標準", 1)
+SAS(SI_CBFS_FONT_STYLE1,	"影（光彩）", 1)
+SAS(SI_CBFS_FONT_STYLE2,	"縁取り", 1)
+SAS(SI_CBFS_FONT_STYLE3,	"太い縁取り", 1)
+SAS(SI_CBFS_FONT_STYLE4,	"柔らかな影－細字", 1)
+SAS(SI_CBFS_FONT_STYLE5,	"柔らかな影－太字", 1)
+SAS(SI_CBFS_FONT_STYLE6,	"縁取りと影", 1)
+SAS(SI_CBFS_FONT_STYLE7,	"太い縁取りと影", 1)
 
 SAS(SI_CBFS_UI_PANEL_HEADER_TEXT, 		"このアドオンを使うと、伝説の書などのゲーム内の読み物の書体を調整できます。設定は言語モードごとに保存され、アカウント全体に適用されます。", 1)
 SAS(SI_CBFS_UI_BMID_SELECT_MENU, 		"ブックメディアの選択", 1)
