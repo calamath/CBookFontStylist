@@ -13,7 +13,7 @@ local CBFS = CBookFontStylist:SetSharedEnvironment()
 local LMP = LibMediaProvider
 
 -- ---------------------------------------------------------------------------------------
--- Font Customizer Class                                                         rel.2.0.2
+-- Font Customizer Class                                                         rel.2.0.3
 -- ---------------------------------------------------------------------------------------
 -- This class provides functionality  to temporarily replace font objects.
 --
@@ -43,7 +43,7 @@ do
 		"ZoFontGamepadBookScroll", 
 		"ZoFontGamepadBookScrollTitle", 
 	}
-	if not IsConsoleUI() then
+	if IsKeyboardUISupported() then
 		zosFontNames[#zosFontNames + 1] = "ZoFontBookScroll"
 		zosFontNames[#zosFontNames + 1] = "ZoFontBookScrollTitle"
 	end

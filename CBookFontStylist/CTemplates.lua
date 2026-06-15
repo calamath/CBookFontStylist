@@ -60,13 +60,13 @@ end
 
 
 -- ---------------------------------------------------------------------------------------
--- LibHarvensAddonSettings SettingPanel Controller Template Class               rel.1.0.11
+-- LibHarvensAddonSettings SettingPanel Controller Template Class               rel.1.0.12
 -- ---------------------------------------------------------------------------------------
--- This class provides the framework for controlling the LHAS panel in console UI mode.
+-- This class provides the framework for controlling the LHAS panel in Console UI / XBPA.
 --
 CT_LHASSettingPanelController = CT_AddonSettingPanelController:Subclass()
 function CT_LHASSettingPanelController:Initialize(panelId, panelData, optionsData)
-	if not IsConsoleUI() then return end
+	if not (IsConsoleUI() or IsGameCoreUI()) then return end
 	CT_AddonSettingPanelController.Initialize(self, panelId, panelData, optionsData)
 	if MAIN_MENU_GAMEPAD_SCENE then
 		SCENE_MANAGER:CallWhen(MAIN_MENU_GAMEPAD_SCENE:GetName(), SCENE_SHOWN, function()
@@ -140,7 +140,7 @@ do
 		end
 	end
 	function CT_LHASSettingPanelController:OpenSettingPanel()
-		if not IsConsoleUI() then return end
+		if not (IsConsoleUI() or IsGameCoreUI()) then return end
 		local lhasScene = LibHarvensAddonSettings.scene
 		if not lhasScene then
 			zo_callLater(function() OpenLHASSettingPanel(self.panelId) end, 0)

@@ -215,7 +215,7 @@ local _SHARED_DEFINITIONS = {
 local _ENV = CT_AddonFramework:CreateCustomEnvironment(_SHARED_DEFINITIONS)
 local CBFS = CT_AddonFramework:New("CBookFontStylist", {
 	name = "CBookFontStylist", 
-	version = "5.0.1", 
+	version = "5.0.2", 
 	author = "Calamath", 
 	savedVars = "CBookFontStylistDB", 
 	savedVarsVersion = 1, 
@@ -243,7 +243,7 @@ function CBFS:OnAddOnLoaded()
 	self.db = ZO_SavedVars:NewAccountWide(self.savedVars, 1, nil, CBFS_DB_DEFAULT)
 	self:ValidateConfigData()	-- NOTE: we create savedata field on first boot in each language mode.
 
-	if IsConsoleUI() then
+	if IsConsoleUI() or IsGameCoreUI() then
 		-- LHAS setting panel
 		self.settingPanel = self:CreateClassObject("CBFS_LHASSettingPanel", "Book Font Stylist", self.db, self.db, CBFS_DB_DEFAULT)
 	else
